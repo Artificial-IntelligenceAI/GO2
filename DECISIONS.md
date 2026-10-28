@@ -752,5 +752,9 @@ Design claude applied "follow maths, else parentheses" operator by operator, and
 
 Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a % b + c` and `a * b % c` are refused**; `%` is not standard maths, so has no convention. Not built.
 
+### 2026-10-28 — Mixing `&&`/`and` with `||`/`or` needs parentheses (owner)
+
+Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a && b || c` is refused**, naming `(a && b) || c`. Not built.
+
 ## Open
 
