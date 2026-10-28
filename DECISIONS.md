@@ -352,6 +352,10 @@ From "where's `let` & `var`?" on fields, design claude offered (a) every field s
 
 Design claude offered (a) `Point[x = 1, y = 2]`, `[ ]` holding and `=` setting a field as it sets a variable, as CyborgPL builds, (b) `Point{x: 1, y: 2}`, as Go and Rust (braces now blocks, `if p == Point{x: 1} {` ambiguous), (c) `Point(x = 1, y = 2)` (building runs nothing, so not `( )`); and recommended (a). The owner: "(a)". So **`let p = Point[x = 1, y = 2];`, and `p.x` reads a field**. Whether every field must be given, and in what order, is not decided. Not built.
 
+### 2026-10-28 — Building a struct gives every field, by name, in any order (owner: (a))
+
+Design claude offered (a) every field, by name, any order, a missing one refused, (b) a missing field a zero value, as Go (every type then needing a zero, Go's `nil` troubles), (c) a field able to declare a default and be left out; and recommended (a), defaults addable later without breaking code. The owner: "(a)". So **`Point[y = 2, x = 1]` is fine; `Point[x = 1]` is refused, naming `y`**; there are no zero values. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
