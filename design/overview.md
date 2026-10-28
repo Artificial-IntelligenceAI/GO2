@@ -56,7 +56,7 @@ fn main[] {
 let name = "GO2";        // never changes
 var count = 0;           // may change, and must
 count = count + 1;
-const max = 10;          // known when compiling, baked in
+const max = 10;          // known when compiling, baked in: a number, bool or str
 let x: i32 = 5;          // a written type follows the name after :
 ```
 
@@ -157,6 +157,9 @@ for k, v in ages { … }        // insertion order
 | Not | `!` (there is no `not`) |
 
 - Both sides of an operator have the same type; `i32 + i64` is refused.
+- `==` and `!=` compare any two values of one type by content, lists and structs included. `<` and the rest work
+  only on numbers and `str` (byte by byte).
+- There are no bit operators for now.
 - Integer `/` drops the fraction, toward zero: `7 / 2` is `3`, `-7 / 2` is `-3`, `-7 % 2` is `-1`.
 - A result too big for its type stops a debug build, naming the line, and wraps in a release build.
 - Dividing by zero stops the program, in any build.
@@ -176,7 +179,7 @@ fn Counter.bump[var self] { self.n = self.n + 1; }  // called only on a var
 fn main[] { … }                                      // returns nothing; exits 0
 ```
 
-- Every parameter says `let` or `var`; a `var` one must be changed in the body.
+- Every parameter says `let` or `var` and its own type; a `var` one must be changed in the body.
 - `-> T` gives the return type; `ret` returns, and `ret;` leaves a function that returns nothing. `main` has none
   and exits 0 at its end; `os.exit(3);` exits with a code.
 - A method is declared outside its type as `fn Type.name[let self, …]` or `[var self, …]`, and called `v.name(…)`.
@@ -278,10 +281,6 @@ Not decided yet, roughly in the order the compiler will need them:
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
 - Which text counts as a number.
 - Walking a string's characters; whether invalid UTF-8 can exist.
-- What a `const` may hold; whether a parameter can be `const`.
-- `[a, b: i32]` sharing a type; a range that stops before its end.
-- What can be compared with what.
-- What a single `&` or `|` means.
 - Whether `coll` groups anything but handlers.
 - Whether a folder's name must match its `pkg` line; what else `project.go2` holds; methods on another package's types.
 - The garbage collector's kind, and what it is written in.
