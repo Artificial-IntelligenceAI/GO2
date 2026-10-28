@@ -206,6 +206,10 @@ Design claude listed, among how booleans work, "`&&` and `||` stop early", as Go
 
 Design claude listed how booleans work, as in Go, and recommended confirming each. The owner: "confirm". So **`let done: bool = false;`**. Not built.
 
+### 2026-10-28 — A condition must be a `bool`; `if count:` is refused, naming `count != 0` (owner)
+
+Design claude listed how booleans work, as in Go, and recommended confirming each. The owner: "confirm". So **`if`, `else if` and `for <condition>:` take only a `bool`**; there is no truthiness. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
