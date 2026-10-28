@@ -162,6 +162,10 @@ Design claude offered (a) `const` known when compiling, as Go (it can size array
 
 With `fn add[a: i32, b: i32]` as the example, the owner: "Though, it should be `fn add[var a: i32, var b: i32]` or something, idk". Design claude offered (a) a bare parameter a `let`, `var` making it changeable, (b) every parameter saying which, (c) parameters never changing, copied into a `var` to change; and recommended (a). The owner: "(b)". So **a parameter is `let <name>: <type>` or `var <name>: <type>`**, as a variable is declared; a bare one is refused, and a `var` one must be changed in the body, as any `var`. Whether a parameter may be `const` is not decided. Not built.
 
+### 2026-10-28 — An `if` chain closes once, `;if` after its last branch; `else if` is two words (owner: (a))
+
+Design claude offered (a) one closer for the whole chain, each `else if …:` or `else:` line starting the next branch, (b) each branch closing itself (`;if`, then `else:` … `;else`), (c) as (a) but `elif`; and recommended (a). The owner: "Ask CyborgPL dclaude". CyborgPL's design claude: CyborgPL has (a) with `else if` (its DECISIONS.md, 2026-10-27), having had (b) for one day; a reviewer's point reversed it, that a named closer should mark the real end, and a `;if` with an `else` after it does not; the `else` line itself shows where a branch ends. The owner: "yes". So **`if c:` … `else if d:` … `else:` … `;if`**, and a `;if` right before an `else` is refused, as it would claim an end that is not one. `match` and loops are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
