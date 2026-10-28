@@ -524,6 +524,10 @@ Design claude offered (a) one `ptr` for every C pointer, (b) named opaque types,
 
 Design claude listed how the rest of calling C works, and recommended all four. The owner: "yes". So **a C `int` is declared `i32`**; LLVM's `LLVMBool` is an `i32`. Not built.
 
+### 2026-10-28 — `cstr` is a C string, NUL-ended: `cstr(s)` makes one from a `str`, `str(c)` copies one back (owner)
+
+Design claude listed how the rest of calling C works, and recommended all four. The owner: "yes". So **`LLVMModuleCreateWithName(cstr("main"))`**; both are copies. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
