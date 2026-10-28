@@ -166,6 +166,10 @@ With `fn add[a: i32, b: i32]` as the example, the owner: "Though, it should be `
 
 Design claude offered (a) one closer for the whole chain, each `else if …:` or `else:` line starting the next branch, (b) each branch closing itself (`;if`, then `else:` … `;else`), (c) as (a) but `elif`; and recommended (a). The owner: "Ask CyborgPL dclaude". CyborgPL's design claude: CyborgPL has (a) with `else if` (its DECISIONS.md, 2026-10-27), having had (b) for one day; a reviewer's point reversed it, that a named closer should mark the real end, and a `;if` with an `else` after it does not; the `else` line itself shows where a branch ends. The owner: "yes". So **`if c:` … `else if d:` … `else:` … `;if`**, and a `;if` right before an `else` is refused, as it would claim an end that is not one. `match` and loops are not decided. Not built.
 
+### 2026-10-28 — `for` is the only loop: `for:` forever, `for c:` while `c` holds, closed by `;for` (owner: (a))
+
+Design claude offered (a) only `for`, as Go: `for:` forever, `for n < 10:` while a condition holds, `for item in items:` over a collection or range; (b) `for` and `while`, as CyborgPL; (c) (b) and `loop:`; and recommended (a), adding that with no `x += 1` a C-style three-part `for` would not fit. The owner: "(a)". So **every loop is `for`, closed by `;for`; `for:` runs forever and `for <condition>:` runs while it holds**. How a loop walks over things (`in`, ranges) is not decided, nor are `break` and `continue`. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
