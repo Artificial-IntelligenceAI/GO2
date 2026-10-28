@@ -1,0 +1,15 @@
+pkg main;
+import "fmt";
+
+fn rem[let a: i64, let b: i64] -> i64 { ret a % b; }
+fn div[let a: i64, let b: i64] -> i64 { ret a / b; }
+
+fn main[] {
+    // the smallest i64 has no positive twin, but its remainder by -1 is 0, which fits
+    let min = -9223372036854775807 - 1;
+    fmt.print("{} {}\n", rem(min, -1), div(min, 1));
+    let small: i8 = -128;
+    let m1: i8 = -1;
+    fmt.print("{}\n", small % m1);
+    fmt.print("{} {}\n", div(-7, -2), rem(-7, -2));
+}

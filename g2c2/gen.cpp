@@ -233,9 +233,10 @@ static llvm::Value* gen_int_arith(const std::string& op, llvm::Value* a, llvm::V
     if (op == "/" || op == "%") {
         stop_if(g_b->CreateICmpEQ(b, llvm::ConstantInt::get(a->getType(), 0)), StopDivZero, pos);
         if (!s) return op == "/" ? g_b->CreateUDiv(a, b) : g_b->CreateURem(a, b);
-        // the smallest value divided by -1 overflows; LLVM leaves it undefined, so it is done apart
+        // the smallest value divided by -1 overflows (its remainder, 0, does not); LLVM leaves both undefined,
+        // so -1 is done apart
         llvm::Value* minus_one = g_b->CreateICmpEQ(b, llvm::ConstantInt::getSigned(a->getType(), -1));
-        if (!g_release) {
+        if (!g_release && op == "/") {
             llvm::Value* min = llvm::ConstantInt::get(a->getType(), llvm::APInt::getSignedMinValue(t->bits));
             stop_if(g_b->CreateAnd(minus_one, g_b->CreateICmpEQ(a, min)), StopOverflow, pos);
         }
