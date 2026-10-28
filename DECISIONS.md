@@ -516,6 +516,10 @@ Design claude offered (a) declarations one by one, `extern fn LLVMModuleCreateWi
 
 The owner: "`extern` or `extern.c`?" Design claude: `extern` is shorter, C the only foreign language that matters (C++ reached through a C-shaped wrapper, its names mangled), but it does not say whose calling rules apply; `extern.c` names them, leaves room for others, and follows `coll.handler`'s form, a general word narrowed by a dot (CyborgPL has `extern.C`); recommending `extern.c`, "two characters". The owner: "yes, but it costs one letter", then "nvm, you're right. Yes". So **`extern.c fn <C name>[…] -> <type>;`**, no body. Not built.
 
+### 2026-10-28 — A C pointer type is named and opaque, declared once: `extern.c type LLVMModuleRef;` (owner: (b))
+
+Design claude offered (a) one `ptr` for every C pointer, (b) named opaque types, `extern.c type LLVMModuleRef;`, one line per C type, (c) `ptr[Module]`; with C's integers GO2's (`i32` for `int`, `u32` for `unsigned`) and `cstr` a NUL-terminated C string made by `cstr(s)` in every option; and recommended (b), GoTo making thousands of LLVM calls. The owner: "(b)". So **`extern.c type <Name>;` declares an opaque C pointer type; passing one where another belongs is refused**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
