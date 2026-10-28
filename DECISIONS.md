@@ -788,5 +788,9 @@ Design claude listed how names and number literals work and recommended all seve
 
 Design claude listed how names and number literals work and recommended all seven, the seventh "no decimal point, GO2 having no floating-point type yet". The owner: "yes, but bin floats are `f`". So **`0x1F`**. Not built.
 
+### 2026-10-28 — Binary floating-point types are named `f` and a width (owner)
+
+Design claude listed how names and number literals work and recommended all seven, the seventh "no decimal point, GO2 having no floating-point type yet". The owner: "yes, but bin floats are `f`". Design claude read it as CyborgPL's word "bin" for binary floats: **they exist, named as integers are, by a letter and a width**. Which widths, their literals, and the rest are asked next. Not built.
+
 ## Open
 
