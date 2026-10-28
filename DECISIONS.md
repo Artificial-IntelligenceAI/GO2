@@ -820,5 +820,9 @@ Design claude listed how floats work, the IEEE defaults, and recommended all eig
 
 Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`1.0 / 0.0` is infinity**; an invalid operation gives NaN. Not built.
 
+### 2026-10-28 — There is no `%` on floats (owner)
+
+Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`x % y` with floats is refused**. Not built.
+
 ## Open
 
