@@ -400,6 +400,10 @@ Design claude offered (a) `list[i64]`, the type described in `[ ]`, (b) Go's `[]
 
 With `let xs = [1, 2, 3]; var ys = xs; ys[1] = 9;`, design claude offered (a) values, as Swift, `ys` its own list, copied only when one side changes (copy-on-write); (b) shared, as Go, Java, Python, `let` a shallow promise; and recommended (a), only values keeping `let` true, the cost landing in the compiler and runtime. The owner: "(a)". So **`xs` stays `[1, 2, 3]`; a `let` list or struct never changes, inside or out**. Copy-on-write is how it is made cheap, as proposed; whether anything is ever shared by choice (a reference type) is not decided. Not built.
 
+### 2026-10-28 — GO2 has methods, belonging to a type, as Go: `xs.len()`, `p.dist(q)` (owner: (b))
+
+Asked how a list gives its length and takes an item, design claude offered (a) functions only, `len(xs)`, `push(xs, 4)`, (b) methods belonging to a type, as Go, `xs.len()`, `xs.push(4)`, the receiver saying `let` or `var`, (c) any function also callable with a dot, as D and Nim; and recommended (b). The owner: "(b)". So **a type can have methods, called `<value>.<method>(…)`**; one whose receiver is `var` is called only on a `var`. How a method is declared, and the names of the list methods, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
