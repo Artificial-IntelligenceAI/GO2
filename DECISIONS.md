@@ -214,6 +214,10 @@ Design claude listed how booleans work, as in Go, and recommended confirming eac
 
 Design claude listed how booleans work, as in Go, and recommended confirming each. The owner: "confirm". So **`a == b`**, each giving a `bool`. What can be compared with what is not decided. Not built.
 
+### 2026-10-28 — Arithmetic is `+`, `-`, `*`, `/`, `%`, as Go (owner)
+
+Design claude listed how arithmetic works and recommended confirming each, and for a result that does not fit its type offered (a) wrapping, as Go, silently, (b) stopping with an error naming the line; recommending (b). The owner: "correct, but (b) on debug, and (a) on release". So **`%` is the remainder**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
