@@ -304,6 +304,10 @@ Design claude listed three handler rules, after CyborgPL's, and recommended conf
 
 Design claude asked what `ret fallback;` in an arm does, offering (a) it only leaves, as in CyborgPL: `ret 0;` returns from the function the handler is used in, and `break`, `continue`, `fail` act there too, a value reaching the declaration only by a plain `?? 0`; (b) an arm gives the `??` its value, and cannot leave; (c) both, `ret` leaving and a new word (`use 0;`) giving a value; and recommended (a). The owner: "Before I answer this, if we choose (a), would there be an alt for things that (c) covers?" Design claude: a small function around the call, its arms' `ret` becoming the value (`fn parse_or_code[…] -> i32:` with `?? parse.as_code`, `ret 0;` / `ret -1;`), as CyborgPL's `half_or_zero` does. The owner: "(a)". So **an arm leaves the function, loop or failure it is used in; it never gives the `??` a value**. How the call shows its handler can leave is not decided. Not built.
 
+### 2026-10-28 — No mark at a call for a handler that can leave; on a call giving a value, every arm must leave (owner: (a))
+
+Design claude noted that, an arm only leaving, a handler on a call that gives a value (`let n = parse(t) ?? parse.x;`) always leaves, and only one on a call with no value (`save(f) ?? save.report;`) may carry on; offered (a) no mark, `?? coll.member` already saying a handler decides, an arm on a value-giving call that does not end by leaving refused, one on a call with no value free to carry on; (b) CyborgPL's `*` at the use, `?? parse.*as_code`, required where the handler can leave; and recommended (a), `*` landing on nearly every use. The owner: "(a)". So **`?? parse.as_code` is written bare; an arm used where a value is needed ends by leaving, or is refused**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
