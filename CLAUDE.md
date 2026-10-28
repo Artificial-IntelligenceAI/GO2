@@ -14,6 +14,15 @@ Design repository for **GO2**, the owner's experimental hobby language, meant to
 - Record decisions in `DECISIONS.md` as they are made, noting what the owner chose versus what was proposed.
 - **GO2 is a hobby language.** No timeline; do not push for schedules or scope.
 
+## Sessions
+
+- **Design session** ("design claude", this repo's default): decisions, `design/`, `DECISIONS.md`. Commits carry
+  `Co-Authored-By: design claude <noreply@anthropic.com>`.
+- **Compiler session** ("compiler claude", started 2026-10-28): G2C2 in `g2c2/` and the runtime in `runtime/`, everything
+  that does not need a GC (owner: "let another session (compiler claude) make it, everything unless it needs a GC").
+  Its brief is `design/compiler-session.md`. It works on its own branch, never edits `DECISIONS.md` or `design/`, and
+  asks the owner through design claude. Commits carry `Co-Authored-By: compiler claude <noreply@anthropic.com>`.
+
 ## Layout
 
 - `README.md` — what GO2 is, and its licences (Apache-2.0 WITH LLVM-exception for code, CC BY 4.0 for writing).
