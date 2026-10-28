@@ -61,6 +61,8 @@ struct Scope {
     std::map<std::string, Local*> names;
 };
 
+static Package* g_main_pkg = nullptr;
+
 struct Ctx {
     Package* pkg = nullptr;
     FileAst* file = nullptr;
@@ -275,8 +277,8 @@ static void want_type(Expr* e, Type* got, Type* want, const std::string& what) {
 static void must_not_fail(Expr* e) {
     if (e->kind == ExprKind::FnCall || e->kind == ExprKind::MethodCall) {
         if (!e->reasons.empty() && !e->handled) {
-            error_at(e->pos, q(e->item->name) + " can fail; a call to it stands alone and says what happens, as in "
-                             "`let x = " + e->item->name + "(…) ?? 0;`");
+            std::string example = e->type == t_void ? e->item->name + "(…) ?? fail;" : "let x = " + e->item->name + "(…) ?? 0;";
+            error_at(e->pos, q(e->item->name) + " can fail; a call to it stands alone and says what happens, as in `" + example + "`");
         }
     }
 }
@@ -856,6 +858,9 @@ static Type* check_handle(Ctx& c, Expr* h, Type* hint) {
     }
     if (h->handle == HandleKind::Fail) {
         Item* fn = c.fn;
+        if (fn->pkg == g_main_pkg && fn->name == "main" && fn->recv_name.empty()) {
+            error_at(h->pos, "`main` cannot fail, so `?? fail` has nowhere to pass a failure");
+        }
         for (Reason* r : call->reasons) {
             int index = 0;
             Reason* mine = find_reason(fn->fails, r->name, &index);
@@ -1235,6 +1240,7 @@ static void make_user_type(Item* it) {
 }
 
 void check_program(Program* program) {
+    g_main_pkg = program->packages[0];
     // every top-level name, per package
     for (Package* pkg : program->packages) {
         for (FileAst* f : pkg->files) {

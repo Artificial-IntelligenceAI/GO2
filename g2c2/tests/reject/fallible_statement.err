@@ -1,0 +1,1 @@
+fallible_statement.go2:24:5: `save` can fail; a call to it stands alone and says what happens, as in `save(…) ?? fail;`

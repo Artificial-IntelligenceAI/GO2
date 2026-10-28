@@ -1,0 +1,57 @@
+pkg main;
+import "fmt";
+
+coll.handler conv {
+    member show {
+        case out_of_range { fmt.print("out of range\n"); ret; }
+    }
+    member text {
+        case not_a_number { fmt.print("not a number\n"); ret; }
+        case out_of_range { fmt.print("out of range\n"); ret; }
+    }
+}
+
+fn narrow[let n: i64] {
+    let small = i8(n) ?? conv.show;
+    fmt.print("{} fits: {}\n", n, small);
+}
+
+fn parse[let s: str] {
+    let n = i32(s) ?? conv.text;
+    fmt.print("{} reads as {}\n", s, n);
+}
+
+fn main[] {
+    // widening never fails
+    let a: i8 = -5;
+    let b: u8 = 200;
+    fmt.print("{} {} {}\n", i64(a), u16(b), i16(b));
+
+    // a narrowing that fits
+    let n: i64 = 100;
+    fmt.print("{} {}\n", i8(n), u8(n));
+
+    // handled with ??
+    let big: i64 = 300;
+    let c = u8(big) ?? 0;
+    let d = u8(n) ?? 0;
+    let neg: i64 = -1;
+    let e = u64(neg) ?? 7;
+    fmt.print("{} {} {}\n", c, d, e);
+    narrow(127);
+    narrow(128);
+    narrow(-129);
+
+    // text converts the same way, and must be handled
+    let t = i64("12345") ?? 0;
+    let u = i64("-42") ?? 0;
+    let v = i64("4x") ?? -1;
+    let w = i64("") ?? -2;
+    let x = u8("256") ?? 9;
+    let y = u8("-0") ?? 9;
+    fmt.print("{} {} {} {} {} {}\n", t, u, v, w, x, y);
+    parse("2147483647");
+    parse("2147483648");
+    parse("+1");
+    parse("-2147483648");
+}

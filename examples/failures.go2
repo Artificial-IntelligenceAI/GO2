@@ -1,0 +1,96 @@
+pkg main;
+import "fmt";
+
+fn parse_digit[let c: u8] -> i64 or fail[empty, bad_char: u8] {
+    if c == 0 { fail empty; }
+    if c < 48 || c > 57 { fail bad_char[c]; }
+    ret i64(c) - 48;
+}
+
+// passes each failure up: its fail[...] lists every reason that can come through
+fn twice_digit[let c: u8] -> i64 or fail[empty, bad_char: u8, too_big] {
+    let d = parse_digit(c) ?? fail;
+    if d > 4 { fail too_big; }
+    ret d * 2;
+}
+
+// returns nothing, but can fail
+fn check_even[let n: i64] -> fail[odd: i64] {
+    if n % 2 != 0 { fail odd[n]; }
+}
+
+coll.handler digit {
+    member or_ret[let fallback: i64] {
+        case empty { ret fallback; }
+        case bad_char c { ret i64(c); }
+    }
+    member skip {
+        case empty { next; }
+        case bad_char c { next; }
+    }
+    member quit {
+        case empty { stop; }
+        case bad_char c { stop; }
+    }
+    member up {
+        case empty { fail none; }
+        case bad_char c { fail bad[c]; }
+    }
+}
+
+coll.handler even {
+    member report {
+        case odd n { fmt.print("{} is odd\n", n); }
+    }
+}
+
+fn via_handler[let c: u8] -> i64 {
+    let d = parse_digit(c) ?? digit.or_ret(-1);
+    ret d;
+}
+
+fn via_up[let c: u8] -> i64 or fail[none, bad: u8] {
+    let d = parse_digit(c) ?? digit.up;
+    ret d + 100;
+}
+
+fn main[] {
+    // ?? value: a value, whatever the reason
+    let a = parse_digit(55) ?? 0;
+    let b = parse_digit(65) ?? 0;
+    fmt.print("{} {}\n", a, b);
+
+    // ?? fail, handled further up
+    let c = twice_digit(51) ?? -1;
+    let d = twice_digit(57) ?? -1;
+    fmt.print("{} {}\n", c, d);
+
+    // a member with arguments; its arm returns from the function it is used in
+    fmt.print("{} {} {}\n", via_handler(56), via_handler(0), via_handler(65));
+
+    // a member whose arms fail with other reasons
+    let f = via_up(49) ?? 0;
+    let e = via_up(0) ?? 7;
+    fmt.print("{} {}\n", f, e);
+
+    // members using next and stop, inside a for
+    var sum = 0;
+    for i in 46..60 {
+        let n: u8 = u8(i);
+        let v = parse_digit(n) ?? digit.skip;
+        sum = sum + v;
+    }
+    fmt.print("{}\n", sum);
+    var count = 0;
+    for i in 48..60 {
+        let v = parse_digit(u8(i)) ?? digit.quit;
+        count = count + 1;
+        if v > 100 { fmt.print("never\n"); }
+    }
+    fmt.print("{}\n", count);
+
+    // a call that gives nothing: an arm may finish, and the program carries on
+    check_even(4) ?? even.report;
+    check_even(5) ?? even.report;
+    fmt.print("carried on\n");
+}

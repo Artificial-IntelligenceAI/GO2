@@ -1,0 +1,1 @@
+member_extra_arm.go2:24:29: `p.extra` has an arm for `disk_full`, which `parse` cannot fail with

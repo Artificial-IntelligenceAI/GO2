@@ -1,0 +1,1 @@
+member_arm_stop_outside_loop.go2:20:32: `stop` is only inside a `for`

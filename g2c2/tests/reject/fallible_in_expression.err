@@ -1,0 +1,1 @@
+fallible_in_expression.go2:24:13: `parse` can fail; a call to it stands alone and says what happens, as in `let x = parse(…) ?? 0;`

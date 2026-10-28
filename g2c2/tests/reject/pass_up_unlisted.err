@@ -1,0 +1,1 @@
+pass_up_unlisted.go2:24:24: `?? fail` passes `bad_char` up, but `get` does not list it in its `fail[…]`

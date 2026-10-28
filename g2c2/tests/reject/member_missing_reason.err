@@ -1,0 +1,1 @@
+member_missing_reason.go2:24:29: `p.half` does not cover `bad_char`, which `parse` can fail with

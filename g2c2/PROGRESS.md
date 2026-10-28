@@ -46,6 +46,13 @@ picking an answer.
   `var self` method only on a `var` and counting as its change.
 - Enums with and without data, `Token.plus`, `Token.number[42]`, `match` with every case or `else` (an `else`
   covering nothing refused), `==` by case and data. A type containing itself is refused (it needs the collector).
+- Failures: `-> T or fail[…]`, `-> fail[…]`, `fail r;` / `fail r[data];`, `?? value` (worked out only on failure,
+  question 24), `?? fail` (each reason listed, same data), `coll.handler` members with and without arguments, each
+  covering exactly the call's reasons, arms leaving by `ret`/`fail`/`stop`/`next` from where they are used, and
+  finishing on a call that gives nothing. A failing call stands alone. A member's arms are checked afresh at each
+  use, since their data's types come from the call; a member never used is not checked.
+- Conversions between integer types (a narrowing handled with `??` fails `out_of_range`), text to an integer
+  (`not_a_number`, `out_of_range`, must be handled).
 
 ## Next
 
