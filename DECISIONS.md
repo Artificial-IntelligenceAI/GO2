@@ -544,6 +544,10 @@ Design claude offered (a) none for now, generics waiting until GoTo compiles its
 
 Design claude listed three function details and recommended all. The owner: "yes". So **`if done { ret; }`**. Not built.
 
+### 2026-10-28 — A function that returns nothing but can fail is `-> fail[disk_full, no_permission]` (owner)
+
+Design claude listed three function details and recommended all. The owner: "yes". So **no value type before `fail[…]`**, as CyborgPL writes it; called as a statement, `save(f) ?? fail;`. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
