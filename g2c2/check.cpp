@@ -333,7 +333,7 @@ static void check_print(Ctx& c, Expr* e) {
     size_t marks = pieces.size() - 1;
     if (marks != args.size() - 1) {
         error_at(e->pos, "`fmt.print` has " + std::to_string(marks) + " `{}` and " + std::to_string(args.size() - 1) +
-                             " values; a mismatch is not decided yet");
+                             (args.size() == 2 ? " value" : " values") + "; a mismatch is not decided yet");
     }
     std::vector<Expr*> values;
     for (size_t i = 1; i < args.size(); i++) {

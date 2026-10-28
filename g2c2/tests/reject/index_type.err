@@ -1,0 +1,1 @@
+index_type.go2:6:29: indexing a str by an i32 is not decided yet; use an i64

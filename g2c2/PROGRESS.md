@@ -53,6 +53,9 @@ picking an answer.
   use, since their data's types come from the call; a member never used is not checked.
 - Conversions between integer types (a narrowing handled with `??` fails `out_of_range`), text to an integer
   (`not_a_number`, `out_of_range`, must be handled).
+- Strings: literals (checked as UTF-8) with `\n`, `\t`, `\"`, `\\`; `s.len()`; `s[i]` (an `i64` index; out of range
+  stops the program); `for c in s.chars()`; `==`, `<` and the rest byte by byte. `fmt.print` with `{}` and `{{`,
+  printing integers and strings.
 
 ## Next
 

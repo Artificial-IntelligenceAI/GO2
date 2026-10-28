@@ -1,0 +1,1 @@
+unknown_escape.go2:5:17: the escape `\q` is not decided yet; strings have `\n`, `\t`, `\"` and `\\`
