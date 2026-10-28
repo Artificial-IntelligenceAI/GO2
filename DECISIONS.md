@@ -404,6 +404,10 @@ With `let xs = [1, 2, 3]; var ys = xs; ys[1] = 9;`, design claude offered (a) va
 
 Asked how a list gives its length and takes an item, design claude offered (a) functions only, `len(xs)`, `push(xs, 4)`, (b) methods belonging to a type, as Go, `xs.len()`, `xs.push(4)`, the receiver saying `let` or `var`, (c) any function also callable with a dot, as D and Nim; and recommended (b). The owner: "(b)". So **a type can have methods, called `<value>.<method>(…)`**; one whose receiver is `var` is called only on a `var`. How a method is declared, and the names of the list methods, are not decided. Not built.
 
+### 2026-10-28 — A method is declared `fn Point.dist[let self, …]`, outside the type, the receiver `let self` or `var self` (owner: (c))
+
+Design claude offered (a) Go's, the receiver before the name, `fn [let p: Point] dist[let q: Point]`, (b) inside the struct's block, `fn dist[let self, …]`, (c) outside, named by type and method, `fn Point.dist[let self, let q: Point] -> i64 { … }`; and recommended (c), the declaration mirroring the call. The owner: "(c)". So **`fn <Type>.<method>[let self, …]` or `[var self, …]`**, declared anywhere; `self` has no written type, being the method's own. Whether a method may be declared for a type from another package is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
