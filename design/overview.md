@@ -27,11 +27,11 @@ fn main[] {
 ## Toolchain
 
 - Source files end `.go2`.
-- **G2RS** (`g2rs/`, command `g2rs`) is the bootstrap compiler, in Rust. **GoTo** (`goto/`, command `goto`) is the
-  self-hosted one, in GO2, and replaces G2RS once it builds itself. Both take `build` and `run`.
-- Both compile through LLVM, linked as a library: G2RS through `llvm-sys` (Homebrew LLVM 23), with C++ shims where
-  LLVM's C API falls short.
-- Builds are debug (`g2rs build`) or release (`g2rs build --release`); they differ in arithmetic overflow (below).
+- **G2C2** is the bootstrap compiler, in C++, building IR through LLVM's C++ API (Homebrew LLVM 23). **GoTo**
+  (`goto/`, command `goto`) is the self-hosted one, in GO2, and replaces G2C2 once it builds itself. Both take
+  `build` and `run`. G2C2's command and folder are open.
+- GoTo reaches LLVM through small C++ functions with C-shaped signatures, declared `extern.c`.
+- Builds are debug (`build`) or release (`build --release`); they differ in arithmetic overflow (below).
 
 ## Projects and packages
 
@@ -288,7 +288,7 @@ a program) is written in C++.
 
 Not decided yet, roughly in the order the compiler will need them:
 
-- What "C++ when needed" covers.
+- G2C2's command and folder; its C++ standard and build tool.
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
 - When the collector promotes a value from the nursery.
 - A formatter.
