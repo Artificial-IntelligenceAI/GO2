@@ -102,6 +102,10 @@ From the owner's hello-world sketch; design claude listed its parts to confirm a
 
 From the owner's hello-world sketch; design claude listed its parts to confirm and recommended all. The owner: "indentation is required, confirm (and btw, `fmt.print` is formatted print)". Design claude had listed it as printing that adds no newline; the owner added that it is **formatted print**, a format string with its values, as Go's `Printf`. So **`fmt.print("…\n", …)`** formats and prints, ending no line itself. The format's spelling is not decided. Not built.
 
+### 2026-10-28 — A string literal is in double quotes, with C-style escapes (owner)
+
+From the owner's hello-world sketch; design claude listed its parts to confirm and recommended all. The owner: "indentation is required, confirm (and btw, `fmt.print` is formatted print)". So **`"Hello, World!\n"`**, with `\n`, `\t`, `\\`, `\"` and the rest; which escapes exactly is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
