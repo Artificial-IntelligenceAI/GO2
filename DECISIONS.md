@@ -833,8 +833,9 @@ Design claude listed how floats work, the IEEE defaults, and recommended all eig
 multifinity (issue #2) asked for a Linux x86_64 release; the owner: "Make that". G2C2 linked each program with the
 clang whose path was fixed when G2C2 was built, a path that doesn't exist on other machines. Design claude offered
 (a) the `CC` environment variable with fallbacks, (b) a `--cc <path>` flag, (c) `clang` looked up on the PATH, and
-recommended (a). The owner: "Bundle it". So **a G2C2 release carries its own C compiler/linker, and `g2c2 build`
-needs nothing extra on the user's machine**. Not built.
+recommended (a). The owner: "Bundle it", and then: "I didn't mean the release to make GO2 use an older LLVM, I just
+mean to bundle our LLVM in there." So **a G2C2 release carries our own LLVM 23 (its clang and linker), and `g2c2 build`
+uses that, never an LLVM already on the user's machine**. Not built.
 
 ## Open
 - How G2C2 and the runtime write C++ (ownership, exceptions, RTTI, warnings, sanitizers, hardening, formatting).
