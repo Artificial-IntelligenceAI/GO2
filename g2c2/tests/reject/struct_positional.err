@@ -1,0 +1,1 @@
+struct_positional.go2:11:19: a struct is built field by name: `Point[x = …]`

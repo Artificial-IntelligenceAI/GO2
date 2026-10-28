@@ -1,0 +1,1 @@
+var_field_never_changed.go2:6:9: field `line` of `Token` is var but never changes anywhere; make it `let`

@@ -1,0 +1,16 @@
+pkg main;
+import "fmt";
+
+struct Point { let x: i64; let y: i64; }
+struct Counter { var n: i64; }
+enum Token { plus; minus; number: i64; }
+
+fn Counter.bump[var self] { self.n = self.n + 1; }
+
+fn main[] {
+    var p = Point[x = 1, y = 2];
+    p.x = 5;
+    fmt.print("{}\n", p.x);
+    var c = Counter[n = 0];
+    c.bump();
+}

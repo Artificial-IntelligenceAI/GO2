@@ -1,0 +1,1 @@
+compare_struct_order.go2:12:10: `<` works on numbers and str, not on a Point

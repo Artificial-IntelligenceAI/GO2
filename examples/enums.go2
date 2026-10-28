@@ -1,0 +1,47 @@
+pkg main;
+import "fmt";
+
+enum Token { plus; minus; name: str; number: i64; }
+
+struct Pair { let a: i64; let b: i64; }
+
+enum Shape { dot; rect: Pair; }
+
+fn describe[let t: Token] {
+    match t {
+        case plus { fmt.print("plus\n"); }
+        case minus { fmt.print("minus\n"); }
+        case name n { fmt.print("name {}\n", n); }
+        case number v { fmt.print("number {}\n", v); }
+    }
+}
+
+fn value[let t: Token] -> i64 {
+    match t {
+        case number v { ret v; }
+        else { ret 0; }
+    }
+}
+
+fn area[let s: Shape] -> i64 {
+    match s {
+        case dot { ret 0; }
+        case rect r { ret r.a * r.b; }
+    }
+}
+
+fn main[] {
+    describe(Token.plus);
+    describe(Token.minus);
+    describe(Token.name["x1"]);
+    describe(Token.number[42]);
+    fmt.print("{} {}\n", value(Token.number[7]), value(Token.plus));
+    fmt.print("{} {}\n", area(Shape.rect[Pair[a = 3, b = 4]]), area(Shape.dot));
+
+    // == compares the case, then its data
+    let t = Token.number[5];
+    if t == Token.number[5] { fmt.print("same\n"); }
+    if t != Token.number[6] { fmt.print("different data\n"); }
+    if t != Token.plus { fmt.print("different case\n"); }
+    if Token.name["a"] == Token.name["a"] { fmt.print("same name\n"); }
+}

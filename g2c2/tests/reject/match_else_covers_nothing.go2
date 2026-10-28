@@ -1,0 +1,18 @@
+pkg main;
+import "fmt";
+
+struct Point { let x: i64; let y: i64; }
+struct Counter { var n: i64; }
+enum Token { plus; minus; number: i64; }
+
+fn Counter.bump[var self] { self.n = self.n + 1; }
+
+fn main[] {
+    let t = Token.plus;
+    match t {
+        case plus { fmt.print("+\n"); }
+        case minus { fmt.print("-\n"); }
+        case number v { fmt.print("{}\n", v); }
+        else { fmt.print("?\n"); }
+    }
+}

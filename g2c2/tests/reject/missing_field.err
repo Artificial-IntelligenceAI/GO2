@@ -1,0 +1,1 @@
+missing_field.go2:11:13: building `Point` needs every field; `y` is missing

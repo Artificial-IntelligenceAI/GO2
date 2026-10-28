@@ -41,6 +41,11 @@ picking an answer.
   `stop`, `next`; `&&`/`||` stopping early, `and`/`or` running both sides, comparison chains; `str` comparisons.
 - Functions: `let`/`var` parameters (a `var` must change), `-> T`, `ret`, `ret;`, recursion, Go's rule for a
   reachable end (question 16), calls as statements.
+- Structs: `let`/`var` fields (a `var` field must change somewhere in the program), building with every field by
+  name, field reads, values copied, `==` field by field. Methods `fn T.m[let self, …]` / `[var self, …]`, a
+  `var self` method only on a `var` and counting as its change.
+- Enums with and without data, `Token.plus`, `Token.number[42]`, `match` with every case or `else` (an `else`
+  covering nothing refused), `==` by case and data. A type containing itself is refused (it needs the collector).
 
 ## Next
 

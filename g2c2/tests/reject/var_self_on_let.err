@@ -1,0 +1,1 @@
+var_self_on_let.go2:12:5: `c` is a let; it cannot be used by `bump`, a `var self` method (make it `var`)
