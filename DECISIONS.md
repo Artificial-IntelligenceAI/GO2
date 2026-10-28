@@ -760,5 +760,9 @@ Design claude applied "follow maths, else parentheses" operator by operator, and
 
 Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a < b > c` and `a != b != c` are refused**. Not built.
 
+### 2026-10-28 — Mixing `&&` with `and`, or `||` with `or`, needs parentheses (owner)
+
+Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a && b and c` is refused**; maths has no notion of stopping early. Not built.
+
 ## Open
 
