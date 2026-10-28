@@ -122,6 +122,8 @@ A `match` without `else` must name every case, or it is refused; an `else` with 
 - `"…"` with C-style escapes: `\n`, `\t`, `\"`, `\\`.
 - `s[i]` is the i-th byte, a `u8`, from 1. `s.len()` counts bytes.
 - `concat(a, b, "!")` joins any number of strings; `+` on strings is refused.
+- A `str` is always valid UTF-8. `str(bytes)` makes one from an `ls[u8]`, failing `not_utf8`.
+- `for c in s.chars() { … }` walks characters, each a `u32` code point.
 
 ### Lists
 
@@ -288,7 +290,6 @@ Not decided yet, roughly in the order the compiler will need them:
 
 - What "C++ when needed" covers.
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
-- Walking a string's characters; whether invalid UTF-8 can exist.
 - When the collector promotes a value from the nursery.
 - A formatter.
 - What GO2 is, in one sentence.
