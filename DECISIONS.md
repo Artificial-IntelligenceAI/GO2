@@ -480,6 +480,10 @@ Design claude listed how maps work and recommended all six. The owner: "yes". So
 
 Design claude offered (a) a capital first letter, as Go, (b) a `pub` keyword, as Rust, (c) everything visible; and recommended (b). The owner: "Are you joking about Go? That sounds riduclous"; told it is Go's real rule (`fmt.Println`), chosen so a use shows visibility, at the cost of renaming to change it. The owner: "`pub`". So **`pub fn parse[…]`, `pub struct Token { … }`**; names keep any case. Whether `pub` applies to fields, methods and enum cases one by one is not decided. Not built.
 
+### 2026-10-28 — A `pub` type shows everything in it: its fields, its methods, its cases (owner: (b))
+
+Design claude offered (a) fields and methods each saying `pub`, an enum's cases coming with it, (b) a `pub` type showing everything in it, (c) as (a) with each case saying `pub`; and recommended (a), as Rust, hidden fields keeping a package's invariants. The owner: "(b)". So **`pub struct Token { let kind: Kind; let line: i64; }` shows both fields, and `fn Token.text[let self]` is visible wherever `Token` is**; a type without `pub` shows nothing. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
