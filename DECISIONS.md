@@ -576,6 +576,10 @@ Design claude listed five small details and recommended all. The owner: "yes". S
 
 Design claude listed five small details and recommended all. The owner: "yes". So **no labelled loops**; they may come later. Not built.
 
+### 2026-10-28 — `match` is a statement only; it gives no value (owner)
+
+Design claude listed five small details and recommended all. The owner: "yes". So **`let x = match …` is not GO2 for now**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
