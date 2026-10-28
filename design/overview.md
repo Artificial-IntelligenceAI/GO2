@@ -266,7 +266,7 @@ Garbage collected, by a collector written for GO2.
 Not decided yet, roughly in the order the compiler will need them:
 
 - What "C++ when needed" covers; what C may do with a list it is given.
-- Generics beyond `ls` and `map`.
+- Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
 - Leaving a function that returns nothing early (`ret;`?), and the exit call (`os.exit`?).
 - Whether a narrowing conversion follows the overflow rule; text to number (`i32("42") ?? 0`?).
 - The reason name for an out-of-range index, and whether a handled `xs[i] ?? 0` must stand alone.
