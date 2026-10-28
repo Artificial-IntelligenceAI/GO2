@@ -174,6 +174,10 @@ Design claude offered (a) only `for`, as Go: `for:` forever, `for n < 10:` while
 
 Design claude offered (a) `for x in xs:`, with a position `for i, x in xs:`, over numbers `for i in 0..10:`; (b) Go's `range`, `for i, x in range xs:`; and as (c) a "CyborgPL-style" `for i in i32[min: 0, max: 9]:`. The owner: "What in the curse shit did I just see". CyborgPL's design claude then corrected it: that loop is not CyborgPL (`i32[min: 0, max: 9]` is a bounded type, and its oracle refuses the loop); CyborgPL counts with `for $i [from: 0, to: 9, by: 1]:` and walks with `for $x in lend $xs:`. Design claude re-offered (c) as that, and recommended (a). The owner: "(a)". So **`for <name> in <things>:`, `for <pos>, <name> in <things>:`, and `<a>..<b>` for a run of numbers**. Whether `0..10` includes 10, and whether the loop's names are `let`, are not decided. Not built.
 
+### 2026-10-28 — An index counts from 1: `xs[1]` is the first item (owner)
+
+Asked whether `0..10` includes 10, the owner: "`xs[0]` is the position before 1, but what position even is that?" Design claude: 0-based counts an offset from the start (C, Go, Rust, Python), 1-based a position (Lua, Julia, Fortran); each pairs with a range rule, 0 with ranges stopping before the end, 1 with ranges including it; and recommended 0, LLVM's C API counting from 0. The owner: "I mean, look at GO2. It doesn't have manual memory". Design claude agreed the offset reading only matters where memory shows, which GO2 hides; the one cost left is where GO2 meets C and LLVM, paid once in a thin wrapper; and changed to recommending 1, with ranges including the end. The owner: "yes". So **the first item is `xs[1]` and the last `xs[n]`**, written in `[ ]` as it holds; a 0 is out of range. How a length is asked for is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
