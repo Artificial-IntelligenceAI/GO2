@@ -332,6 +332,10 @@ Design claude offered (a) `i64(x)`, as Go, (b) `x as i64`, as Rust, (c) `to.i64(
 
 Asked what type a bare number has when nothing says it, design claude offered a fixed 64-bit `int` (as Go); the owner: "Is `int` a bigint?" and, told no, "Then, it isn't math-accurate, nor says its size". Design claude agreed and offered (a) no `int`, a bare number defaulting to `i64`, (b) `int` a real bigint. The owner: "What even is the question for?" Shown where it comes up (`let n = 5;`, `let m: i32 = n + 1;`), the owner: "We don't have Precog. so lazy inference it is. But what width? Btw, bare numbers in a variable will assume to be the same type as the variable". So **in `n + 1` with `n: i32`, the `1` is an `i32`**, and a bare number given to a typed variable or parameter is that type. Not built.
 
+### 2026-10-28 — Lazy inference: a variable takes its type from its value when declared, never from later use (owner)
+
+Asked what type a bare number has when nothing says it, design claude offered a fixed 64-bit `int` (as Go); the owner: "Is `int` a bigint?" and, told no, "Then, it isn't math-accurate, nor says its size". Design claude agreed and offered (a) no `int`, a bare number defaulting to `i64`, (b) `int` a real bigint. The owner: "What even is the question for?" Shown where it comes up (`let n = 5;`, `let m: i32 = n + 1;`), the owner: "We don't have Precog. so lazy inference it is. But what width? Btw, bare numbers in a variable will assume to be the same type as the variable". Design claude first read it as `n` in `let n = 5;` taking its type from a later `let m: i32 = n + 1;`; the owner: "Wrong, I meant `1` becomes `i32`" (the entry above). So **`let n = 5;` settles `n`'s type there and then**, the inference stopping at the declaration; with no type around a bare number, it takes a default width, not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
