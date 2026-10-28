@@ -158,6 +158,10 @@ Set aside earlier for variables first, then asked for both: design claude offere
 
 Design claude offered (a) `const` known when compiling, as Go (it can size arrays, stand outside functions, cost nothing at run time), `let` fixed once set but worked out while running, (b) `const` deep, nothing inside its value changing, (c) both; and recommended (a), keeping whether `let` reaches inside its value for when lists and structs come. The owner: "`const` must be baked in". So **a `const`'s value is worked out by the compiler and baked into the program; `let` is set once, while running**. What a `const` may hold, and whether `let` goes deep, are not decided. Not built.
 
+### 2026-10-28 — Every parameter says `let` or `var`, `fn add[let a: i32, var b: i32]` (owner: (b))
+
+With `fn add[a: i32, b: i32]` as the example, the owner: "Though, it should be `fn add[var a: i32, var b: i32]` or something, idk". Design claude offered (a) a bare parameter a `let`, `var` making it changeable, (b) every parameter saying which, (c) parameters never changing, copied into a `var` to change; and recommended (a). The owner: "(b)". So **a parameter is `let <name>: <type>` or `var <name>: <type>`**, as a variable is declared; a bare one is refused, and a `var` one must be changed in the body, as any `var`. Whether a parameter may be `const` is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
