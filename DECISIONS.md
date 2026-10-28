@@ -560,6 +560,10 @@ Design claude listed two conversion details and recommended both: 1. a narrowing
 
 Design claude listed two conversion details and recommended both: 1. a narrowing, `i8(300)`, following the overflow rule (a debug build stops, a release one wraps to 44), 2. text converting by the same call, `i64("42")`, failing `not_a_number` or `out_of_range`, handled with `??`. The owner: "yes, but it can be handled". So **`let n = i64(text) ?? 0;`**; bad text comes from outside, so it is a failure that must be handled. Which text counts as a number (signs, spaces, `_`) is not decided. Not built.
 
+### 2026-10-28 — An index out of range and a narrowing that does not fit both fail `out_of_range` (owner)
+
+Design claude listed two details of the failures that may go unhandled and recommended both. The owner: "yes". So **`case out_of_range { … }`** covers either, the same reason a text conversion gives. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
