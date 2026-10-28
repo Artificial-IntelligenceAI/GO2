@@ -320,6 +320,10 @@ After the failure-handling example (a `coll.handler` thick with `;case …` clos
 
 With blocks now `{ }`, design claude offered (a) Go's `switch` form, `case empty:` running to the next `case`, (b) each arm in its own braces; and recommended (a). The owner: "How does (b) look?" Shown both, and (b) on one line (`case empty { continue; }`), design claude changed to leaning (b): as compact, `:` keeping its one job, braces the only block. The owner: "(b)". So **`case <reason> { … }` and `case <reason> <name> { … }`**, inside `member <name> { … }`, inside `coll.handler <name> { … }`. Not built.
 
+### 2026-10-28 — `{` may sit anywhere; line breaks, like indentation, mean nothing to the compiler (owner: (b))
+
+Design claude offered (a) `{` on the header's line and `} else {` on one line, as Go (which needs it for its semicolon insertion), (b) anywhere, GO2 writing every `;` itself; and recommended (b), as indentation is already the writer's, a formatter giving one look later. The owner: "(b)". So **`fn main[]\n{` and `fn main[] {` are the same**; a line break matters only as the end of a `//` comment, and so are `}\nelse {` and `} else {`. A formatter is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
