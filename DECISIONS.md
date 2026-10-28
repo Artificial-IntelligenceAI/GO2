@@ -344,6 +344,10 @@ Design claude offered (a) `i64`, (b) `i32`, (c) none, `let n = 5;` refused; and 
 
 Design claude offered (a) `struct Point { x: i64; y: i64; }`, as Rust with `;` after each field, (b) `type Point struct { … }`, as Go, (c) as (a) with `,` between fields; and recommended (a). The owner: "(a), but where's `let` & `var`?" So **`struct Point { … }`, fields ending in `;`**. Whether a field says `let` or `var`, as a parameter does, is asked next. Not built.
 
+### 2026-10-28 — Every field says `let` or `var`; a `var` field never changed anywhere in the program is refused (owner: (a))
+
+From "where's `let` & `var`?" on fields, design claude offered (a) every field saying which, a `var` field required to change somewhere in the program (the compiler building the whole program at once), (b) every field saying which, fields exempt from the must-change rule, (c) a bare field `let`, `var` marking one; and recommended (a), as for parameters. The owner: "(a)". So **`struct Token { let kind: TokenKind; var line: i64; }`**; a `let` field is set only when the struct is built, and a `var` field with no change to it anywhere is refused, naming `let`. If separate compilation ever comes, this is to be revisited. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
