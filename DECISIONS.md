@@ -712,7 +712,9 @@ Design claude listed four details of how G2C2 is laid out and built, and recomme
 
 Design claude listed four details of how G2C2 is laid out and built, and recommended all. The owner: "cnfm". So **the same LLVM 23 G2C2 links against**, with its libc++ (all of C++23). Not built.
 
+### 2026-10-28 — GO2 is "a Go-style simple programming language, that has fast compiles, and okay runtime performance" (owner)
+
+Asked at the start what GO2 is in one sentence, with design claude's proposals (first a small Go remix, last "Go's simplicity, rebuilt with values instead of references, failures the compiler makes you handle, and promises it holds you to"), the owner: "GO2 is a Go-style simple programming language, that has fast compiles, and okay runtime performance." So **that sentence is GO2's identity**, in the owner's words. Not built.
+
 ## Open
 
-- What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
-  pattern matching, little enough to self-host early); not decided.

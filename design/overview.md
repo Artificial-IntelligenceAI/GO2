@@ -1,5 +1,7 @@
 # GO2 — overview
 
+> GO2 is a Go-style simple programming language, that has fast compiles, and okay runtime performance.
+
 GO2 as it stands, rules only. Each rule is the owner's; the reasoning, what else was offered, and every reversal are in
 [`DECISIONS.md`](../DECISIONS.md). Nothing here is built yet. Where this page and the log disagree, the log wins and
 this page is wrong.
@@ -292,4 +294,3 @@ Not decided yet, roughly in the order the compiler will need them:
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
 - When the collector promotes a value from the nursery.
 - A formatter.
-- What GO2 is, in one sentence.
