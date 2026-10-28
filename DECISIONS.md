@@ -36,6 +36,13 @@ Asked what the first compiler outputs, the owner answered that and what it is wr
 LLVM backend, and C++ when needed". So **the bootstrap compiler is Rust**; the self-hosted one, in GO2, replaces it.
 Not built.
 
+### 2026-10-28 — The compiler's backend is LLVM, with C++ when needed (owner)
+
+Design claude offered (a) C source through clang, (b) LLVM IR, (c) arm64 assembly directly, (d) a bytecode VM, and
+recommended (a). The owner: "uses the LLVM backend, and C++ when needed". So **GO2 compiles through LLVM**; C++ is
+used where it is needed (when, and for what, the owner has not said yet). Installed here: Homebrew LLVM 23.1.2
+(also 21 and 22), Apple clang 21. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
