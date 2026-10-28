@@ -260,6 +260,10 @@ Design claude listed, after CyborgPL: 1. `fail empty;` / `fail bad_char[c];` lea
 
 Design claude listed, after CyborgPL: 1. `fail empty;` / `fail bad_char[c];` leaves with that reason, 2. `f(x)?` passes it up, 3. `f(x) ?? 0` a fallback value, 4. arms for each reason after `otherwise:` at the call, 5. `f(x) otherwise name` a named handler, 6. a call that can fail stands alone; recommending all. The owner: "Or what about 1-3, but named handlers only, no 4?" Design claude agreed (call sites one line, arms in one place, arguments carrying what a call has; CyborgPL itself has 98 `?? value` against 7 named handlers) and listed 1, 2, 3, 5, 6. The owner: "yes, but no `otherwise` anymore, just `??`, and no `?` too". So **`f(x)?` is not GO2**. How a failure reaches the caller's caller, if at all, is not decided. Not built.
 
+### 2026-10-28 — A call that can fail stands alone, as a statement or a declaration's whole value (owner)
+
+Design claude listed, after CyborgPL: 1. `fail empty;` / `fail bad_char[c];` leaves with that reason, 2. `f(x)?` passes it up, 3. `f(x) ?? 0` a fallback value, 4. arms for each reason after `otherwise:` at the call, 5. `f(x) otherwise name` a named handler, 6. a call that can fail stands alone; recommending all. The owner: "Or what about 1-3, but named handlers only, no 4?" Design claude agreed (call sites one line, arms in one place, arguments carrying what a call has; CyborgPL itself has 98 `?? value` against 7 named handlers) and listed 1, 2, 3, 5, 6. The owner: "yes, but no `otherwise` anymore, just `??`, and no `?` too". So **`let n = parse(a) ?? 0;`, never `parse(a) + parse(b)`**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
