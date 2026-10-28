@@ -26,6 +26,7 @@
 #include <llvm/Target/TargetOptions.h>
 #include <llvm/TargetParser/Host.h>
 
+#include <cmath>
 #include <cstdlib>
 
 static llvm::LLVMContext* g_ctx = nullptr;
