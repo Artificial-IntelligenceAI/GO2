@@ -492,6 +492,10 @@ Design claude offered (a) `{}` marks filled in order, as Rust and Python, no typ
 
 The owner: "should `\n` become `{newln}`.and `\` be left for escaping (`\"`) only?" Design claude: any string can need a newline (`concat(a, "\n", b)`), so `{newln}` would make `{` special in every string, braces in ordinary text doubled; offered (a) C-style escapes kept, `{}` special only to `fmt.print`, (b) named escapes in braces in every string, `{newln}`, `{tab}`, `{{`, `\` only for `\"` and `\\`, (c) both; and recommended (a). The owner: "(a)". So **a string's own text is plain but for `\` escapes; in `fmt.print`'s text `{}` takes a value and `{{` is a brace**, as offered with the `{}` marks. Not built.
 
+### 2026-10-28 — A type that contains itself just works; the compiler stores the cycle in GC memory (owner: (a))
+
+With `enum Expr { number: i64; add: Add; }` and `struct Add { let left: Expr; let right: Expr; }`, values of infinite size unless held elsewhere, design claude offered (a) automatically, the compiler finding the cycle and storing those parts in GC memory, values still values by copy-on-write; (b) marked, Swift's `indirect`; (c) an explicit `box[Expr]`, as Rust; and recommended (a), where a value lives being storage, not meaning. The owner: "(a)". So **the code above is GO2 as written**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
