@@ -540,6 +540,10 @@ Design claude listed how the rest of calling C works, and recommended all four. 
 
 Design claude offered (a) none for now, generics waiting until GoTo compiles itself (Go managed without them for years), (b) in `[ ]`, `fn max[T][let a: T, let b: T] -> T`, `struct Stack[T]`, (c) in `< >`, as CyborgPL; and recommended (a), with (b) as the spelling when they come. The owner: "(a)". So **a GO2 function, struct or enum takes no type parameters**. The spelling for later is not decided. Not built.
 
+### 2026-10-28 — `ret;` leaves early from a function that returns nothing; in `main` it exits 0 (owner)
+
+Design claude listed three function details and recommended all. The owner: "yes". So **`if done { ret; }`**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
