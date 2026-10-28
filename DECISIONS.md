@@ -528,6 +528,10 @@ Design claude listed how the rest of calling C works, and recommended all four. 
 
 Design claude listed how the rest of calling C works, and recommended all four. The owner: "yes". So **`LLVMModuleCreateWithName(cstr("main"))`**; both are copies. Not built.
 
+### 2026-10-28 — A C array parameter takes a GO2 list, a pointer to its items, the count passed apart (owner)
+
+Design claude listed how the rest of calling C works, and recommended all four. The owner: "yes". So **`LLVMFunctionType(ret, params, u32(params.len()), 0)`** with `let params: ls[LLVMTypeRef]` in the declaration; safe as C only reads it and lists are values. What C may do with it (keep it, change it) is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
