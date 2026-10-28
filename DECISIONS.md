@@ -138,7 +138,13 @@ Design claude proposed G2RS as command `g2rs`, folder `g2rs/`, Rust crate `g2rs`
 
 The owner, asked how parameters are written in `[ ]`: "Let's do vars first, inferrence is the absence of the type / var immut = let / var mut = var / const = const". So **`let` declares an immutable variable, `var` a mutable one, `const` a constant**. What sets `const` apart from `let` (a value known when compiling, or something else), and whether `let` reaches inside what it holds, are not decided. Not built.
 
+### 2026-10-28 — Leaving out a variable's type asks for it to be inferred (owner)
+
+The owner, asked how parameters are written in `[ ]`: "Let's do vars first, inferrence is the absence of the type / var immut = let / var mut = var / const = const". So **a declaration without a type takes the type of its value**; there is no inference keyword or mark. Where a written type goes (`let x i32 = 5;` or `let x: i32 = 5;`) waits on how parameters are written. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
   pattern matching, little enough to self-host early); not decided.
+- How parameters are written in `[ ]`: `name type` (Go), `name: type`, or `type name`. Design claude recommended
+  `name type`; set aside for variables first.
