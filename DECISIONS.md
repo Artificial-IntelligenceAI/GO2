@@ -420,6 +420,10 @@ Design claude listed how lists work (`xs.push(4)`, `xs.pop()` among them); the o
 
 With `rm_last` chosen, design claude offered `add_last` (its mirror), `append` (Go's, CyborgPL's), `push`; and recommended `add_last`. The owner: "`append`". So **`xs.append(4);`**. Whether it takes only a `var` list is not decided. Not built.
 
+### 2026-10-28 — A list grows; `var xs: ls[i64] = [];` starts empty (owner)
+
+Design claude listed what was left of how lists work, and recommended all: 1. lists grow, 2. `xs.len()`, 3. `append` / `rm_last` on a `var` list only, 4. `rm_last` giving the item or failing `empty`, 5. `xs[i]` out of range stopping the program, 6. `xs[i] = v;` on a `var` list only. The owner: "yes, but 5 should also be able to be handled". So **a list has no fixed size**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
