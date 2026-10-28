@@ -696,6 +696,10 @@ Asked whether "C++ when needed" covers the runtime and LLVM shims only, G2RS sta
 
 Design claude proposed C++20; the owner: "What about a newer C++ version?" Probed on this Mac: Apple clang 21 takes C++23 and C++26 language features, its library lacking some C++23 parts (`views::enumerate`); Homebrew clang 23 took everything tried (`std::print`, `std::expected`, explicit `this`, `views::enumerate`, C++26 pack indexing). Design claude recommended C++26 with Homebrew clang 23, falling back to C++23 if a wanted feature is missing. The owner: "C++23". So **`-std=c++23`**. Which compiler builds it is not decided. Not built.
 
+### 2026-10-28 — G2C2's command is `g2c2`, in folder `g2c2/` (owner)
+
+Design claude listed four details of how G2C2 is laid out and built, and recommended all. The owner: "cnfm". So **`g2c2 build hello.go2`, `g2c2 run hello.go2`**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
