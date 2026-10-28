@@ -568,6 +568,10 @@ Design claude listed two details of the failures that may go unhandled and recom
 
 Design claude listed two details of the failures that may go unhandled and recommended both. The owner: "yes". So **`let x = xs[i] ?? 0;`, never `xs[i] ?? 0 + 1`; `xs[i] + xs[j]` is fine**, needing no decision at the call. Not built.
 
+### 2026-10-28 — A loop's names are `let`: in `for i, x in xs`, neither changes inside the loop (owner)
+
+Design claude listed five small details and recommended all. The owner: "yes". So **`x = 5;` inside it is refused**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
