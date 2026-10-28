@@ -656,6 +656,10 @@ With `var ys = xs; ys[1] = 9;` and no counts to ask, design claude offered (a) a
 
 Design claude offered (a) C, compiled by the clang already linking programs, (b) C++, the "C++ when needed" route (templates for lists and maps, LLVM's own stack-map parser), (c) GO2 with an unsafe layer, (d) Rust, as G2RS; and recommended (a). The owner: "Let's just go C++ for all". So **every GO2 program links a runtime written in C++**: the collector, allocation, list and map growth, string building, `fmt.print`, and the errors that stop a program. Its folder, and the C++ standard it targets, are not decided. Not built.
 
+### 2026-10-28 — The collector moves values, compacting or copying live ones together (owner: (b))
+
+Design claude offered (a) no moving, freeing in place, (b) moving, compacting or copying live values together (fast allocation, no fragmentation; every pointer updated, a list handed to C pinned during the call), (c) no for now, moving left open by GO2's having no raw pointers; and recommended (c). The owner: "(b)". So **the collector moves values, made possible by the precise stack maps; a list handed to C is pinned until the call returns**. Whether it compacts or copies, and whether it has generations, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
