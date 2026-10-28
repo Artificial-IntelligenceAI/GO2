@@ -620,6 +620,10 @@ Design claude listed seven small details and recommended all. The owner: "yes". 
 
 Design claude listed seven small details and recommended all. The owner: "yes". So **no methods added to `str` or another package's types**, as Go. Not built.
 
+### 2026-10-28 — `project.go2` holds `Project[name = "…"];` for now, `Project` built into the compiler (owner)
+
+Design claude listed seven small details and recommended all. The owner: "yes". So **one field, `name`**; more come with something to set. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
