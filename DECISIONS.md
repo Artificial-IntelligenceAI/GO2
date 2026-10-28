@@ -740,5 +740,9 @@ Design claude applied "follow maths, else parentheses" operator by operator, and
 
 Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a + 1 < b && c == d` needs no parentheses**. Not built.
 
+### 2026-10-28 — Comparisons chain with the maths meaning, in one direction (owner)
+
+Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a < b < c` is `a < b && b < c`; `a == b == c` all equal**; a chain is all `<`/`<=`, all `>`/`>=`, or all `==`. Not built.
+
 ## Open
 
