@@ -324,6 +324,10 @@ With blocks now `{ }`, design claude offered (a) Go's `switch` form, `case empty
 
 Design claude offered (a) `{` on the header's line and `} else {` on one line, as Go (which needs it for its semicolon insertion), (b) anywhere, GO2 writing every `;` itself; and recommended (b), as indentation is already the writer's, a formatter giving one look later. The owner: "(b)". So **`fn main[]\n{` and `fn main[] {` are the same**; a line break matters only as the end of a `//` comment, and so are `}\nelse {` and `} else {`. A formatter is not decided. Not built.
 
+### 2026-10-28 — A conversion calls the type, `i64(x)`, as Go (owner: (a))
+
+Design claude offered (a) `i64(x)`, as Go, (b) `x as i64`, as Rust, (c) `to.i64(x)`, as CyborgPL; and recommended (a), Go's and shortest, and running, so in `( )`. First asked before failures existed; the owner: "Actually, `i64[]` is for bounds in CyPL, and it uses `otherwise`, `?`, and `??` err handling with `coll.handler` collections", correcting design claude's account of (c), then "Let's do err handling first"; asked again after. The owner: "(a)". So **`i64(x)` converts `x` to `i64`**; whether a narrowing that does not fit follows the overflow rule (stopping a debug build, wrapping in a release one), as design claude assumed in offering it, is not confirmed. Whether text converts this way (`i32("42") ?? 0`, failing `not_a_number`) is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
