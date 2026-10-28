@@ -264,6 +264,10 @@ Design claude listed, after CyborgPL: 1. `fail empty;` / `fail bad_char[c];` lea
 
 Design claude listed, after CyborgPL: 1. `fail empty;` / `fail bad_char[c];` leaves with that reason, 2. `f(x)?` passes it up, 3. `f(x) ?? 0` a fallback value, 4. arms for each reason after `otherwise:` at the call, 5. `f(x) otherwise name` a named handler, 6. a call that can fail stands alone; recommending all. The owner: "Or what about 1-3, but named handlers only, no 4?" Design claude agreed (call sites one line, arms in one place, arguments carrying what a call has; CyborgPL itself has 98 `?? value` against 7 named handlers) and listed 1, 2, 3, 5, 6. The owner: "yes, but no `otherwise` anymore, just `??`, and no `?` too". So **`let n = parse(a) ?? 0;`, never `parse(a) + parse(b)`**. Not built.
 
+### 2026-10-28 — `?? fail` passes a failure up: the same reason, with its data, to my caller (owner: (b))
+
+With `?` gone, design claude offered (a) a named handler whose arms `fail` again, (b) `?? fail`, a bare `fail` after `??` sending the same reason up, (c) not at all, each caller handling every failure; and recommended (b): short, spelled with words GO2 has, `??` staying the one way to handle. The owner: "(b)". So **`let n = parse(t) ?? fail;`**, and my own `fail[…]` must list every reason that can come through, or it is refused. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
