@@ -43,6 +43,13 @@ recommended (a). The owner: "uses the LLVM backend, and C++ when needed". So **G
 used where it is needed (when, and for what, the owner has not said yet). Installed here: Homebrew LLVM 23.1.2
 (also 21 and 22), Apple clang 21. Not built.
 
+### 2026-10-28 — The compiler links LLVM as a library, with C++ shims where its C API falls short (owner: (b))
+
+Design claude offered (a) writing LLVM IR as text for `clang` (the self-hosted compiler then needs no link to LLVM),
+(b) linking LLVM from Rust (`inkwell` or `llvm-sys`), with C++ shims where the C API falls short, (c) (a) first, (b)
+once GO2 compiles itself; and recommended (c). The owner: "(b)". So **the Rust compiler builds IR through LLVM's
+library**, and the self-hosted one will call LLVM (and the shims) from GO2 too. Which crate is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
