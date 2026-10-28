@@ -772,5 +772,9 @@ Design claude listed how names and number literals work and recommended all seve
 
 Design claude listed how names and number literals work and recommended all seven, the seventh "no decimal point, GO2 having no floating-point type yet". The owner: "yes, but bin floats are `f`". So **`pkg import pub fn ret let var const struct enum match case else if for in stop next fail coll member extern self true false and or`**. Not built.
 
+### 2026-10-28 — Built-in type names are reserved too (owner)
+
+Design claude listed how names and number literals work and recommended all seven, the seventh "no decimal point, GO2 having no floating-point type yet". The owner: "yes, but bin floats are `f`". So **`i8`…`u64`, `bool`, `str`, `ls`, `map`, `cstr`** can never be names: `let str = 5;` is refused. Not built.
+
 ## Open
 
