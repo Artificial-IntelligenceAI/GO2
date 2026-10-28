@@ -288,6 +288,10 @@ coll.handler parse:
 
 used as **`parse(t) ?? parse.parse_failed(0)`**, arguments in `( )` as the use runs it. An arm is `case <reason>:` … `;case <reason>`, as proposed; how an arm names a reason's data, and whether a handler without parameters is used bare, are not decided. Not built.
 
+### 2026-10-28 — An arm names a reason's data after it, `case bad_char c:`, a `let` inside the arm (owner)
+
+Design claude listed three handler rules, after CyborgPL's, and recommended confirming each. The owner: "yes". So **`case <reason> <name>:` binds the data**; it never changes. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
