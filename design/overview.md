@@ -31,13 +31,14 @@ fn main[] {
   self-hosted one, in GO2, and replaces G2RS once it builds itself. Both take `build` and `run`.
 - Both compile through LLVM, linked as a library: G2RS through `llvm-sys` (Homebrew LLVM 23), with C++ shims where
   LLVM's C API falls short.
-- Builds are debug or release; they differ in arithmetic overflow (below). How one is asked for is open.
+- Builds are debug (`g2rs build`) or release (`g2rs build --release`); they differ in arithmetic overflow (below).
 
 ## Projects and packages
 
-- A project's root holds `project.go2`, a GO2 struct literal: `Project[name = "goto"]`. The compiler walks up from
-  where it is to find it.
-- A folder is a package. Every `.go2` file in it starts `pkg <name>;` and sees the others' names.
+- A project's root holds `project.go2`, a GO2 struct literal: `Project[name = "goto"];`, its one field for now. The
+  compiler walks up from where it is to find it.
+- A folder is a package. Every `.go2` file in it starts `pkg <name>;`, the folder's name (`main` at the root), and
+  sees the others' names.
 - `import "lexer";` names a folder, from the project root.
 - `pub` makes a thing visible to other packages: `pub fn`, `pub struct`, `pub enum`. A `pub` type shows everything in
   it (fields, methods, cases); without `pub`, nothing leaves the package.
@@ -83,7 +84,7 @@ made cheap by copy-on-write. So a `let` list or struct never changes, inside or 
 **Numbers.** A bare number takes the type of the variable it meets (`n + 1` with `n: i32` makes `1` an `i32`;
 `let x: i8 = 5;`). With nothing around it, it is an `i64`. Conversion calls the type: `i64(x)`. A narrowing that does
 not fit follows the overflow rule, unless handled: `i8(x) ?? 0`. Text converts the same way and must be handled:
-`i64(text) ?? 0` (fails `not_a_number` or `out_of_range`).
+`i64(text) ?? 0` (fails `not_a_number` or `out_of_range`); a number is an optional `-` and digits.
 
 ### Structs
 
@@ -182,7 +183,8 @@ fn main[] { … }                                      // returns nothing; exits
 - Every parameter says `let` or `var` and its own type; a `var` one must be changed in the body.
 - `-> T` gives the return type; `ret` returns, and `ret;` leaves a function that returns nothing. `main` has none
   and exits 0 at its end; `os.exit(3);` exits with a code.
-- A method is declared outside its type as `fn Type.name[let self, …]` or `[var self, …]`, and called `v.name(…)`.
+- A method is declared outside its type, in the type's own package, as `fn Type.name[let self, …]` or
+  `[var self, …]`, and called `v.name(…)`.
 
 ## Control flow
 
@@ -219,7 +221,7 @@ save(f) ?? fail;                    // fn save[…] -> fail[disk_full]: returns 
 let d = parse(t) ?? parse.or_ret(0); // a handler with arguments: returns 0 from the enclosing fn
 ```
 
-Named handlers are grouped in a `coll.handler`, and used as `<collection>.<member>`:
+Named handlers are grouped in a `coll.handler` (the one kind of `coll`), and used as `<collection>.<member>`:
 
 ```
 coll.handler parse {
@@ -267,7 +269,8 @@ let f = LLVMFunctionType(ret, params, u32(params.len()), 0);
 - A C function is declared one at a time, `extern.c fn`, with its C name and no body.
 - C's integers are GO2's sized types: `int` is `i32`, `unsigned` is `u32`, `long` and `size_t` are 64-bit.
 - `cstr` is a NUL-ended C string: `cstr(s)` makes one from a `str`, `str(c)` copies one back.
-- A C array parameter takes a GO2 list (a pointer to its items); the count is passed apart.
+- A C array parameter takes a GO2 list (a pointer to its items); the count is passed apart. C may only read it,
+  during the call.
 
 ## Memory
 
@@ -277,12 +280,9 @@ Garbage collected, by a collector written for GO2.
 
 Not decided yet, roughly in the order the compiler will need them:
 
-- What "C++ when needed" covers; what C may do with a list it is given.
+- What "C++ when needed" covers.
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
-- Which text counts as a number.
 - Walking a string's characters; whether invalid UTF-8 can exist.
-- Whether `coll` groups anything but handlers.
-- Whether a folder's name must match its `pkg` line; what else `project.go2` holds; methods on another package's types.
 - The garbage collector's kind, and what it is written in.
-- How a debug or release build is asked for; a formatter.
+- A formatter.
 - What GO2 is, in one sentence.
