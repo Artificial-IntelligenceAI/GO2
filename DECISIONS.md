@@ -272,6 +272,22 @@ With `?` gone, design claude offered (a) a named handler whose arms `fail` again
 
 Asked how a named handler is defined, design claude proposed a standalone `handler parse_failed[…]:` … `;handler parse_failed`, CyborgPL's member without the collection, as the owner had asked. The owner: "Actually, let's do `coll.handler`, so it could be organized well. It becomes say `parse.parse_failed` at call". So **handlers are grouped in a named `coll.handler`, and a call names the collection and the handler: `parse(t) ?? parse.parse_failed`**. This reverses "not with a `coll`" (the two `decision.failures.named` entries above). How a handler is written inside the collection, and whether `coll` groups anything but handlers, are not decided. Not built.
 
+### 2026-10-28 — Inside a `coll.handler`, a handler is `member <name>[…]:` … `;member <name>`, the full name only at the call (owner: (b))
+
+Design claude offered (a) CyborgPL's, the full name everywhere, `member parse.parse_failed[…]:`, (b) the short name inside, `member parse_failed[…]:` … `;member parse_failed`, (c) as (b) with `handler` for `member`; and recommended (b), the `parse.` prefix only repeating the block it is in. The owner: "(b)". So:
+
+```
+coll.handler parse:
+    member parse_failed[let fallback: i32]:
+        case empty:
+            ret fallback;
+        ;case empty
+    ;member parse_failed
+;coll.handler parse
+```
+
+used as **`parse(t) ?? parse.parse_failed(0)`**, arguments in `( )` as the use runs it. An arm is `case <reason>:` … `;case <reason>`, as proposed; how an arm names a reason's data, and whether a handler without parameters is used bare, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
