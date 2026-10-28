@@ -312,6 +312,10 @@ Design claude noted that, an arm only leaving, a handler on a call that gives a 
 
 After the failure-handling example (a `coll.handler` thick with `;case …` closers), the owner: "Should we change to `{}`?" Design claude took it to mean blocks and listed what `{ }` costs (the closer no longer says what it closes; the closer, `:`-opener, `;if` and `member`/`case` closer entries reversed; CyborgPL went the other way), placed the noise in each `case` closing itself, and offered (a) `{ }` everywhere, as Go, (b) closers kept, arms closing as the `if` chain does, (c) as it is; recommending (b). The owner: "(a), and allow trailing `//`". So **`fn main[] { … }`, `if c { … } else if d { … } else { … }`, `for x in xs { … }`**; `:` only labels a type, and `;` only ends a statement. **This reverses** the block closer (`;fn main`, `;if`), the required `:` opener, the `if` chain's single `;if` (the chain is now Go's `} else if … {`), the loops' `;for`, and the `coll.handler` / `member` closers, which take braces too. Where `{` must sit, and how a handler's arms are written, are not decided. Not built.
 
+### 2026-10-28 — A `//` comment may follow code on its line (owner)
+
+After the failure-handling example (a `coll.handler` thick with `;case …` closers), the owner: "Should we change to `{}`?" Design claude took it to mean blocks and listed what `{ }` costs (the closer no longer says what it closes; the closer, `:`-opener, `;if` and `member`/`case` closer entries reversed; CyborgPL went the other way), placed the noise in each `case` closing itself, and offered (a) `{ }` everywhere, as Go, (b) closers kept, arms closing as the `if` chain does, (c) as it is; recommending (b). The owner: "(a), and allow trailing `//`". So **`let n = 5; // why`** is allowed; a comment still runs to the end of its line, and there is still no block comment. **This reverses** "a comment takes its own line; one after code is refused". Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
