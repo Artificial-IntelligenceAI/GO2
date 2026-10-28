@@ -170,6 +170,10 @@ Design claude offered (a) one closer for the whole chain, each `else if …:` or
 
 Design claude offered (a) only `for`, as Go: `for:` forever, `for n < 10:` while a condition holds, `for item in items:` over a collection or range; (b) `for` and `while`, as CyborgPL; (c) (b) and `loop:`; and recommended (a), adding that with no `x += 1` a C-style three-part `for` would not fit. The owner: "(a)". So **every loop is `for`, closed by `;for`; `for:` runs forever and `for <condition>:` runs while it holds**. How a loop walks over things (`in`, ranges) is not decided, nor are `break` and `continue`. Not built.
 
+### 2026-10-28 — A `for` walks with `in`: `for x in xs:`, `for i, x in xs:`, `for i in 0..10:` (owner: (a))
+
+Design claude offered (a) `for x in xs:`, with a position `for i, x in xs:`, over numbers `for i in 0..10:`; (b) Go's `range`, `for i, x in range xs:`; and as (c) a "CyborgPL-style" `for i in i32[min: 0, max: 9]:`. The owner: "What in the curse shit did I just see". CyborgPL's design claude then corrected it: that loop is not CyborgPL (`i32[min: 0, max: 9]` is a bounded type, and its oracle refuses the loop); CyborgPL counts with `for $i [from: 0, to: 9, by: 1]:` and walks with `for $x in lend $xs:`. Design claude re-offered (c) as that, and recommended (a). The owner: "(a)". So **`for <name> in <things>:`, `for <pos>, <name> in <things>:`, and `<a>..<b>` for a run of numbers**. Whether `0..10` includes 10, and whether the loop's names are `let`, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
