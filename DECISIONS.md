@@ -408,6 +408,10 @@ Asked how a list gives its length and takes an item, design claude offered (a) f
 
 Design claude offered (a) Go's, the receiver before the name, `fn [let p: Point] dist[let q: Point]`, (b) inside the struct's block, `fn dist[let self, …]`, (c) outside, named by type and method, `fn Point.dist[let self, let q: Point] -> i64 { … }`; and recommended (c), the declaration mirroring the call. The owner: "(c)". So **`fn <Type>.<method>[let self, …]` or `[var self, …]`**, declared anywhere; `self` has no written type, being the method's own. Whether a method may be declared for a type from another package is not decided. Not built.
 
+### 2026-10-28 — The list type is `ls`: `ls[i64]` (owner)
+
+Design claude listed how lists work (`xs.push(4)`, `xs.pop()` among them); the owner: "Any alt words for `push` and `pop`?" Offered `push`/`pop`, `append`/`pop`, `add`/`remove_last`, `append`/`remove_last`, `put`/`take`, design claude recommended `append` and `remove_last`. The owner: "Can we abbrev `remove`? Maybe `rem`?" Design claude: it fits `pkg`, `fn`, `ret`, `str`, though `rem` is the usual short name for remainder elsewhere; offered `rem_last`, `del_last`, `rm_last`, `drop_last`. The owner: "`ls` for `list`, and `rm_last`. I didn't approve the others yet". So **`let xs: ls[i64] = [1, 2, 3];`**; this renames `list[i64]` from the entry choosing the list type. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
