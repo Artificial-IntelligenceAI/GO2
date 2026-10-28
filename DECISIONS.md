@@ -244,6 +244,10 @@ Asked how a conversion is written, the owner: "Let's do err handling first". Des
 
 Clarified the same day, with the next question: "by 'named reusable handlers', I mean CyborgPL's kind but not with a `coll`". CyborgPL's kind (its `examples/collection_handlers.cy`, `handler_arguments.cy`): a named set of arms, one per reason the call can fail, used at a call as if written there, so an arm may `ret`, `break`, `continue` or `fail` from where it is used; one missing a reason the call can fail is refused there; it may take arguments. CyborgPL groups them as members of a `coll.handler`; **in GO2 a handler is that, without the collection around it**.
 
+### 2026-10-28 — A function lists the ways it can fail by name, `-> i32 or fail[empty, not_a_number]` (owner: (a))
+
+Design claude offered (a) named reasons in the signature, as CyborgPL and Zig, `fn parse[let s: str] -> i32 or fail[empty, not_a_number]:`, each able to carry data, adding one breaking every caller on purpose; (b) one error type per function, as Rust (needing sum types first); (c) one universal error value, as Go's `error`; and recommended (a): it needs no other feature first, makes handlers exact, and `fail[…]` fits `[ ]` holding. The owner: "(a)". So **`-> <type> or fail[<reason>, …]`**; a reason with data is `<reason>: <type>`, as a parameter is. How a function fails (a `fail` statement or other), and the spelling for one that returns nothing but can fail, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
