@@ -1,0 +1,1 @@
+wrong_arg_type.go2:6:29: parameter `n` is an i64, but this is an i32

@@ -1,0 +1,8 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    {
+        fmt.print("x\n");
+    }
+}

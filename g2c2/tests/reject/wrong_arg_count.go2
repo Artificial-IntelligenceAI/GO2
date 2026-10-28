@@ -1,0 +1,10 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    fmt.print("{}\n", twice(1, 2));
+}
+
+fn twice[let n: i64] -> i64 {
+    ret n * 2;
+}

@@ -1,0 +1,1 @@
+not_imported.go2:5:5: `os` is used but not imported: `import "os";`

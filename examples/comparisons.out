@@ -1,0 +1,13 @@
+a < b < c true
+c > b > a true
+a < c < b false
+a <= a < b true
+a == a == a true
+a == a == b false
+a + 1 < c && c == 3 true
+abc < abd true
+ab < abc true
+b > abc true
+go == go true
+go != GO true
+200 > 100 true

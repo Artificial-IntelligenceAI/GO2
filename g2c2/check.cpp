@@ -940,7 +940,7 @@ static void check_stmt(Ctx& c, Stmt* s) {
     }
     case StmtKind::Expr: {
         Expr* e = s->value->kind == ExprKind::Handle ? s->value->kids[0] : s->value;
-        if (e->kind != ExprKind::Call) error_at(e->pos, "only a call stands as a statement; this value is unused");
+        if (e->kind != ExprKind::Call) error_at(s->pos, "only a call stands as a statement; this value is unused");
         if (s->value->kind == ExprKind::Handle) {
             check_handle(c, s->value, nullptr);
         } else {

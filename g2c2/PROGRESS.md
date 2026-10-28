@@ -37,10 +37,14 @@ picking an answer.
 - `let`, `var` (must change), `const` (a literal), written types, lazy inference; `_` and hex literals.
 - Integer types, literals taking the type they meet, `+ - * / %`, division toward zero, precedence and the
   parenthesis rules (`/` then `*`, `%` beside arithmetic, mixed logic, one-way comparison chains), the same-type rule.
+- `bool`, `if`/`else if`/`else`, `for` forever / while / over `a..b` (both ends worked out once, see question 18),
+  `stop`, `next`; `&&`/`||` stopping early, `and`/`or` running both sides, comparison chains; `str` comparisons.
+- Functions: `let`/`var` parameters (a `var` must change), `-> T`, `ret`, `ret;`, recursion, Go's rule for a
+  reachable end (question 16), calls as statements.
 
 ## Next
 
-- Control flow, functions, then structs, enums, failures, strings, packages, calling C.
+- Then structs, enums, failures, strings, packages, calling C.
 
 ## Open questions
 

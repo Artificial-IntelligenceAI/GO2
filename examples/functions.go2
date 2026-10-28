@@ -1,0 +1,47 @@
+pkg main;
+import "fmt";
+
+fn add[let a: i32, var b: i32] -> i32 {
+    b = b + 1;
+    ret a + b;
+}
+
+// recursion, and a function declared after its use
+fn fib[let n: i64] -> i64 {
+    if n < 2 { ret n; }
+    ret fib(n - 1) + fib(n - 2);
+}
+
+fn greet[let who: str] {
+    if who == "" {
+        ret;
+    }
+    fmt.print("hello, {}\n", who);
+}
+
+// a function's end cannot be reached when every branch returns
+fn sign[let n: i64] -> i64 {
+    if n > 0 { ret 1; } else if n < 0 { ret -1; } else { ret 0; }
+}
+
+fn first_over[let limit: i64] -> i64 {
+    var n = 1;
+    for {
+        if n * n > limit { ret n; }
+        n = n + 1;
+    }
+}
+
+fn main[] {
+    let x: i32 = 5;
+    fmt.print("{} {}\n", add(x, 1), x);
+    fmt.print("{}\n", fib(20));
+    greet("");
+    greet("GO2");
+    fmt.print("{} {} {}\n", sign(-5), sign(0), sign(7));
+    fmt.print("{}\n", first_over(50));
+    // a call's value may be left unused
+    add(1, 2);
+    if true { ret; }
+    fmt.print("never\n");
+}

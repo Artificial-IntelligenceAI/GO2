@@ -1,0 +1,1 @@
+fmt_not_imported.go2:4:5: `fmt` is used but not imported: `import "fmt";`
