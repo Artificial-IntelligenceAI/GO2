@@ -460,6 +460,10 @@ Design claude listed how maps work and recommended all six. The owner: "yes". So
 
 Design claude listed how maps work and recommended all six. The owner: "yes". So **`m["ann"]` reads a value, and a read is handled as any failing call**; unlike a list index, a missing key is everyday, not a bug, so a forgotten check is refused, not stopping the program. Not built.
 
+### 2026-10-28 — `m[k] = v;` adds or replaces, on a `var` map only (owner)
+
+Design claude listed how maps work and recommended all six. The owner: "yes". So **`m["cy"] = 41;`**, counting as the map's change. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
