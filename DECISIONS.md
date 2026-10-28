@@ -796,5 +796,9 @@ Design claude listed how names and number literals work and recommended all seve
 
 With the reserved type names listed (`cstr` among them), the owner: "Isn't it `str.c`?" Design claude: it fits the pattern of `extern.c` and `coll.handler`, a general word narrowed by a dot, and says it is a kind of `str` in C's form; the parser reads `str.c` as one type where a type is expected; recommended it. The owner: "yes". So **`let name: str.c`, made by `str.c(s)` and copied back by `str(c)`**, and `str.c` takes `cstr`'s place among the reserved names. **This renames** `cstr` from the C-calling entries. Not built.
 
+### 2026-10-28 — The float types are `f32` and `f64`, IEEE 754 (owner)
+
+Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`let x: f64 = 2.5;`**; both are reserved names. Not built.
+
 ## Open
 
