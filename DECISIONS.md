@@ -720,5 +720,9 @@ Asked at the start what GO2 is in one sentence, with design claude's proposals (
 
 The owner: "Should we lock it to LLVM `O1`?" Design claude: the identity sentence ("fast compiles, and okay runtime performance") describes `-O1`; offered (a) always O1, one level as Go has, debug and release differing only in overflow checks, (b) O0 for debug, O1 for release, (c) O1 by default, an `--opt` flag for O2; and recommended (a). The owner: "(a)". So **G2C2 and GoTo always optimise at LLVM's O1**. Not built.
 
+### 2026-10-28 — Precedence follows maths; where maths has no answer, parentheses are required (owner)
+
+Design claude proposed Go's table (unary `-` `!`; `*` `/` `%`; `+` `-`; comparisons; `&&` `and`; `||` `or`), left to right within a level, comparisons not chaining, `&&` mixed with `||` needing parentheses, `??` lowest. The owner: "Follow math, if math doesn't have an answer, requ `()`". So **an expression groups as a mathematician would read it, and one a mathematician could read two ways is refused until parenthesised**. How that applies operator by operator is asked next. Not built.
+
 ## Open
 
