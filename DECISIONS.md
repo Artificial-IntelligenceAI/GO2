@@ -672,6 +672,10 @@ Design claude offered (a) mark-compact, no memory in reserve where most memory s
 
 Design claude listed three string details and recommended all. The owner: "yes". So **literals are checked by the compiler, and `concat` of valid strings stays valid**; invalid text cannot exist in a `str`. Not built.
 
+### 2026-10-28 — `str(bytes)` makes a string from an `ls[u8]`, failing `not_utf8` (owner)
+
+Design claude listed three string details and recommended all. The owner: "yes". So **`let s = str(data) ?? fail;`**, the one place outside text is checked. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
