@@ -452,6 +452,10 @@ Design claude proposed `break;` and `continue;`, as Go: each acting on the inner
 
 Design claude offered (a) `map[str, i64]`, Go's word, (b) `mp[…]`, matching `ls`, (c) `dict[…]`; and recommended (a), already three letters. The owner: "(a)". So **`map[<key>, <value>]`**. The literal (proposed `["ann" = 30, "bo" = 25]`), reading (`ages["ann"]`) and a missing key are not decided. Not built.
 
+### 2026-10-28 — A map literal is `["ann" = 30, "bo" = 25]`; an empty one `[]` where its type is known (owner)
+
+Design claude listed how maps work and recommended all six. The owner: "yes". So **`var m: map[str, i64] = [];`**, built as a struct is. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
