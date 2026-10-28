@@ -845,6 +845,12 @@ in chat (which may exceed the upload limit), (b) the build pushed to git for a `
 so GO2's history stays small, (c) a PyPI package; recommended (b). The owner: "(b)". So **the release is cloned from
 git, never attached in chat or published on PyPI**. Not built.
 
+### 2026-10-28 — The release lives in its own public repo, not a branch of GO2 (owner: (a))
+
+Design claude offered (a) a separate public repo on the account, (b) a `release` branch in GO2; recommended (a), since
+a plain clone of GO2 fetches every branch and would carry every build. The owner: "(a)". So **builds go to their own
+repo, and GO2 stays source only**. The repo's name is still open. Not built.
+
 ## Open
 - How G2C2 and the runtime write C++ (ownership, exceptions, RTTI, warnings, sanitizers, hardening, formatting).
   Design claude proposed a list; the owner: "Idk, we'll see what bro writes". Left to see what compiler claude writes.
