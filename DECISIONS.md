@@ -98,6 +98,10 @@ From the owner's hello-world sketch; design claude listed its parts to confirm a
 
 From the owner's hello-world sketch; design claude listed its parts to confirm and recommended all. The owner: "indentation is required, confirm (and btw, `fmt.print` is formatted print)". So **`i8 i16 i32 i64 u8 u16 u32 u64`**; a pointer-sized integer, and whether there are others, is not decided. Not built.
 
+### 2026-10-28 — `fmt.print` is formatted print, and adds no newline (owner)
+
+From the owner's hello-world sketch; design claude listed its parts to confirm and recommended all. The owner: "indentation is required, confirm (and btw, `fmt.print` is formatted print)". Design claude had listed it as printing that adds no newline; the owner added that it is **formatted print**, a format string with its values, as Go's `Printf`. So **`fmt.print("…\n", …)`** formats and prints, ending no line itself. The format's spelling is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
