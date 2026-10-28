@@ -356,6 +356,10 @@ Design claude offered (a) `Point[x = 1, y = 2]`, `[ ]` holding and `=` setting a
 
 Design claude offered (a) every field, by name, any order, a missing one refused, (b) a missing field a zero value, as Go (every type then needing a zero, Go's `nil` troubles), (c) a field able to declare a default and be left out; and recommended (a), defaults addable later without breaking code. The owner: "(a)". So **`Point[y = 2, x = 1]` is fine; `Point[x = 1]` is refused, naming `y`**; there are no zero values. Not built.
 
+### 2026-10-28 — An `enum`'s cases can carry data, shaped as failure reasons: `plus;`, `number: i64;` (owner: (a))
+
+Design claude offered (a) one `enum` whose cases are a bare name or `name: type`, as a failure reason, built `Token.number[42]` as `fail bad_char[c]`; (b) `enum` for plain names and `union` for cases with data; (c) nothing new, as Go (constants and interfaces); and recommended (a), the shape failure reasons already have, and what makes a compiler pleasant to write. The owner: "(a)". So **`enum Token { plus; name: str; number: i64; }`, a value built `Token.plus` or `Token.number[42]`**. Whether a case says `let` or `var`, and how code tells cases apart, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
