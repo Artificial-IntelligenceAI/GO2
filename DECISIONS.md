@@ -150,9 +150,11 @@ The owner: "Should `let` & `var` be a promise? Like, `var` must change?" Design 
 
 Design claude offered (a) `x = x + 1;`, as Go and C, (b) a keyword, `set x = x + 1;`, (c) either, plus compound forms such as `x += 1;` (dropped by CyborgPL the same day); and recommended (a) without `+=`. The owner: "(a)". So **a change is `<name> = <value>;`**, told apart from a declaration by having no `let`, `var` or `const` in front; compound forms are not part of it. Not built.
 
+### 2026-10-28 — A written type follows its name after `:`, `let x: i32 = 5;`, `fn add[a: i32, b: i32] -> i32:` (owner: (b))
+
+Set aside earlier for variables first, then asked for both: design claude offered (a) `name type`, as Go, (b) `name: type`, as Rust, TypeScript and CyborgPL, (c) `type name`, as C; and recommended (a), leaving `:` one job. The owner: "(b)". So **a variable or parameter is `<name>: <type>`**; `:` both labels a type and opens a block. Leaving the type out of a variable, `let x = 5;`, infers it. Whether `[a, b: i32]` shares a type is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
   pattern matching, little enough to self-host early); not decided.
-- How parameters are written in `[ ]`: `name type` (Go), `name: type`, or `type name`. Design claude recommended
-  `name type`; set aside for variables first.
