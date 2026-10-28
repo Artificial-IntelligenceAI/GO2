@@ -364,6 +364,10 @@ Design claude offered (a) one `enum` whose cases are a bare name or `name: type`
 
 Design claude offered (a) `match tok { case plus { … } case number v { … } }`, arms shaped as handler arms, a missing case refused and named, (b) as (a) under Go's `switch` (which checks no coverage), (c) only `if tok is number v { … }`; and recommended (a). The owner: "(a)". So **`match <value> { case <case> { … } case <case> <name> { … } }`**, the data a `let` inside the arm, every case covered. A way to say "every other case", and whether a `match` gives a value, are not decided. Not built.
 
+### 2026-10-28 — A `match`'s last arm may be `else { … }`, every case not named above (owner: (a))
+
+Design claude offered (a) `else { … }` as the last arm, as in an `if` chain, (b) `case _ { … }`, (c) no catch-all; and recommended (a), noting a `match` with `else` does not break when a case is added. The owner: "(a)". So **`match tok { case plus { … } else { … } }`**; an `else` covering nothing (every case already named) is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
