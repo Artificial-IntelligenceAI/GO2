@@ -632,6 +632,10 @@ Design claude listed seven small details and recommended all. The owner: "yes". 
 
 Design claude listed seven small details and recommended all. The owner: "yes". So **no other `coll.` kinds**. Not built.
 
+### 2026-10-28 — C may only read a list it is given, and only during the call (owner)
+
+Design claude listed seven small details and recommended all. The owner: "yes". So **C must not keep the pointer or write through it**; one that needs more gets a copy, made explicitly. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
