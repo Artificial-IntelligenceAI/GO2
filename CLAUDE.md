@@ -16,10 +16,13 @@ Design repository for **GO2**, the owner's experimental hobby language, meant to
 
 ## Layout
 
+- `README.md` — what GO2 is, and its licences (Apache-2.0 WITH LLVM-exception for code, CC BY 4.0 for writing).
 - `DECISIONS.md` — the running log of settled design decisions.
 - `design/` — design documents, one topic per file, as they are written.
 
 ## Git
+
+Public at `Artificial-IntelligenceAI/GO2` (owner, 2026-10-28: "the AI account public, and with same licenses as CyPL").
 
 Commits follow `Soclets/CyborgPL`'s form (owner, 2026-10-28: "Do GH commits like Soclets/CyborgPL").
 
