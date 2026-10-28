@@ -764,5 +764,9 @@ Design claude applied "follow maths, else parentheses" operator by operator, and
 
 Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a && b and c` is refused**; maths has no notion of stopping early. Not built.
 
+### 2026-10-28 — A name is ASCII letters, digits and `_`, not starting with a digit (owner)
+
+Design claude listed how names and number literals work and recommended all seven, the seventh "no decimal point, GO2 having no floating-point type yet". The owner: "yes, but bin floats are `f`". So **`parse_line`, `Token`, `x2`**; letters beyond ASCII may come later. Not built.
+
 ## Open
 
