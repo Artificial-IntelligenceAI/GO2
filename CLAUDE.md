@@ -8,6 +8,8 @@ Design repository for **GO2**, the owner's experimental hobby language, meant to
   architecture, and none fill in a default for an open decision. Ask in plain text and wait.
 - **One question at a time** (owner, 2026-10-28), each with a recommendation.
 - **Never use the AskUserQuestion tool** in this project ("no pop ups", owner, 2026-10-28).
+- **Building waits for the owner's go** (owner, 2026-10-28: "Woah, I didn't say go yet (but bug fixing is auto)").
+  A settled design is not a go. Fixing a bug in what is already built needs no go.
 - Record decisions in `DECISIONS.md` as they are made, noting what the owner chose versus what was proposed.
 - **GO2 is a hobby language.** No timeline; do not push for schedules or scope.
 
