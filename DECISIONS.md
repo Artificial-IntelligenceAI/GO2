@@ -226,6 +226,10 @@ Design claude listed how arithmetic works and recommended confirming each, and f
 
 Design claude listed how arithmetic works and recommended confirming each, and for a result that does not fit its type offered (a) wrapping, as Go, silently, (b) stopping with an error naming the line; recommending (b). The owner: "correct, but (b) on debug, and (a) on release". So **one side is converted first**, as in Go. How a conversion is written, and the type of a bare `5`, are not decided. Not built.
 
+### 2026-10-28 — A result too big for its type stops the program in a debug build, and wraps in a release build (owner)
+
+Design claude listed how arithmetic works and recommended confirming each, and for a result that does not fit its type offered (a) wrapping, as Go, silently, (b) stopping with an error naming the line; recommending (b). The owner: "correct, but (b) on debug, and (a) on release". So **an `i8` at 127 plus 1 stops with an error naming the line in a debug build, and gives -128 in a release build**. This makes debug and release builds part of GO2; how one is asked for is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
