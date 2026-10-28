@@ -388,6 +388,10 @@ Design claude listed how a `str` behaves: 1. UTF-8 bytes, 2. never changing in p
 
 Design claude listed how a `str` behaves: 1. UTF-8 bytes, 2. never changing in place, 3. `s[i]` the i-th byte, 4. `a + b` joining, as Go (CyborgPL having moved to the word `concat`); and recommended all. The owner: "yeah, but `concat". So **joining is spelled `concat`**, and `+` on two `str` is refused. Whether it is a word between them (`a concat b`) or a call (`concat(a, b)`) is not decided. Not built.
 
+### 2026-10-28 — `concat` is a call joining any number of strings, `concat(a, b, "!")` (owner: (b))
+
+Design claude offered (a) a word between strings, `a concat b concat "!"`, as `and` / `or`, (b) a call, `concat(a, b, "!")`; and recommended (b): any number of pieces in one new string, no precedence, and running is `( )`. The owner: "(b)". So **`let s = concat(a, b, "!");`**. Whether `concat` is built in or comes from a package is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
