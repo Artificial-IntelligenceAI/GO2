@@ -106,6 +106,10 @@ From the owner's hello-world sketch; design claude listed its parts to confirm a
 
 From the owner's hello-world sketch; design claude listed its parts to confirm and recommended all. The owner: "indentation is required, confirm (and btw, `fmt.print` is formatted print)". So **`"Hello, World!\n"`**, with `\n`, `\t`, `\\`, `\"` and the rest; which escapes exactly is not decided. Not built.
 
+### 2026-10-28 — Indentation is required, beside the closer (owner)
+
+From the owner's hello-world sketch; design claude listed its parts to confirm and recommended all. The owner: "indentation is required, confirm (and btw, `fmt.print` is formatted print)". Design claude had proposed indentation as cosmetic, the closers marking where blocks end; the owner: "indentation is required". So **a block's body is indented, and its closer is still written**: the compiler checks both. How much, and spaces or tabs, is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
