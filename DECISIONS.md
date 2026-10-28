@@ -202,6 +202,10 @@ Design claude listed, among how booleans work, "`&&` and `||` stop early", as Go
 
 Design claude listed, among how booleans work, "`&&` and `||` stop early", as Go's do. The owner: "`and`, `or`, `not` don't short circuit". Design claude read it as both sets existing, the symbols stopping early and the words always running both sides (as Java and C# split `&&` from `&`), and asked what `not` is for beside `!`. The owner: "yes, ignore `not`". So **`a and b` and `a or b` run `a`, then `b`, whatever `a` gave**, for when both sides do something; negation is `!` alone, and `not` is no keyword. This adds the words beside the symbols chosen earlier, each with its own meaning. Not built.
 
+### 2026-10-28 — The boolean type is `bool`, its values `true` and `false` (owner)
+
+Design claude listed how booleans work, as in Go, and recommended confirming each. The owner: "confirm". So **`let done: bool = false;`**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
