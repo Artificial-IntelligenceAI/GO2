@@ -17,6 +17,30 @@ An example `x.go2` (or a project folder `x/` holding `project.go2`) has its expe
 `x.release.out` / `x.release.exit` / `x.release.err` where those differ. A reject case `x.go2` has G2C2's error in
 `x.err`.
 
+The build puts `g2c2` in `build/bin/` and the runtime in `build/lib/`; G2C2 finds the runtime at `../lib/libg2rt.a`
+beside itself. On a Mac it links each program with the C compiler it was built with.
+
+## The Linux release
+
+A release carries our LLVM 23 inside `g2c2` (DECISIONS.md, "The release bundles the C compiler G2C2 links with"):
+`-DG2C2_BUNDLE=ON` links LLVM, LLD's ELF linker and the C++ library in, and `g2c2` links each program with that LLD,
+against the machine's C library. It needs no LLVM, clang or linker on the machine, only the C library's development
+files (`libc6-dev`). Only the x86 target is linked in; LLD starts every target LLVM was built with, and the others'
+starts do nothing. That keeps `bin/g2c2` at 54 MB, under GitHub's 100 MB limit for a file.
+
+Built on Ubuntu 22.04 x86_64 (glibc 2.35, so it runs on that and newer), with apt.llvm.org's `llvm-23-dev`,
+`liblld-23-dev`, `libpolly-23-dev` (named by LLVM's CMake package) and `clang-23`, and CMake from pip:
+
+```
+cmake -S . -B build -G Ninja -DCMAKE_C_COMPILER=clang-23 -DCMAKE_CXX_COMPILER=clang++-23 \
+  -DLLVM_DIR=/usr/lib/llvm-23/lib/cmake/llvm -DG2C2_BUNDLE=ON -DCMAKE_INSTALL_PREFIX=<release folder>
+cmake --build build && cmake --build build --target check && cmake --install build
+```
+
+then `strip bin/g2c2`, and `LICENSE`, `LICENSE-LLVM` (the LLVM package's copyright file) and a `README.txt` added. On
+this Mac, colima (`colima start g2c2 --vm-type vz --vz-rosetta`) runs the x86_64 containers. Where the release lives
+in git is not decided yet.
+
 ## How G2C2 is laid out
 
 - `g2c2/g2c2.h`: every struct and stage, in one header.
@@ -24,7 +48,8 @@ An example `x.go2` (or a project folder `x/` holding `project.go2`) has its expe
 - `g2c2/parse.cpp`: tokens to a syntax tree per file.
 - `g2c2/check.cpp`: names, types and every rule the compiler enforces; resolves the tree in place.
 - `g2c2/gen.cpp`: the checked tree to LLVM IR, optimised at `-O1`, written as an object file.
-- `g2c2/main.cpp`: `g2c2 build` and `g2c2 run`, finding `project.go2`, linking with clang.
+- `g2c2/main.cpp`: `g2c2 build` and `g2c2 run`, finding `project.go2`, linking (with clang, or the LLD inside a
+  release).
 - `runtime/runtime.cpp`: what compiled programs call: printing, stopping, text to number.
 
 Where the design is still open, G2C2 refuses the program with an error ending "is not decided yet", rather than
