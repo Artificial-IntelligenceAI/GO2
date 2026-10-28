@@ -360,6 +360,10 @@ Design claude offered (a) every field, by name, any order, a missing one refused
 
 Design claude offered (a) one `enum` whose cases are a bare name or `name: type`, as a failure reason, built `Token.number[42]` as `fail bad_char[c]`; (b) `enum` for plain names and `union` for cases with data; (c) nothing new, as Go (constants and interfaces); and recommended (a), the shape failure reasons already have, and what makes a compiler pleasant to write. The owner: "(a)". So **`enum Token { plus; name: str; number: i64; }`, a value built `Token.plus` or `Token.number[42]`**. Whether a case says `let` or `var`, and how code tells cases apart, are not decided. Not built.
 
+### 2026-10-28 — `match` tells an enum's cases apart, arms as a handler's, every case covered (owner: (a))
+
+Design claude offered (a) `match tok { case plus { … } case number v { … } }`, arms shaped as handler arms, a missing case refused and named, (b) as (a) under Go's `switch` (which checks no coverage), (c) only `if tok is number v { … }`; and recommended (a). The owner: "(a)". So **`match <value> { case <case> { … } case <case> <name> { … } }`**, the data a `let` inside the arm, every case covered. A way to say "every other case", and whether a `match` gives a value, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
