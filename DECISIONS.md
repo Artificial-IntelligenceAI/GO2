@@ -704,6 +704,10 @@ Design claude listed four details of how G2C2 is laid out and built, and recomme
 
 Design claude listed four details of how G2C2 is laid out and built, and recommended all. The owner: "cnfm". So **one CMake project**, LLVM's flags and libraries coming from LLVM's own CMake support. Not built.
 
+### 2026-10-28 — The C++ runtime lives in `runtime/`, built by the same CMake project (owner)
+
+Design claude listed four details of how G2C2 is laid out and built, and recommended all. The owner: "cnfm". So **`runtime/`**, which G2C2 and later GoTo link programs against. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
