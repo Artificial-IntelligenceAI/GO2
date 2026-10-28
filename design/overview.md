@@ -264,17 +264,17 @@ fmt.print("{}:{}: {}\n", line, col, msg);
 ```
 pub extern.c type LLVMModuleRef;          // an opaque C pointer type; mixups are refused
 pub extern.c type LLVMTypeRef;
-pub extern.c fn LLVMModuleCreateWithName[let name: cstr] -> LLVMModuleRef;
+pub extern.c fn LLVMModuleCreateWithName[let name: str.c] -> LLVMModuleRef;
 pub extern.c fn LLVMFunctionType[let ret: LLVMTypeRef, let params: ls[LLVMTypeRef], let count: u32,
                                  let variadic: i32] -> LLVMTypeRef;
 
-let m = LLVMModuleCreateWithName(cstr("main"));
+let m = LLVMModuleCreateWithName(str.c("main"));
 let f = LLVMFunctionType(ret, params, u32(params.len()), 0);
 ```
 
 - A C function is declared one at a time, `extern.c fn`, with its C name and no body.
 - C's integers are GO2's sized types: `int` is `i32`, `unsigned` is `u32`, `long` and `size_t` are 64-bit.
-- `cstr` is a NUL-ended C string: `cstr(s)` makes one from a `str`, `str(c)` copies one back.
+- `str.c` is a NUL-ended C string: `str.c(s)` makes one from a `str`, `str(c)` copies one back.
 - A C array parameter takes a GO2 list (a pointer to its items); the count is passed apart. C may only read it,
   during the call.
 
