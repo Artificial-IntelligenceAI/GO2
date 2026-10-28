@@ -792,5 +792,9 @@ Design claude listed how names and number literals work and recommended all seve
 
 Design claude listed how names and number literals work and recommended all seven, the seventh "no decimal point, GO2 having no floating-point type yet". The owner: "yes, but bin floats are `f`". Design claude read it as CyborgPL's word "bin" for binary floats: **they exist, named as integers are, by a letter and a width**. Which widths, their literals, and the rest are asked next. Not built.
 
+### 2026-10-28 — The C string type is `str.c`, not `cstr` (owner)
+
+With the reserved type names listed (`cstr` among them), the owner: "Isn't it `str.c`?" Design claude: it fits the pattern of `extern.c` and `coll.handler`, a general word narrowed by a dot, and says it is a kind of `str` in C's form; the parser reads `str.c` as one type where a type is expected; recommended it. The owner: "yes". So **`let name: str.c`, made by `str.c(s)` and copied back by `str(c)`**, and `str.c` takes `cstr`'s place among the reserved names. **This renames** `cstr` from the C-calling entries. Not built.
+
 ## Open
 
