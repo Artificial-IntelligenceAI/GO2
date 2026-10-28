@@ -78,8 +78,9 @@ popups), so keep questions in the message itself.
 <git>
 Commit in the house form from `CLAUDE.md`: author `Tankun Sriket <tankunsriket63741ecff056.invalid>`, subjects such as
 `feature.g2c2.lexer: …` or `fix.runtime.print: …`, and every commit ending with
-`Co-Authored-By: compiler claude <noreply@anthropic.com>`. Commit on your own branch only. Pushing and merging into
-`main` publish the work, and the owner wants to review it before that happens, so leave both to him.
+`Co-Authored-By: compiler claude <noreply@anthropic.com>`. Commit on your own branch, and push it after each commit
+(the owner wants commits on GitHub as they are made: "auto push, bro"). Merging into `main` is the owner's call, so
+leave that to him.
 </git>
 
 <when_to_stop>
