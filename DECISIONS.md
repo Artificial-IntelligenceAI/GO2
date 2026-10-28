@@ -154,6 +154,10 @@ Design claude offered (a) `x = x + 1;`, as Go and C, (b) a keyword, `set x = x +
 
 Set aside earlier for variables first, then asked for both: design claude offered (a) `name type`, as Go, (b) `name: type`, as Rust, TypeScript and CyborgPL, (c) `type name`, as C; and recommended (a), leaving `:` one job. The owner: "(b)". So **a variable or parameter is `<name>: <type>`**; `:` both labels a type and opens a block. Leaving the type out of a variable, `let x = 5;`, infers it. Whether `[a, b: i32]` shares a type is not decided. Not built.
 
+### 2026-10-28 — A `const` is baked in: its value is known when compiling (owner: (a))
+
+Design claude offered (a) `const` known when compiling, as Go (it can size arrays, stand outside functions, cost nothing at run time), `let` fixed once set but worked out while running, (b) `const` deep, nothing inside its value changing, (c) both; and recommended (a), keeping whether `let` reaches inside its value for when lists and structs come. The owner: "`const` must be baked in". So **a `const`'s value is worked out by the compiler and baked into the program; `let` is set once, while running**. What a `const` may hold, and whether `let` goes deep, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
