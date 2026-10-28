@@ -239,6 +239,24 @@ coll.handler parse {
 fmt.print("{}:{}: {}\n", line, col, msg);
 ```
 
+## Calling C
+
+```
+pub extern.c type LLVMModuleRef;          // an opaque C pointer type; mixups are refused
+pub extern.c type LLVMTypeRef;
+pub extern.c fn LLVMModuleCreateWithName[let name: cstr] -> LLVMModuleRef;
+pub extern.c fn LLVMFunctionType[let ret: LLVMTypeRef, let params: ls[LLVMTypeRef], let count: u32,
+                                 let variadic: i32] -> LLVMTypeRef;
+
+let m = LLVMModuleCreateWithName(cstr("main"));
+let f = LLVMFunctionType(ret, params, u32(params.len()), 0);
+```
+
+- A C function is declared one at a time, `extern.c fn`, with its C name and no body.
+- C's integers are GO2's sized types: `int` is `i32`, `unsigned` is `u32`, `long` and `size_t` are 64-bit.
+- `cstr` is a NUL-ended C string: `cstr(s)` makes one from a `str`, `str(c)` copies one back.
+- A C array parameter takes a GO2 list (a pointer to its items); the count is passed apart.
+
 ## Memory
 
 Garbage collected, by a collector written for GO2.
@@ -247,7 +265,7 @@ Garbage collected, by a collector written for GO2.
 
 Not decided yet, roughly in the order the compiler will need them:
 
-- Calling C and LLVM from GO2 (GoTo needs it), and what "C++ when needed" covers.
+- What "C++ when needed" covers; what C may do with a list it is given.
 - Generics beyond `ls` and `map`.
 - Leaving a function that returns nothing early (`ret;`?), and the exit call (`os.exit`?).
 - Whether a narrowing conversion follows the overflow rule; text to number (`i32("42") ?? 0`?).
