@@ -708,6 +708,10 @@ Design claude listed four details of how G2C2 is laid out and built, and recomme
 
 Design claude listed four details of how G2C2 is laid out and built, and recommended all. The owner: "cnfm". So **`runtime/`**, which G2C2 and later GoTo link programs against. Not built.
 
+### 2026-10-28 — G2C2 and the runtime are compiled with Homebrew clang 23 (owner)
+
+Design claude listed four details of how G2C2 is laid out and built, and recommended all. The owner: "cnfm". So **the same LLVM 23 G2C2 links against**, with its libc++ (all of C++23). Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
