@@ -488,6 +488,10 @@ Design claude offered (a) fields and methods each saying `pub`, an enum's cases 
 
 Design claude offered (a) `{}` marks filled in order, as Rust and Python, no type letters (the compiler knows each type), `{{` a literal brace; (b) Go's verbs, `%d`, `%s`; (c) names inside the string, `"{line}:{col}"`; and recommended (a). The owner: "(a), and should `\n` become `{newln}`.and `\` be left for escaping (`\"`) only?" So **each `{}` takes the next value**, any type. How a literal brace is written, and the owner's question about `{newln}`, are not decided. Not built.
 
+### 2026-10-28 — Strings keep C-style escapes, `\n`, `\t`, `\"`, `\\`; braces are special only to `fmt.print` (owner: (a))
+
+The owner: "should `\n` become `{newln}`.and `\` be left for escaping (`\"`) only?" Design claude: any string can need a newline (`concat(a, "\n", b)`), so `{newln}` would make `{` special in every string, braces in ordinary text doubled; offered (a) C-style escapes kept, `{}` special only to `fmt.print`, (b) named escapes in braces in every string, `{newln}`, `{tab}`, `{{`, `\` only for `\"` and `\\`, (c) both; and recommended (a). The owner: "(a)". So **a string's own text is plain but for `\` escapes; in `fmt.print`'s text `{}` takes a value and `{{` is a brace**, as offered with the `{}` marks. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
