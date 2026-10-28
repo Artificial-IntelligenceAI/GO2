@@ -118,6 +118,10 @@ Asked how indentation is checked, the owner: "`fn main[]:` is correct, `fn main[
 
 Design claude offered (a) `inkwell`, a safe typed Rust layer, (b) `llvm-sys`, the raw C API under `unsafe`; and recommended (b): the self-hosted compiler will call the same C API, so the Rust one is a guide for it, and C++ shims sit beside it alike. Both support LLVM 23 (`inkwell` 0.11.0, `llvm-sys` 231.0.1). The owner: "(b)". So **the Rust compiler uses `llvm-sys` against Homebrew LLVM 23**. Not built.
 
+### 2026-10-28 — GO2 source files end `.go2` (owner: (a))
+
+Design claude offered (a) `.go2`, (b) `.g2`, (c) one of the owner's own, as CyborgPL has `.cy`; and recommended (a): it says what it is, and not being `.go` keeps Go's tools and editors off it. The owner: "(a)". So **a GO2 file is `<name>.go2`**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
