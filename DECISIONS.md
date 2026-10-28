@@ -428,6 +428,10 @@ Design claude listed what was left of how lists work, and recommended all: 1. li
 
 Design claude listed what was left of how lists work, and recommended all: 1. lists grow, 2. `xs.len()`, 3. `append` / `rm_last` on a `var` list only, 4. `rm_last` giving the item or failing `empty`, 5. `xs[i]` out of range stopping the program, 6. `xs[i] = v;` on a `var` list only. The owner: "yes, but 5 should also be able to be handled". So **`for i in 1..xs.len() { … }` visits every position**. Not built.
 
+### 2026-10-28 — `append` and `rm_last` take `var self`: only a `var` list, and they count as its change (owner)
+
+Design claude listed what was left of how lists work, and recommended all: 1. lists grow, 2. `xs.len()`, 3. `append` / `rm_last` on a `var` list only, 4. `rm_last` giving the item or failing `empty`, 5. `xs[i]` out of range stopping the program, 6. `xs[i] = v;` on a `var` list only. The owner: "yes, but 5 should also be able to be handled". So **`let xs = [1]; xs.append(2);` is refused**, and a `var` list whose only change is `append` keeps its promise. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
