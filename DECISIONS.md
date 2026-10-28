@@ -604,6 +604,10 @@ Design claude listed six small details and recommended all. The owner: "yes". So
 
 Design claude listed six small details and recommended all. The owner: "yes". So **each parameter says its own type**. Not built.
 
+### 2026-10-28 — No range that stops before its end; `a..b` always includes `b` (owner)
+
+Design claude listed six small details and recommended all. The owner: "yes". So **one range form**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
