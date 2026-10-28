@@ -274,9 +274,10 @@ let f = LLVMFunctionType(ret, params, u32(params.len()), 0);
 
 ## Memory
 
-Garbage collected, by a tracing, moving collector written for GO2, finding stack roots precisely by LLVM's stack
-maps. A list handed to C is pinned until the call returns. Copy-on-write knows storage is shared by a flag, set when a value is copied and never cleared;
-a write to flagged storage copies it first.
+Garbage collected, by a tracing, moving, generational collector written for GO2: a copying nursery for new values,
+an older space for survivors. It finds stack roots precisely by LLVM's stack maps. A list handed to C is pinned
+until the call returns. Copy-on-write knows storage is shared by a flag, set when a value is copied and never
+cleared; a write to flagged storage copies it first.
 
 The runtime every program links (the collector, allocation, lists, maps, strings, printing, the errors that stop
 a program) is written in C++.
@@ -288,6 +289,6 @@ Not decided yet, roughly in the order the compiler will need them:
 - What "C++ when needed" covers.
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
 - Walking a string's characters; whether invalid UTF-8 can exist.
-- Whether the collector compacts or copies, and whether it has generations.
+- How the collector's old space is collected, and when a value is promoted.
 - A formatter.
 - What GO2 is, in one sentence.

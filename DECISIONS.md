@@ -660,6 +660,10 @@ Design claude offered (a) C, compiled by the clang already linking programs, (b)
 
 Design claude offered (a) no moving, freeing in place, (b) moving, compacting or copying live values together (fast allocation, no fragmentation; every pointer updated, a list handed to C pinned during the call), (c) no for now, moving left open by GO2's having no raw pointers; and recommended (c). The owner: "(b)". So **the collector moves values, made possible by the precise stack maps; a list handed to C is pinned until the call returns**. Whether it compacts or copies, and whether it has generations, are not decided. Not built.
 
+### 2026-10-28 — The collector is generational: a copying nursery for new values, an older space for survivors (owner: (c))
+
+Noting the tracing entry's "mark and sweep" strictly means not moving, design claude offered (a) copying, two halves (simplest, half the heap in reserve), (b) mark-compact, sliding live values together in one space, (c) generational, a small copying nursery and an older space collected less often, with write barriers; and recommended (a), growable into (c). The owner: "(c)". So **new values go in a copying nursery; survivors move to an older space**. How the old space is collected (copying or compacting), and when a value is promoted, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
