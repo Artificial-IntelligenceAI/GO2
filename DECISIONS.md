@@ -496,6 +496,10 @@ The owner: "should `\n` become `{newln}`.and `\` be left for escaping (`\"`) onl
 
 With `enum Expr { number: i64; add: Add; }` and `struct Add { let left: Expr; let right: Expr; }`, values of infinite size unless held elsewhere, design claude offered (a) automatically, the compiler finding the cycle and storing those parts in GC memory, values still values by copy-on-write; (b) marked, Swift's `indirect`; (c) an explicit `box[Expr]`, as Rust; and recommended (a), where a value lives being storage, not meaning. The owner: "(a)". So **the code above is GO2 as written**. Not built.
 
+### 2026-10-28 — A folder is a package: its `.go2` files share it, and `import "lexer";` finds the folder from the project root (owner: (a))
+
+Design claude offered (a) a folder a package, as Go, every file in `lexer/` starting `pkg lexer;` and seeing the others' non-`pub` names, (b) a file a package, (c) as (a) with no `pkg` line; and recommended (a). The owner: "(a)". So **`lexer/a.go2` and `lexer/b.go2` are both `pkg lexer;`, and `import "lexer";` names the folder**. How the project root is marked, and whether a folder's name must match its `pkg` line, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
