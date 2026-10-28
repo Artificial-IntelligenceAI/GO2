@@ -372,6 +372,10 @@ Design claude offered (a) `else { … }` as the last arm, as in an `if` chain, (
 
 Design claude offered (a) `str`, as Rust and Python, short as `fn`, `ret`, `pkg`, (b) `string`, as Go, (c) `text`; and recommended (a). The owner: "(a)". So **`let name: str = "GO2";`**. How a `str` behaves (encoding, changing, joining, indexing) is not decided. Not built.
 
+### 2026-10-28 — A `str` holds UTF-8 bytes (owner)
+
+Design claude listed how a `str` behaves: 1. UTF-8 bytes, 2. never changing in place, 3. `s[i]` the i-th byte, 4. `a + b` joining, as Go (CyborgPL having moved to the word `concat`); and recommended all. The owner: "yeah, but `concat". So **a `str` is a run of UTF-8 bytes**. Whether one that is not valid UTF-8 can exist is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
