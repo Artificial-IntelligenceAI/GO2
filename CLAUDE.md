@@ -10,7 +10,10 @@ Design repository for **GO2**, the owner's experimental hobby language, meant to
 - **Never use the AskUserQuestion tool** in this project ("no pop ups", owner, 2026-10-28), nor a question with
   buttons in the end-of-turn box (owner: "That's a popup"). Questions go in the message text only.
 - **Building waits for the owner's go** (owner, 2026-10-28: "Woah, I didn't say go yet (but bug fixing is auto)").
-  A settled design is not a go. Fixing a bug in what is already built needs no go.
+  A settled design is not a go, and neither is naming who will build it ("let another session make it"). Fixing a bug
+  in what is already built needs no go.
+- **Prompts for other sessions follow Anthropic's prompting guide** (owner: "you didn't even read Anthropic's
+  prompting guide"): platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices.
 - Record decisions in `DECISIONS.md` as they are made, noting what the owner chose versus what was proposed.
 - **GO2 is a hobby language.** No timeline; do not push for schedules or scope.
 
