@@ -816,5 +816,9 @@ Design claude listed how floats work, the IEEE defaults, and recommended all eig
 
 Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`i64(2.9)` is `2`, `i64(-2.9)` is `-2`**; a value too big follows the narrowing rule (handled with `??`, or the overflow rule). Not built.
 
+### 2026-10-28 — Float arithmetic follows IEEE: infinity and NaN, never stopping the program (owner)
+
+Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`1.0 / 0.0` is infinity**; an invalid operation gives NaN. Not built.
+
 ## Open
 
