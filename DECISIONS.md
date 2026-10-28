@@ -728,5 +728,9 @@ Design claude proposed Go's table (unary `-` `!`; `*` `/` `%`; `+` `-`; comparis
 
 Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a + b * c` is `a + (b * c)`**. Not built.
 
+### 2026-10-28 — `+` and `-` chain left to right; `*` chains (owner)
+
+Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a - b + c` is `(a - b) + c`; `a * b * c` needs nothing**. Not built.
+
 ## Open
 
