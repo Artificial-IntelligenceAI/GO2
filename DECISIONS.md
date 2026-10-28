@@ -508,6 +508,10 @@ Design claude offered (a) a manifest, as Go's `go.mod`, in the root, naming the 
 
 Design claude offered (a) `GO2.toml`, TOML, as CyborgPL's `CyJet.toml` (GoTo needing a TOML reader to build itself), (b) `go2.mod`, one setting per line, as Go's `go.mod`, (c) `project.go2`, a GO2 struct literal read by the compiler's own parser; and recommended (c). The owner: "(c)". So **a project's root holds `project.go2`**, settings as a struct literal. What else the file holds (a `pkg` line, other settings, how `Project` is defined) is not decided. Not built.
 
+### 2026-10-28 — A C function is declared one by one, with no body: `fn LLVMModuleCreateWithName[let name: cstr] -> ptr;` (owner: (a))
+
+Design claude offered (a) declarations one by one, `extern fn LLVMModuleCreateWithName[let name: cstr] -> ptr;`, GoTo keeping one file of them for LLVM, with types for C's world (`cstr`, `ptr`); (b) importing a C header, the compiler reading it, as Zig; (c) a small C or C++ wrapper taking GO2's own types, declared as in (a); and recommended (a), the smallest step that lets GoTo reach LLVM. The owner: "(a), `extern` or `extern.c`?" So **a C function is declared one at a time, with its C name, parameters and return type, and no body**. The marking word (`extern` or `extern.c`) is asked next; the C types (`cstr`, `ptr` and the rest) are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
