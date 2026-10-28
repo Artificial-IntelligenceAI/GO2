@@ -768,5 +768,9 @@ Design claude applied "follow maths, else parentheses" operator by operator, and
 
 Design claude listed how names and number literals work and recommended all seven, the seventh "no decimal point, GO2 having no floating-point type yet". The owner: "yes, but bin floats are `f`". So **`parse_line`, `Token`, `x2`**; letters beyond ASCII may come later. Not built.
 
+### 2026-10-28 — Reserved words are never names (owner)
+
+Design claude listed how names and number literals work and recommended all seven, the seventh "no decimal point, GO2 having no floating-point type yet". The owner: "yes, but bin floats are `f`". So **`pkg import pub fn ret let var const struct enum match case else if for in stop next fail coll member extern self true false and or`**. Not built.
+
 ## Open
 
