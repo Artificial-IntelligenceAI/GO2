@@ -648,6 +648,10 @@ Design claude noted GO2 has no reference types, so no cycle can form, reference 
 
 Design claude offered (a) conservative scanning, every pointer-looking word a root (smallest, never moving), (b) precise stack maps from LLVM's GC support (statepoints), exact and allowing a moving collector later, both G2RS and GoTo emitting them, (c) a shadow stack kept by compiled code; and recommended (a) to start. The owner: "(b)". So **G2RS and GoTo tell LLVM which stack slots hold GC pointers, and the collector reads LLVM's stack maps**. Whether the collector moves things, how copy-on-write knows a value is shared, and what it is written in, are not decided. Not built.
 
+### 2026-10-28 — Copy-on-write knows sharing by a flag set on copying and never cleared (owner: (a))
+
+With `var ys = xs; ys[1] = 9;` and no counts to ask, design claude offered (a) a "shared" flag on the storage, set when a value is copied (assigned, passed, stored), a write to flagged storage copying it first, the copy unflagged, the flag never cleared; (b) a count of holders kept only for copy-on-write; (c) no sharing, a copy at every assignment or pass; and recommended (a), one bit and one check per write. The owner: "(a)". So **copying a list, map, string or struct storage sets its shared flag; writing to it then copies first**; something once shared is copied on its next write even if the other holder is gone. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
