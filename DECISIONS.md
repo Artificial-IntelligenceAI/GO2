@@ -142,6 +142,10 @@ The owner, asked how parameters are written in `[ ]`: "Let's do vars first, infe
 
 The owner, asked how parameters are written in `[ ]`: "Let's do vars first, inferrence is the absence of the type / var immut = let / var mut = var / const = const". So **a declaration without a type takes the type of its value**; there is no inference keyword or mark. Where a written type goes (`let x i32 = 5;` or `let x: i32 = 5;`) waits on how parameters are written. Not built.
 
+### 2026-10-28 — A `var` must change: a `var` never changed in its scope is refused, naming `let` (owner: (c))
+
+The owner: "Should `let` & `var` be a promise? Like, `var` must change?" Design claude: `let` already is one; offered (a) no promise, (b) a warning, "never changes; use `let`" (GO2 has no warnings yet), (c) a refusal; and recommended (c), calling it Go's spirit. The owner: "(c), but your options says otherwise for Go". Design claude: both were true but read as a contradiction. Go has no `let`, every variable may change, so on change Go is (a); what it refuses is a variable never *used*, a different check; (c) borrows only that strictness. So **a `var` with no assignment to it in its scope is refused, naming `let`**; `let` and `var` each say something true. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
