@@ -784,5 +784,9 @@ Design claude listed how names and number literals work and recommended all seve
 
 Design claude listed how names and number literals work and recommended all seven, the seventh "no decimal point, GO2 having no floating-point type yet". The owner: "yes, but bin floats are `f`". So **`1_000_000`**; text conversion stays plain digits. Not built.
 
+### 2026-10-28 — A hex literal is `0xFF`; no binary or octal for now (owner)
+
+Design claude listed how names and number literals work and recommended all seven, the seventh "no decimal point, GO2 having no floating-point type yet". The owner: "yes, but bin floats are `f`". So **`0x1F`**. Not built.
+
 ## Open
 
