@@ -308,6 +308,10 @@ Design claude asked what `ret fallback;` in an arm does, offering (a) it only le
 
 Design claude noted that, an arm only leaving, a handler on a call that gives a value (`let n = parse(t) ?? parse.x;`) always leaves, and only one on a call with no value (`save(f) ?? save.report;`) may carry on; offered (a) no mark, `?? coll.member` already saying a handler decides, an arm on a value-giving call that does not end by leaving refused, one on a call with no value free to carry on; (b) CyborgPL's `*` at the use, `?? parse.*as_code`, required where the handler can leave; and recommended (a), `*` landing on nearly every use. The owner: "(a)". So **`?? parse.as_code` is written bare; an arm used where a value is needed ends by leaving, or is refused**. Not built.
 
+### 2026-10-28 — Blocks are `{ … }`, as Go; no `:` opener and no `;kind name` closer (owner: (a))
+
+After the failure-handling example (a `coll.handler` thick with `;case …` closers), the owner: "Should we change to `{}`?" Design claude took it to mean blocks and listed what `{ }` costs (the closer no longer says what it closes; the closer, `:`-opener, `;if` and `member`/`case` closer entries reversed; CyborgPL went the other way), placed the noise in each `case` closing itself, and offered (a) `{ }` everywhere, as Go, (b) closers kept, arms closing as the `if` chain does, (c) as it is; recommending (b). The owner: "(a), and allow trailing `//`". So **`fn main[] { … }`, `if c { … } else if d { … } else { … }`, `for x in xs { … }`**; `:` only labels a type, and `;` only ends a statement. **This reverses** the block closer (`;fn main`, `;if`), the required `:` opener, the `if` chain's single `;if` (the chain is now Go's `} else if … {`), the loops' `;for`, and the `coll.handler` / `member` closers, which take braces too. Where `{` must sit, and how a handler's arms are written, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
