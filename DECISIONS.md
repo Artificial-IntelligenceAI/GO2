@@ -66,6 +66,10 @@ and exit 1 (waits on how GO2 reports errors), (d) nothing or a code, as `main` d
 possible later. The owner: "(a)". So **`fn main[]:` has no return type, and reaching its end exits with 0**. The
 call's exact name follows the package decisions; letting `main` fail is not decided. Not built.
 
+### 2026-10-28 — A file names its package first, `pkg main;` (owner)
+
+From the owner's hello-world sketch; design claude listed its parts to confirm and recommended all. The owner: "indentation is required, confirm (and btw, `fmt.print` is formatted print)". So **a file starts `pkg <name>;`**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
