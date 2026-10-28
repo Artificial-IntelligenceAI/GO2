@@ -756,5 +756,9 @@ Design claude applied "follow maths, else parentheses" operator by operator, and
 
 Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a && b || c` is refused**, naming `(a && b) || c`. Not built.
 
+### 2026-10-28 — A mixed comparison chain is refused (owner)
+
+Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a < b > c` and `a != b != c` are refused**. Not built.
+
 ## Open
 
