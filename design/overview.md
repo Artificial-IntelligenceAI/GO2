@@ -27,9 +27,10 @@ fn main[] {
 ## Toolchain
 
 - Source files end `.go2`.
-- **G2C2** is the bootstrap compiler, in C++23, building IR through LLVM's C++ API (Homebrew LLVM 23). **GoTo**
-  (`goto/`, command `goto`) is the self-hosted one, in GO2, and replaces G2C2 once it builds itself. Both take
-  `build` and `run`. G2C2's command and folder are open.
+- **G2C2** (`g2c2/`, command `g2c2`) is the bootstrap compiler, in C++23, building IR through LLVM's C++ API
+  (Homebrew LLVM 23). **GoTo** (`goto/`, command `goto`) is the self-hosted one, in GO2, and replaces G2C2 once it
+  builds itself. Both take `build` and `run`.
+- G2C2 and the C++ runtime (`runtime/`) are one CMake project, compiled with Homebrew clang 23.
 - GoTo reaches LLVM through small C++ functions with C-shaped signatures, declared `extern.c`.
 - Builds are debug (`build`) or release (`build --release`); they differ in arithmetic overflow (below).
 
@@ -288,7 +289,6 @@ a program) is written in C++23.
 
 Not decided yet, roughly in the order the compiler will need them:
 
-- G2C2's command and folder; its build tool and compiler; where the runtime lives.
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
 - When the collector promotes a value from the nursery.
 - A formatter.
