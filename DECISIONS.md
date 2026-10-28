@@ -440,6 +440,10 @@ Design claude listed what was left of how lists work, and recommended all: 1. li
 
 Design claude listed what was left of how lists work, and recommended all: 1. lists grow, 2. `xs.len()`, 3. `append` / `rm_last` on a `var` list only, 4. `rm_last` giving the item or failing `empty`, 5. `xs[i]` out of range stopping the program, 6. `xs[i] = v;` on a `var` list only. The owner: "yes, but 5 should also be able to be handled". So, as design claude reads it, **a bare `xs[i]` past the end stops the program with an error naming the line, in debug and release builds alike; `xs[i] ?? 0` (or `?? fail`, or a handler) handles it instead**. This is the one failure that may go unhandled. The reason's name, and whether a handled read must stand alone as other failing calls do, are not decided. Not built.
 
+### 2026-10-28 — `xs[i] = v;` replaces an item, only on a `var` list (owner)
+
+Design claude listed what was left of how lists work, and recommended all: 1. lists grow, 2. `xs.len()`, 3. `append` / `rm_last` on a `var` list only, 4. `rm_last` giving the item or failing `empty`, 5. `xs[i]` out of range stopping the program, 6. `xs[i] = v;` on a `var` list only. The owner: "yes, but 5 should also be able to be handled". So **`xs[2] = 7;`**, counting as the `var` list's change. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
