@@ -316,6 +316,10 @@ After the failure-handling example (a `coll.handler` thick with `;case …` clos
 
 After the failure-handling example (a `coll.handler` thick with `;case …` closers), the owner: "Should we change to `{}`?" Design claude took it to mean blocks and listed what `{ }` costs (the closer no longer says what it closes; the closer, `:`-opener, `;if` and `member`/`case` closer entries reversed; CyborgPL went the other way), placed the noise in each `case` closing itself, and offered (a) `{ }` everywhere, as Go, (b) closers kept, arms closing as the `if` chain does, (c) as it is; recommending (b). The owner: "(a), and allow trailing `//`". So **`let n = 5; // why`** is allowed; a comment still runs to the end of its line, and there is still no block comment. **This reverses** "a comment takes its own line; one after code is refused". Not built.
 
+### 2026-10-28 — A handler's arm is braced like any block, `case empty { continue; }` (owner: (b))
+
+With blocks now `{ }`, design claude offered (a) Go's `switch` form, `case empty:` running to the next `case`, (b) each arm in its own braces; and recommended (a). The owner: "How does (b) look?" Shown both, and (b) on one line (`case empty { continue; }`), design claude changed to leaning (b): as compact, `:` keeping its one job, braces the only block. The owner: "(b)". So **`case <reason> { … }` and `case <reason> <name> { … }`**, inside `member <name> { … }`, inside `coll.handler <name> { … }`. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
