@@ -50,6 +50,13 @@ Design claude offered (a) writing LLVM IR as text for `clang` (the self-hosted c
 once GO2 compiles itself; and recommended (c). The owner: "(b)". So **the Rust compiler builds IR through LLVM's
 library**, and the self-hosted one will call LLVM (and the shims) from GO2 too. Which crate is not decided. Not built.
 
+### 2026-10-28 — GO2 is garbage collected, by its own collector (owner: (a), custom)
+
+Design claude offered (a) garbage collection as Go has it (Boehm GC to start, GO2's own later), (b) manual
+`alloc`/`free`, (c) arenas first, (d) ownership and borrowing; and recommended (c) with plain `alloc`/`free` beside it.
+The owner: "(a), custom". So **memory is garbage collected, by a collector written for GO2**, not Boehm. Its kind
+(tracing or counting, precise or conservative, moving or not) and what it is written in are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
