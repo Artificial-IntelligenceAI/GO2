@@ -800,5 +800,9 @@ With the reserved type names listed (`cstr` among them), the owner: "Isn't it `s
 
 Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`let x: f64 = 2.5;`**; both are reserved names. Not built.
 
+### 2026-10-28 — A float literal has digits on both sides of the point; an exponent is allowed (owner)
+
+Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`3.14`, `0.5`, `6.02e23`, `1e-9`; never `.5` or `5.`**. Not built.
+
 ## Open
 
