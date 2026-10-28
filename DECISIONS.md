@@ -222,6 +222,10 @@ Design claude listed how arithmetic works and recommended confirming each, and f
 
 Design claude listed how arithmetic works and recommended confirming each, and for a result that does not fit its type offered (a) wrapping, as Go, silently, (b) stopping with an error naming the line; recommending (b). The owner: "correct, but (b) on debug, and (a) on release". So **`/` on integers gives an integer**, the fraction dropped. Which way a negative result rounds is not decided. Not built.
 
+### 2026-10-28 — Both sides of an operator have the same type; `a_i32 + b_i64` is refused (owner)
+
+Design claude listed how arithmetic works and recommended confirming each, and for a result that does not fit its type offered (a) wrapping, as Go, silently, (b) stopping with an error naming the line; recommending (b). The owner: "correct, but (b) on debug, and (a) on release". So **one side is converted first**, as in Go. How a conversion is written, and the type of a bare `5`, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
