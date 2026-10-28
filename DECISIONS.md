@@ -268,6 +268,10 @@ Design claude listed, after CyborgPL: 1. `fail empty;` / `fail bad_char[c];` lea
 
 With `?` gone, design claude offered (a) a named handler whose arms `fail` again, (b) `?? fail`, a bare `fail` after `??` sending the same reason up, (c) not at all, each caller handling every failure; and recommended (b): short, spelled with words GO2 has, `??` staying the one way to handle. The owner: "(b)". So **`let n = parse(t) ?? fail;`**, and my own `fail[…]` must list every reason that can come through, or it is refused. Not built.
 
+### 2026-10-28 — Handlers live in a `coll.handler`, used as `?? parse.parse_failed` (owner)
+
+Asked how a named handler is defined, design claude proposed a standalone `handler parse_failed[…]:` … `;handler parse_failed`, CyborgPL's member without the collection, as the owner had asked. The owner: "Actually, let's do `coll.handler`, so it could be organized well. It becomes say `parse.parse_failed` at call". So **handlers are grouped in a named `coll.handler`, and a call names the collection and the handler: `parse(t) ?? parse.parse_failed`**. This reverses "not with a `coll`" (the two `decision.failures.named` entries above). How a handler is written inside the collection, and whether `coll` groups anything but handlers, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
