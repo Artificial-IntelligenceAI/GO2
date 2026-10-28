@@ -130,6 +130,10 @@ Design claude offered (a) `go2`, the language's name, the Rust one in `boot/`, (
 
 Design claude proposed the command `goto`, the Rust compiler being GoTo too (folder `goto/`, crate `goto`), the self-hosted one taking the name over. The owner: "G2RS". Asked whether that names the Rust compiler, GoTo being the self-hosted one, the owner: "yes". So **G2RS is the bootstrap compiler, in Rust; GoTo is GO2's own, written in GO2**, which replaces G2RS once it builds itself. How each is spelled as a command and folder is not decided. Not built.
 
+### 2026-10-28 — On disk, `g2rs` and `goto`: each its own command and folder (owner)
+
+Design claude proposed G2RS as command `g2rs`, folder `g2rs/`, Rust crate `g2rs` (`g2rs build hello.go2`, `g2rs run hello.go2`), and GoTo as command `goto`, folder `goto/`, taking the same subcommands so it drops in for G2RS. The owner: "yes". So **`g2rs/` holds the Rust compiler and `goto/` the self-hosted one; both take `build` and `run`**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
