@@ -396,6 +396,10 @@ Design claude offered (a) a word between strings, `a concat b concat "!"`, as `a
 
 Design claude offered (a) `list[i64]`, the type described in `[ ]`, (b) Go's `[]i64`, (c) Swift's `[i64]`, a literal `[1, 2, 3]` and `xs[i]` (from 1) in all three; and recommended (a), "`[ ]` describes", setting the pattern for other containers (`map[str, i64]`). The owner: "(a)". So **`let xs: list[i64] = [1, 2, 3];` and `xs[1]` is `1`**. Whether a list grows, how one is added to, and its length, are not decided. Not built.
 
+### 2026-10-28 — Lists and structs are values: assigning or passing one gives an independent copy (owner: (a))
+
+With `let xs = [1, 2, 3]; var ys = xs; ys[1] = 9;`, design claude offered (a) values, as Swift, `ys` its own list, copied only when one side changes (copy-on-write); (b) shared, as Go, Java, Python, `let` a shallow promise; and recommended (a), only values keeping `let` true, the cost landing in the compiler and runtime. The owner: "(a)". So **`xs` stays `[1, 2, 3]`; a `let` list or struct never changes, inside or out**. Copy-on-write is how it is made cheap, as proposed; whether anything is ever shared by choice (a reference type) is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
