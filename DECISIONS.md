@@ -676,6 +676,10 @@ Design claude listed three string details and recommended all. The owner: "yes".
 
 Design claude listed three string details and recommended all. The owner: "yes". So **`let s = str(data) ?? fail;`**, the one place outside text is checked. Not built.
 
+### 2026-10-28 — `for c in s.chars()` walks a string's characters, each a `u32` code point (owner)
+
+Design claude listed three string details and recommended all. The owner: "yes". So **no `char` type**; `s[i]` still gives bytes. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
