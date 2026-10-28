@@ -829,4 +829,5 @@ Design claude listed how floats work, the IEEE defaults, and recommended all eig
 Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`x == x` is false when `x` is NaN**. Not built.
 
 ## Open
-
+- How G2C2 and the runtime write C++ (ownership, exceptions, RTTI, warnings, sanitizers, hardening, formatting).
+  Design claude proposed a list; the owner: "Idk, we'll see what bro writes". Left to see what compiler claude writes.
