@@ -126,6 +126,10 @@ Design claude offered (a) `.go2`, (b) `.g2`, (c) one of the owner's own, as Cybo
 
 Design claude offered (a) `go2`, the language's name, the Rust one in `boot/`, (b) a name of its own, as CyborgPL has `kayo`; and recommended (a). The owner: "GoTo". So **the compiler is named GoTo**. How the command is spelled, its folder, and whether the Rust compiler and the self-hosted one both carry the name, are not decided. Not built.
 
+### 2026-10-28 — G2RS is the Rust compiler; GoTo is the self-hosted one, written in GO2 (owner)
+
+Design claude proposed the command `goto`, the Rust compiler being GoTo too (folder `goto/`, crate `goto`), the self-hosted one taking the name over. The owner: "G2RS". Asked whether that names the Rust compiler, GoTo being the self-hosted one, the owner: "yes". So **G2RS is the bootstrap compiler, in Rust; GoTo is GO2's own, written in GO2**, which replaces G2RS once it builds itself. How each is spelled as a command and folder is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
