@@ -640,6 +640,10 @@ Design claude listed seven small details and recommended all. The owner: "yes". 
 
 Design claude listed seven small details and recommended all. The owner: "yes". So **no `+`, spaces, `_` or hex for now**. Not built.
 
+### 2026-10-28 — The collector traces: mark and sweep, as Go and Java (owner: (a))
+
+Design claude noted GO2 has no reference types, so no cycle can form, reference counting's classic weakness; offered (a) tracing, finding what is reachable and freeing the rest (stack roots by LLVM's stack maps or conservative scanning, copy-on-write needing bookkeeping of its own), (b) reference counting, as Swift, copy-on-write coming free (count 1), no pauses, a counter update per copy; and recommended (b). The owner: "(a)". So **GO2's own collector traces**. How it finds roots, how copy-on-write knows a value is shared, whether it moves things, and what it is written in, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
