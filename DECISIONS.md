@@ -564,6 +564,10 @@ Design claude listed two conversion details and recommended both: 1. a narrowing
 
 Design claude listed two details of the failures that may go unhandled and recommended both. The owner: "yes". So **`case out_of_range { … }`** covers either, the same reason a text conversion gives. Not built.
 
+### 2026-10-28 — A handled `xs[i] ?? 0` or `i8(x) ?? 0` stands alone; an unhandled one may sit anywhere (owner)
+
+Design claude listed two details of the failures that may go unhandled and recommended both. The owner: "yes". So **`let x = xs[i] ?? 0;`, never `xs[i] ?? 0 + 1`; `xs[i] + xs[j]` is fine**, needing no decision at the call. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
