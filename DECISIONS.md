@@ -146,6 +146,10 @@ The owner, asked how parameters are written in `[ ]`: "Let's do vars first, infe
 
 The owner: "Should `let` & `var` be a promise? Like, `var` must change?" Design claude: `let` already is one; offered (a) no promise, (b) a warning, "never changes; use `let`" (GO2 has no warnings yet), (c) a refusal; and recommended (c), calling it Go's spirit. The owner: "(c), but your options says otherwise for Go". Design claude: both were true but read as a contradiction. Go has no `let`, every variable may change, so on change Go is (a); what it refuses is a variable never *used*, a different check; (c) borrows only that strictness. So **a `var` with no assignment to it in its scope is refused, naming `let`**; `let` and `var` each say something true. Not built.
 
+### 2026-10-28 — A `var` is changed by `x = …;`, as in Go (owner: (a))
+
+Design claude offered (a) `x = x + 1;`, as Go and C, (b) a keyword, `set x = x + 1;`, (c) either, plus compound forms such as `x += 1;` (dropped by CyborgPL the same day); and recommended (a) without `+=`. The owner: "(a)". So **a change is `<name> = <value>;`**, told apart from a declaration by having no `let`, `var` or `const` in front; compound forms are not part of it. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
