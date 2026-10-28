@@ -572,6 +572,10 @@ Design claude listed two details of the failures that may go unhandled and recom
 
 Design claude listed five small details and recommended all. The owner: "yes". So **`x = 5;` inside it is refused**. Not built.
 
+### 2026-10-28 — No leaving an outer loop for now; `stop` and `next` act on the innermost (owner)
+
+Design claude listed five small details and recommended all. The owner: "yes". So **no labelled loops**; they may come later. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
