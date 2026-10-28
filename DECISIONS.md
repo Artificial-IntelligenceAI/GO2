@@ -776,5 +776,9 @@ Design claude listed how names and number literals work and recommended all seve
 
 Design claude listed how names and number literals work and recommended all seven, the seventh "no decimal point, GO2 having no floating-point type yet". The owner: "yes, but bin floats are `f`". So **`i8`…`u64`, `bool`, `str`, `ls`, `map`, `cstr`** can never be names: `let str = 5;` is refused. Not built.
 
+### 2026-10-28 — A name's case means nothing (owner)
+
+Design claude listed how names and number literals work and recommended all seven, the seventh "no decimal point, GO2 having no floating-point type yet". The owner: "yes, but bin floats are `f`". So **`Token` and `token` are just different names**; visibility is `pub`. Not built.
+
 ## Open
 
