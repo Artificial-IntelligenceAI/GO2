@@ -849,7 +849,13 @@ git, never attached in chat or published on PyPI**. Not built.
 
 Design claude offered (a) a separate public repo on the account, (b) a `release` branch in GO2; recommended (a), since
 a plain clone of GO2 fetches every branch and would carry every build. The owner: "(a)". So **builds go to their own
-repo, and GO2 stays source only**. The repo's name is still open. Not built.
+repo, and GO2 stays source only**. Not built.
+
+### 2026-10-28 — The release repo is `Artificial-IntelligenceAI/GO2-release` (owner)
+
+Design claude recommended `GO2-release`, which says what it holds and sits beside `GO2`. The owner: "yea". So
+**`git clone --depth 1 https://github.com/Artificial-IntelligenceAI/GO2-release`** fetches the latest build. The
+repo exists (public, empty); no build is in it yet.
 
 ## Open
 - How G2C2 and the runtime write C++ (ownership, exceptions, RTTI, warnings, sanitizers, hardening, formatting).
