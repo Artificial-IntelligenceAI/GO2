@@ -804,5 +804,9 @@ Design claude listed how floats work, the IEEE defaults, and recommended all eig
 
 Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`3.14`, `0.5`, `6.02e23`, `1e-9`; never `.5` or `5.`**. Not built.
 
+### 2026-10-28 — A bare float literal is an `f64`, or the type of the variable it meets (owner)
+
+Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`let x = 3.14;` is an `f64`; `y * 2.0` with `y: f32` makes `2.0` an `f32`**. Not built.
+
 ## Open
 
