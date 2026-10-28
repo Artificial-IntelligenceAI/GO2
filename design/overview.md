@@ -234,7 +234,8 @@ coll.handler parse {
   nothing, an arm may also just finish, and the program carries on.
 - A call that can fail stands alone, as a statement or a declaration's whole value: never `parse(a) + parse(b)`.
 - Two failures may go unhandled: a list index out of range, which then stops the program, and a narrowing
-  conversion that does not fit, which then follows the overflow rule.
+  conversion that does not fit, which then follows the overflow rule. Both fail `out_of_range` when handled, and
+  a handled one stands alone (`let x = xs[i] ?? 0;`) while an unhandled one may sit anywhere (`xs[i] + xs[j]`).
 
 ## Printing
 
@@ -272,8 +273,7 @@ Not decided yet, roughly in the order the compiler will need them:
 
 - What "C++ when needed" covers; what C may do with a list it is given.
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
-- Which text counts as a number; the reason name for a narrowing that does not fit.
-- The reason name for an out-of-range index, and whether a handled `xs[i] ?? 0` must stand alone.
+- Which text counts as a number.
 - Walking a string's characters; whether invalid UTF-8 can exist.
 - Leaving an outer loop; whether loop names are `let`.
 - What a `const` may hold; whether a parameter can be `const`.
