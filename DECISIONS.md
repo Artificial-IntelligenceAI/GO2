@@ -652,6 +652,10 @@ Design claude offered (a) conservative scanning, every pointer-looking word a ro
 
 With `var ys = xs; ys[1] = 9;` and no counts to ask, design claude offered (a) a "shared" flag on the storage, set when a value is copied (assigned, passed, stored), a write to flagged storage copying it first, the copy unflagged, the flag never cleared; (b) a count of holders kept only for copy-on-write; (c) no sharing, a copy at every assignment or pass; and recommended (a), one bit and one check per write. The owner: "(a)". So **copying a list, map, string or struct storage sets its shared flag; writing to it then copies first**; something once shared is copied on its next write even if the other holder is gone. Not built.
 
+### 2026-10-28 — The runtime is C++, all of it: the collector, allocation, lists, maps, strings, printing (owner)
+
+Design claude offered (a) C, compiled by the clang already linking programs, (b) C++, the "C++ when needed" route (templates for lists and maps, LLVM's own stack-map parser), (c) GO2 with an unsafe layer, (d) Rust, as G2RS; and recommended (a). The owner: "Let's just go C++ for all". So **every GO2 program links a runtime written in C++**: the collector, allocation, list and map growth, string building, `fmt.print`, and the errors that stop a program. Its folder, and the C++ standard it targets, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and

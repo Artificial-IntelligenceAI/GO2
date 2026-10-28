@@ -278,6 +278,9 @@ Garbage collected, by a tracing (mark and sweep) collector written for GO2, find
 LLVM's stack maps. Copy-on-write knows storage is shared by a flag, set when a value is copied and never cleared;
 a write to flagged storage copies it first.
 
+The runtime every program links (the collector, allocation, lists, maps, strings, printing, the errors that stop
+a program) is written in C++.
+
 ## Open
 
 Not decided yet, roughly in the order the compiler will need them:
@@ -285,6 +288,6 @@ Not decided yet, roughly in the order the compiler will need them:
 - What "C++ when needed" covers.
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
 - Walking a string's characters; whether invalid UTF-8 can exist.
-- Whether the collector moves things; what it (and the runtime) is written in.
+- Whether the collector moves things.
 - A formatter.
 - What GO2 is, in one sentence.
