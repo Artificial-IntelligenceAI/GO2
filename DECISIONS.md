@@ -468,6 +468,10 @@ Design claude listed how maps work and recommended all six. The owner: "yes". So
 
 Design claude listed how maps work and recommended all six. The owner: "yes". So **`m.rm("ann") ?? fail;`**. Not built.
 
+### 2026-10-28 — `m.len()` is a map's size, an `i64` (owner)
+
+Design claude listed how maps work and recommended all six. The owner: "yes". So **`m.len()`**, as a list's. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
