@@ -174,7 +174,8 @@ fn main[] { … }                                      // returns nothing; exits
 ```
 
 - Every parameter says `let` or `var`; a `var` one must be changed in the body.
-- `-> T` gives the return type; `ret` returns. `main` has none and exits 0 at its end.
+- `-> T` gives the return type; `ret` returns, and `ret;` leaves a function that returns nothing. `main` has none
+  and exits 0 at its end; `os.exit(3);` exits with a code.
 - A method is declared outside its type as `fn Type.name[let self, …]` or `[var self, …]`, and called `v.name(…)`.
 
 ## Control flow
@@ -206,6 +207,7 @@ fn parse[let s: str] -> i64 or fail[empty, bad_char: u8] {
 let a = parse(t) ?? 0;              // a value, whatever the reason
 let b = parse(t) ?? fail;           // pass it up: my fail[…] must list each reason
 let c = parse(t) ?? parse.skip;     // a named handler (skip uses next, so inside a for)
+save(f) ?? fail;                    // fn save[…] -> fail[disk_full]: returns nothing, can fail
 let d = parse(t) ?? parse.or_ret(0); // a handler with arguments: returns 0 from the enclosing fn
 ```
 
@@ -267,10 +269,8 @@ Not decided yet, roughly in the order the compiler will need them:
 
 - What "C++ when needed" covers; what C may do with a list it is given.
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
-- Leaving a function that returns nothing early (`ret;`?), and the exit call (`os.exit`?).
 - Whether a narrowing conversion follows the overflow rule; text to number (`i32("42") ?? 0`?).
 - The reason name for an out-of-range index, and whether a handled `xs[i] ?? 0` must stand alone.
-- How a function that returns nothing but can fail is written.
 - Walking a string's characters; whether invalid UTF-8 can exist.
 - Leaving an outer loop; whether loop names are `let`.
 - What a `const` may hold; whether a parameter can be `const`.
