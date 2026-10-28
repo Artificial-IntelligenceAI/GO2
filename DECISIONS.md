@@ -186,6 +186,10 @@ Asked whether `0..10` includes 10, the owner: "`xs[0]` is the position before 1,
 
 Design claude offered (a) `//` to the end of the line, as Go, (b) `#`, (c) `--`, and asked whether a block comment (`/* … */`) comes too; and recommended (a), line comments only. The owner answered with an example: "`//correct` / `KWFHGugUJFWhuF //wrong`". So **a comment is a line starting `//`** (after any whitespace, which means nothing); a `//` after code on the same line is refused. Whether there is a block comment is not decided. Not built.
 
+### 2026-10-28 — No block comment; a longer note is several `//` lines (owner: (a))
+
+Design claude offered (a) only `//` lines, (b) `/* … */` on lines of its own; and recommended (a), editors commenting a chunk out line by line. The owner: "(a), and btw no comments on a line with code", the rule of the entry before. So **`//` lines are the only comments**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
