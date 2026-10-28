@@ -1,0 +1,6 @@
+pkg main;
+import "fmt";
+
+fn hello[] {
+    fmt.print("hi\n");
+}
