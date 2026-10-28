@@ -296,6 +296,10 @@ Design claude listed three handler rules, after CyborgPL's, and recommended conf
 
 Design claude listed three handler rules, after CyborgPL's, and recommended confirming each. The owner: "yes". So **no `()` on a member that takes nothing**. Not built.
 
+### 2026-10-28 — A member must cover exactly the reasons the call can fail with (owner)
+
+Design claude listed three handler rules, after CyborgPL's, and recommended confirming each. The owner: "yes". So **a missing reason is refused at the call, naming it, and so is an arm for a reason the call cannot give**; a function gaining a reason breaks every handler used with it until it is covered. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
