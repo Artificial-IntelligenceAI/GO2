@@ -828,6 +828,14 @@ Design claude listed how floats work, the IEEE defaults, and recommended all eig
 
 Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`x == x` is false when `x` is NaN**. Not built.
 
+### 2026-10-28 — The release bundles the C compiler G2C2 links with (owner)
+
+multifinity (issue #2) asked for a Linux x86_64 release; the owner: "Make that". G2C2 linked each program with the
+clang whose path was fixed when G2C2 was built, a path that doesn't exist on other machines. Design claude offered
+(a) the `CC` environment variable with fallbacks, (b) a `--cc <path>` flag, (c) `clang` looked up on the PATH, and
+recommended (a). The owner: "Bundle it". So **a G2C2 release carries its own C compiler/linker, and `g2c2 build`
+needs nothing extra on the user's machine**. Not built.
+
 ## Open
 - How G2C2 and the runtime write C++ (ownership, exceptions, RTTI, warnings, sanitizers, hardening, formatting).
   Design claude proposed a list; the owner: "Idk, we'll see what bro writes". Left to see what compiler claude writes.
