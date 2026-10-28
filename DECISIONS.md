@@ -57,6 +57,15 @@ Design claude offered (a) garbage collection as Go has it (Boehm GC to start, GO
 The owner: "(a), custom". So **memory is garbage collected, by a collector written for GO2**, not Boehm. Its kind
 (tracing or counting, precise or conservative, moving or not) and what it is written in are not decided. Not built.
 
+### 2026-10-28 — `main` returns nothing; a program exits 0 unless it says otherwise (owner: (a))
+
+The owner's sketch had `fn main[] -> i32:` ending in `ret 0;`. Design claude flagged it as a difference from Go and,
+asked "What should it return, then?", offered (a) nothing, as in Go, another code by a call such as `os.exit(3);`, (b)
+an exit code (better `u8` than `i32`, since Unix keeps only its low 8 bits), (c) success or failure, a failure printed
+and exit 1 (waits on how GO2 reports errors), (d) nothing or a code, as `main` declares; and recommended (a), with (c)
+possible later. The owner: "(a)". So **`fn main[]:` has no return type, and reaching its end exits with 0**. The
+call's exact name follows the package decisions; letting `main` fail is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
