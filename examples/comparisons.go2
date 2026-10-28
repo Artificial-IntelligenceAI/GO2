@@ -1,0 +1,30 @@
+pkg main;
+import "fmt";
+
+fn show[let label: str, let b: bool] {
+    if b { fmt.print("{} true\n", label); } else { fmt.print("{} false\n", label); }
+}
+
+fn main[] {
+    let a = 1;
+    let b = 2;
+    let c = 3;
+    // comparisons chain as in maths, one way
+    show("a < b < c", a < b < c);
+    show("c > b > a", c > b > a);
+    show("a < c < b", a < c < b);
+    show("a <= a < b", a <= a < b);
+    show("a == a == a", a == a == a);
+    show("a == a == b", a == a == b);
+    // arithmetic binds tighter than comparisons, which bind tighter than logic
+    show("a + 1 < c && c == 3", a + 1 < c && c == 3);
+    // strings compare byte by byte
+    show("abc < abd", "abc" < "abd");
+    show("ab < abc", "ab" < "abc");
+    show("b > abc", "b" > "abc");
+    show("go == go", "go" == "go");
+    show("go != GO", "go" != "GO");
+    // unsigned compares as unsigned
+    let big: u8 = 200;
+    show("200 > 100", big > 100);
+}

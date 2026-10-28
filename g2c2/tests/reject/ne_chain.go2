@@ -1,0 +1,9 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    let a = 1;
+    if a != 2 != 3 {
+        fmt.print("yes\n");
+    }
+}

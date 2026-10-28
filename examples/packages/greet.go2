@@ -1,0 +1,7 @@
+pkg main;
+import "fmt";
+
+// another file of package main: it sees main.go2's names, and they see its
+fn greet[] {
+    fmt.print("hello from greet.go2\n");
+}

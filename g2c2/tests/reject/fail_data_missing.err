@@ -1,0 +1,1 @@
+fail_data_missing.go2:24:5: `bad` carries a u8: `fail bad[…];`

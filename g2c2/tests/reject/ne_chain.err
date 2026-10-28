@@ -1,0 +1,1 @@
+ne_chain.go2:6:15: a comparison chain goes one way: all `<` and `<=`, all `>` and `>=`, or all `==`

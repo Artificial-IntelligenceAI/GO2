@@ -1,0 +1,1 @@
+bit_operator.go2:6:25: GO2 has no bit operators; `&` is not an operator

@@ -1,0 +1,1 @@
+float_point_needs_digits.go2:5:13: a float has digits on both sides of its point, as in `5.0`

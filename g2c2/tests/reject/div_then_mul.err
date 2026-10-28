@@ -1,0 +1,1 @@
+div_then_mul.go2:6:29: `/` followed by `*` needs parentheses, as in `(a / b) * c`

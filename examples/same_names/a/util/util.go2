@@ -1,0 +1,5 @@
+pkg util;
+
+pub fn name[] -> str {
+    ret "a/util";
+}

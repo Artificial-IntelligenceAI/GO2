@@ -1,0 +1,34 @@
+pkg main;
+import "fmt";
+
+fn yes[let label: str] -> bool {
+    fmt.print("{} ", label);
+    ret true;
+}
+
+fn no[let label: str] -> bool {
+    fmt.print("{} ", label);
+    ret false;
+}
+
+fn main[] {
+    // && and || stop early
+    if no("a") && yes("b") { fmt.print("never"); }
+    fmt.print("\n");
+    if yes("c") || no("d") { fmt.print("taken"); }
+    fmt.print("\n");
+    // and and or always run both sides
+    if no("e") and yes("f") { fmt.print("never"); }
+    fmt.print("\n");
+    if yes("g") or no("h") { fmt.print("taken"); }
+    fmt.print("\n");
+    // ! binds tightest
+    let done = false;
+    if !done && yes("i") { fmt.print("taken"); }
+    fmt.print("\n");
+    // chains of one operator need nothing; mixing needs parentheses
+    if yes("j") && yes("k") && yes("l") { fmt.print("all"); }
+    fmt.print("\n");
+    if (no("m") && yes("n")) || yes("o") { fmt.print("grouped"); }
+    fmt.print("\n");
+}

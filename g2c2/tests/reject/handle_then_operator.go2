@@ -1,0 +1,26 @@
+pkg main;
+import "fmt";
+
+fn parse[let s: str] -> i64 or fail[empty, bad_char: u8] {
+    if s == "" { fail empty; }
+    if s == "x" { fail bad_char[120]; }
+    ret 1;
+}
+
+fn save[let n: i64] -> fail[disk_full] {
+    if n > 9 { fail disk_full; }
+}
+
+coll.handler p {
+    member zero { case empty { ret 0; } case bad_char c { ret 0; } }
+    member half { case empty { ret 0; } }
+    member extra { case empty { ret 0; } case bad_char c { ret 0; } case disk_full { ret 0; } }
+    member soft { case empty { fmt.print("e\n"); } case bad_char c { ret 0; } }
+    member with[let v: i64] { case empty { ret v; } case bad_char c { ret v; } }
+    member loop { case empty { stop; } case bad_char c { next; } }
+}
+
+fn main[] {
+    let n = parse("1") ?? 0 + 1;
+    fmt.print("{}\n", n);
+}

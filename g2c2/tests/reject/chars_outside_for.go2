@@ -1,0 +1,6 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    let c = "abc".chars();
+}

@@ -1,0 +1,1 @@
+exit_code_variable.go2:6:13: `os.exit` takes a code from 0 to 255 written as a number; the type of its parameter is not decided yet

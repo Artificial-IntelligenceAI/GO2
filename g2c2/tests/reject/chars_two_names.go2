@@ -1,0 +1,8 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    for i, c in "abc".chars() {
+        fmt.print("{} {}\n", i, c);
+    }
+}

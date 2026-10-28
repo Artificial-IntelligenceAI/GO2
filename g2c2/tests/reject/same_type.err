@@ -1,0 +1,1 @@
+same_type.go2:7:25: both sides of `+` have one type, but these are i32 and i64

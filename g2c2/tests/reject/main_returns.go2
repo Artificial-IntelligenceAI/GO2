@@ -1,0 +1,9 @@
+pkg main;
+import "fmt";
+
+fn main[] -> i32 {
+    fmt.print("x\n");
+}
+
+fn other[] {
+}

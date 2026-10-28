@@ -1,0 +1,8 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    for x in 0.5..2.5 {
+        fmt.print("x\n");
+    }
+}

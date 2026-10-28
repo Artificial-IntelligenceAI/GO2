@@ -1,0 +1,26 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    // C-style escapes
+    fmt.print("tab:\t|quote:\"|backslash:\\|\n");
+    // {{ writes a brace; a lone } is plain text
+    fmt.print("{{} {{{}}\n", 5);
+
+    // s.len() counts bytes; s[i] is the i-th byte, a u8, from 1
+    let s = "héllo";
+    fmt.print("{} bytes, first {} last {}\n", s.len(), s[1], s[s.len()]);
+
+    // for c in s.chars() walks characters, each a u32 code point
+    var count = 0;
+    for c in s.chars() {
+        fmt.print("{} ", c);
+        count = count + 1;
+    }
+    fmt.print("\n{} characters\n", count);
+    for c in "日本".chars() { fmt.print("{} ", c); }
+    fmt.print("\n");
+
+    let empty = "";
+    fmt.print("[{}] {}\n", empty, empty.len());
+}

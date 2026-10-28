@@ -1,0 +1,7 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    let a = 3;
+    fmt.print("{}\n", a & 1);
+}

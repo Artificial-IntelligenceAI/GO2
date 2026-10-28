@@ -1,0 +1,7 @@
+pkg main;
+import "fmt";
+import "lib";
+
+fn main[] {
+    fmt.print("{}\n", lib.one());
+}

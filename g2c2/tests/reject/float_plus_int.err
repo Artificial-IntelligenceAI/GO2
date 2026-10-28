@@ -1,0 +1,1 @@
+float_plus_int.go2:7:15: both sides of `+` have one type, but these are f64 and i64

@@ -1,0 +1,1 @@
+pass_up_from_main.go2:24:24: `main` cannot fail, so `?? fail` has nowhere to pass a failure

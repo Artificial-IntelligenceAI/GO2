@@ -1,0 +1,1 @@
+ret_nothing_from_value.go2:9:5: `one` returns an i64; `ret` needs a value

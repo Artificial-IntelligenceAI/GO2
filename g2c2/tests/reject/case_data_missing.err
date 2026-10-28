@@ -1,0 +1,1 @@
+case_data_missing.go2:11:19: `Token.number` carries an i64: `Token.number[…]`

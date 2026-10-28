@@ -1,0 +1,13 @@
+pkg main;
+import "fmt";
+
+struct Counter { let n: i64; }
+
+fn Counter.show[var self] {
+    fmt.print("{}\n", self.n);
+}
+
+fn main[] {
+    var c = Counter[n = 1];
+    c.show();
+}

@@ -1,0 +1,1 @@
+print_format_not_literal.go2:6:9: `fmt.print` takes a string literal first; a format that is not a literal is not decided yet

@@ -1,0 +1,1 @@
+no_zero_value.go2:5:15: `n` needs a value: `let n = …;` (there are no zero values)

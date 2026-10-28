@@ -1,0 +1,1 @@
+chars_outside_for.go2:5:19: `s.chars()` is walked by a `for`: `for c in s.chars() { … }`

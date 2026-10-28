@@ -1,0 +1,1 @@
+var_self_unchanged.go2:6:17: `var self`, but `self` never changes; make it `let self`

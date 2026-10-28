@@ -1,0 +1,1 @@
+contains_itself.go2:5:8: type `Add` contains itself, which needs the garbage collector; G2C2 does not have it yet

@@ -1,0 +1,10 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    fmt.print("{}\n", one());
+}
+
+fn one[] -> i64 {
+    ret;
+}

@@ -1,0 +1,1 @@
+ret_value_from_nothing.go2:5:9: `main` returns nothing; use `ret;`

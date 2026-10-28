@@ -1,0 +1,1 @@
+chars_two_names.go2:5:12: what the first name is in `for i, c in s.chars()` is not decided yet

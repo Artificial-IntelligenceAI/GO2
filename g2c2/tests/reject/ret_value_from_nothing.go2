@@ -1,0 +1,6 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    ret 5;
+}

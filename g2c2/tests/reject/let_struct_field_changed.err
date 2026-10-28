@@ -1,0 +1,1 @@
+let_struct_field_changed.go2:12:7: `c` is a let; it cannot be changed (make it `var`)

@@ -1,0 +1,20 @@
+pkg main;
+import "fmt";
+import "geometry";
+import "text/count";
+import "clib";
+
+fn main[] {
+    let p = geometry.Point[x = 3, y = 4];
+    fmt.print("{}\n", p.dist2(geometry.origin()));
+    let s = geometry.Shape.square[2];
+    fmt.print("{}\n", geometry.area(s));
+    match s {
+        case square n { fmt.print("square {}\n", n); }
+        else { fmt.print("other\n"); }
+    }
+    fmt.print("{}\n", count.vowels("packages and folders"));
+    greet();
+    let f: clib.FILE = clib.fopen(str.c("/dev/null"), str.c("r"));
+    fmt.print("{} {}\n", clib.fclose(f), clib.abs(-3));
+}

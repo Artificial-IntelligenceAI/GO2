@@ -1,0 +1,1 @@
+int_literal_meets_float.go2:5:18: the integer 5 meets an f64; an integer literal taking a float type is not decided yet (write 5.0)

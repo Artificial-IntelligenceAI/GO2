@@ -1,0 +1,12 @@
+pkg main;
+import "fmt";
+
+struct Token {
+    let kind: i64;
+    var line: i64;
+}
+
+fn main[] {
+    let t = Token[kind = 1, line = 2];
+    fmt.print("{}\n", t.line);
+}

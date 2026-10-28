@@ -1,0 +1,1 @@
+match_missing_case.go2:12:5: this `match` does not cover `minus`; name each, or add `else`

@@ -1,0 +1,8 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    let a: i32 = 1;
+    let b: i64 = 2;
+    fmt.print("{}\n", a + b);
+}

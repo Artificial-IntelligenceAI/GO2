@@ -1,0 +1,1 @@
+import_twice.go2:3:8: two imports here are both named `fmt`

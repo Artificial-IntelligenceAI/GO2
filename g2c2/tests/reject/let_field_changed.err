@@ -1,0 +1,1 @@
+let_field_changed.go2:12:7: `p.x` is a let field, set only when the struct is built; it cannot be changed

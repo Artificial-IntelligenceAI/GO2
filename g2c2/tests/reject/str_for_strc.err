@@ -1,0 +1,1 @@
+str_for_strc.go2:11:10: parameter `s` is a str.c, but this is a str

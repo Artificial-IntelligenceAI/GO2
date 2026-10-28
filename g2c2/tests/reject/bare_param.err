@@ -1,0 +1,1 @@
+bare_param.go2:8:8: every parameter says `let` or `var`, as in `let a: i64`

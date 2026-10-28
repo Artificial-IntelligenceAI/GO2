@@ -1,0 +1,57 @@
+pkg main;
+import "fmt";
+
+struct Point {
+    let x: i64;
+    let y: i64;
+}
+
+struct Counter {
+    let name: str;
+    var n: i64;          // a var field changes somewhere in the program
+}
+
+struct Line {
+    let from: Point;
+    let to: Point;
+}
+
+fn Point.dist2[let self, let q: Point] -> i64 {
+    let dx = self.x - q.x;
+    let dy = self.y - q.y;
+    ret dx * dx + dy * dy;
+}
+
+fn Counter.bump[var self] {
+    self.n = self.n + 1;
+}
+
+fn Counter.bump_twice[var self] {
+    self.bump();
+    self.bump();
+}
+
+fn moved[let p: Point, let dx: i64] -> Point {
+    ret Point[x = p.x + dx, y = p.y];
+}
+
+fn main[] {
+    let p = Point[x = 1, y = 2];
+    let q = Point[y = 6, x = 4];         // every field, by name, any order
+    fmt.print("{} {} {}\n", p.x, p.y, p.dist2(q));
+
+    // structs are values: a copy is independent
+    var c = Counter[name = "clicks", n = 0];
+    var d = c;
+    c.bump();
+    c.bump_twice();
+    d.bump();
+    fmt.print("{} {} {}\n", c.name, c.n, d.n);
+
+    let line = Line[from = p, to = moved(q, 10)];
+    fmt.print("{} {}\n", line.to.x, line.from.dist2(line.to));
+
+    // == compares field by field
+    if p == Point[x = 1, y = 2] && p != q { fmt.print("equal by content\n"); }
+    if line == Line[from = p, to = Point[x = 14, y = 6]] { fmt.print("nested equal\n"); }
+}

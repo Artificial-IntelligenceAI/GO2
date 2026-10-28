@@ -1,0 +1,1 @@
+shadowing.go2:7:13: `x` is already a name here; reusing a name (shadowing) is not decided yet

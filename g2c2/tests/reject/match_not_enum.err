@@ -1,0 +1,1 @@
+match_not_enum.go2:12:11: `match` tells an enum's cases apart, not an i64's

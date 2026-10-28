@@ -1,0 +1,1 @@
+main.go2:6:27: `lib.hidden` is not `pub`, so it stays in its package

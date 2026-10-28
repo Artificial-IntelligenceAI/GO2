@@ -1,0 +1,1 @@
+member_arm_must_leave.go2:18:19: the arm for `empty` must leave (`ret`, `fail`, `stop` or `next`), as `parse` gives a value

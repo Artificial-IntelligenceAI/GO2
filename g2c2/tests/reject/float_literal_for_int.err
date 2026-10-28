@@ -1,0 +1,1 @@
+float_literal_for_int.go2:5:18: `x` is an i64, but this is an f64

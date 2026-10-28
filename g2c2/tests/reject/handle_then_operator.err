@@ -1,0 +1,1 @@
+handle_then_operator.go2:24:29: a `??` stands alone: after it comes one value, a handler, or `fail`

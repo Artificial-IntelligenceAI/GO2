@@ -1,0 +1,11 @@
+-5 200 200
+100 100
+0 100 7
+127 fits: 127
+out of range
+out of range
+12345 -42 -1 -2 9 0
+2147483647 reads as 2147483647
+out of range
+not a number
+-2147483648 reads as -2147483648

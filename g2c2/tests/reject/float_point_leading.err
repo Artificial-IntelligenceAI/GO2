@@ -1,0 +1,1 @@
+float_point_leading.go2:4:13: a float has digits on both sides of its point, as in `0.5`

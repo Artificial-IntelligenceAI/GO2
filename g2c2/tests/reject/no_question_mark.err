@@ -1,0 +1,1 @@
+no_question_mark.go2:24:23: GO2 has no `?`; a failure is handled with `??`

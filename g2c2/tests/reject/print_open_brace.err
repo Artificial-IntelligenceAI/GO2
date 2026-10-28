@@ -1,0 +1,1 @@
+print_open_brace.go2:5:15: in `fmt.print`, a `{` not followed by `}` or `{` is not decided yet

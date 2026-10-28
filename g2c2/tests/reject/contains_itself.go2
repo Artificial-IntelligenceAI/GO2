@@ -1,0 +1,9 @@
+pkg main;
+import "fmt";
+
+enum Expr { number: i64; add: Add; }
+struct Add { let left: Expr; let right: Expr; }
+
+fn main[] {
+    fmt.print("{}\n", 1);
+}

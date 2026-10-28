@@ -1,0 +1,31 @@
+pkg main;
+import "fmt";
+
+// C functions, declared one at a time with their C names
+extern.c fn abs[let n: i32] -> i32;
+extern.c fn labs[let n: i64] -> i64;
+extern.c fn strlen[let s: str.c] -> u64;
+extern.c fn puts[let s: str.c] -> i32;
+extern.c fn atoi[let s: str.c] -> i32;
+
+// an opaque C pointer type
+extern.c type FILE;
+extern.c fn fopen[let path: str.c, let mode: str.c] -> FILE;
+extern.c fn fputs[let s: str.c, let f: FILE] -> i32;
+extern.c fn fclose[let f: FILE] -> i32;
+
+fn main[] {
+    let n: i32 = -42;
+    fmt.print("{} {}\n", abs(n), labs(-7));
+    fmt.print("{}\n", strlen(str.c("hello")));
+    let s = "from C";
+    puts(str.c(s));
+    fmt.print("{}\n", atoi(str.c("1234")));
+
+    let f = fopen(str.c("/dev/null"), str.c("w"));
+    let g = f;
+    if f == g { fmt.print("the same FILE\n"); }
+    let wrote = fputs(str.c("nothing to see"), f) >= 0;
+    if wrote { fmt.print("wrote\n"); }
+    fmt.print("{}\n", fclose(f));
+}

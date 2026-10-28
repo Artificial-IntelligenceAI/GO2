@@ -1,0 +1,1 @@
+match_else_covers_nothing.go2:16:14: this `else` covers nothing: every case is named above

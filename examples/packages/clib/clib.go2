@@ -1,0 +1,7 @@
+pkg clib;
+
+// C declarations kept in one package, as GoTo will keep LLVM's
+pub extern.c type FILE;
+pub extern.c fn fopen[let path: str.c, let mode: str.c] -> FILE;
+pub extern.c fn fclose[let f: FILE] -> i32;
+pub extern.c fn abs[let n: i32] -> i32;

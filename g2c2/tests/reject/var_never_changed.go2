@@ -1,0 +1,7 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    var count = 0;
+    fmt.print("{}\n", count);
+}

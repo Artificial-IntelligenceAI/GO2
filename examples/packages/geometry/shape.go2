@@ -1,0 +1,10 @@
+pkg geometry;
+
+pub enum Shape { dot; square: i64; }
+
+pub fn area[let s: Shape] -> i64 {
+    match s {
+        case dot { ret 0; }
+        case square n { ret square(n); }
+    }
+}

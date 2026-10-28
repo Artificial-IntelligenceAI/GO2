@@ -1,0 +1,1 @@
+file_not_main.go2:1:5: a file built alone is `pkg main;`

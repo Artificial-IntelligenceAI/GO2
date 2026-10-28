@@ -1,0 +1,1 @@
+fail_unlisted.go2:24:10: `get` does not list `missing` in its `fail[…]`

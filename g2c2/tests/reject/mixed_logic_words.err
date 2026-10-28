@@ -1,0 +1,1 @@
+mixed_logic_words.go2:7:15: `&&` mixed with `and` needs parentheses, as in `(a && b) and c`
