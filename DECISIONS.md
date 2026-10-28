@@ -134,6 +134,10 @@ Design claude proposed the command `goto`, the Rust compiler being GoTo too (fol
 
 Design claude proposed G2RS as command `g2rs`, folder `g2rs/`, Rust crate `g2rs` (`g2rs build hello.go2`, `g2rs run hello.go2`), and GoTo as command `goto`, folder `goto/`, taking the same subcommands so it drops in for G2RS. The owner: "yes". So **`g2rs/` holds the Rust compiler and `goto/` the self-hosted one; both take `build` and `run`**. Not built.
 
+### 2026-10-28 — A variable is `let` if it never changes, `var` if it may; a constant is `const` (owner)
+
+The owner, asked how parameters are written in `[ ]`: "Let's do vars first, inferrence is the absence of the type / var immut = let / var mut = var / const = const". So **`let` declares an immutable variable, `var` a mutable one, `const` a constant**. What sets `const` apart from `let` (a value known when compiling, or something else), and whether `let` reaches inside what it holds, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
