@@ -106,9 +106,9 @@ From the owner's hello-world sketch; design claude listed its parts to confirm a
 
 From the owner's hello-world sketch; design claude listed its parts to confirm and recommended all. The owner: "indentation is required, confirm (and btw, `fmt.print` is formatted print)". So **`"Hello, World!\n"`**, with `\n`, `\t`, `\\`, `\"` and the rest; which escapes exactly is not decided. Not built.
 
-### 2026-10-28 — Indentation is required, beside the closer (owner)
+### 2026-10-28 — Indentation is the writer's; the closer alone marks where a block ends (owner: (b))
 
-From the owner's hello-world sketch; design claude listed its parts to confirm and recommended all. The owner: "indentation is required, confirm (and btw, `fmt.print` is formatted print)". Design claude had proposed indentation as cosmetic, the closers marking where blocks end; the owner: "indentation is required". So **a block's body is indented, and its closer is still written**: the compiler checks both. How much, and spaces or tabs, is not decided. Not built.
+From the owner's hello-world sketch; design claude listed "indentation is cosmetic, since the closers mark where blocks end" among its parts to confirm. The owner: "indentation is required", first recorded as leading whitespace being required. Asked next how wide, the owner answered of the `:` ("`fn main[]:` is correct, `fn main[]` isn't"), then: "Oh, I thought you meant `:` is indention". Design claude offered (a) indentation required, checked beside the closer, (b) optional, the compiler ignoring leading whitespace, a formatter keeping code tidy as gofmt does; and recommended (b). The owner: "(b)". So **leading whitespace means nothing to the compiler; `:` opens a block and its closer ends it**. A formatter is not decided. Not built.
 
 ### 2026-10-28 — A block's header must end with `:`; `fn main[]:`, never `fn main[]` (owner)
 
