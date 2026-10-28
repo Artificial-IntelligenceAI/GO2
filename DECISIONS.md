@@ -328,6 +328,10 @@ Design claude offered (a) `{` on the header's line and `} else {` on one line, a
 
 Design claude offered (a) `i64(x)`, as Go, (b) `x as i64`, as Rust, (c) `to.i64(x)`, as CyborgPL; and recommended (a), Go's and shortest, and running, so in `( )`. First asked before failures existed; the owner: "Actually, `i64[]` is for bounds in CyPL, and it uses `otherwise`, `?`, and `??` err handling with `coll.handler` collections", correcting design claude's account of (c), then "Let's do err handling first"; asked again after. The owner: "(a)". So **`i64(x)` converts `x` to `i64`**; whether a narrowing that does not fit follows the overflow rule (stopping a debug build, wrapping in a release one), as design claude assumed in offering it, is not confirmed. Whether text converts this way (`i32("42") ?? 0`, failing `not_a_number`) is not decided. Not built.
 
+### 2026-10-28 — A bare number takes the type of the variable it meets: `n + 1`, `let x: i8 = 5;` (owner)
+
+Asked what type a bare number has when nothing says it, design claude offered a fixed 64-bit `int` (as Go); the owner: "Is `int` a bigint?" and, told no, "Then, it isn't math-accurate, nor says its size". Design claude agreed and offered (a) no `int`, a bare number defaulting to `i64`, (b) `int` a real bigint. The owner: "What even is the question for?" Shown where it comes up (`let n = 5;`, `let m: i32 = n + 1;`), the owner: "We don't have Precog. so lazy inference it is. But what width? Btw, bare numbers in a variable will assume to be the same type as the variable". So **in `n + 1` with `n: i32`, the `1` is an `i32`**, and a bare number given to a typed variable or parameter is that type. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
