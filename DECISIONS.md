@@ -808,5 +808,9 @@ Design claude listed how floats work, the IEEE defaults, and recommended all eig
 
 Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`let x = 3.14;` is an `f64`; `y * 2.0` with `y: f32` makes `2.0` an `f32`**. Not built.
 
+### 2026-10-28 — Floats keep the same-type rule; `f64(n)` and `i64(x)` convert (owner)
+
+Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`f64 + i64` is refused**. Not built.
+
 ## Open
 
