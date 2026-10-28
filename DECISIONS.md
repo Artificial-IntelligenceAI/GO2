@@ -636,6 +636,10 @@ Design claude listed seven small details and recommended all. The owner: "yes". 
 
 Design claude listed seven small details and recommended all. The owner: "yes". So **C must not keep the pointer or write through it**; one that needs more gets a copy, made explicitly. Not built.
 
+### 2026-10-28 — Text is a number if it is an optional `-` and digits; anything else fails `not_a_number` (owner)
+
+Design claude listed seven small details and recommended all. The owner: "yes". So **no `+`, spaces, `_` or hex for now**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
