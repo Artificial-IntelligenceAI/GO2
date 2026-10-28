@@ -596,6 +596,10 @@ Design claude listed six small details and recommended all. The owner: "yes". So
 
 Design claude listed six small details and recommended all. The owner: "yes". So **`"abc" < "abd"`**; on anything else they are refused. Not built.
 
+### 2026-10-28 — No bit operators for now; a single `&`, `|` or `^` is refused (owner)
+
+Design claude listed six small details and recommended all. The owner: "yes". So **none until needed** (GoTo's LLVM flags, perhaps). Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
