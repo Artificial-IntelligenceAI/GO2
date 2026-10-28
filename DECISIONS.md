@@ -248,6 +248,10 @@ Clarified the same day, with the next question: "by 'named reusable handlers', I
 
 Design claude offered (a) named reasons in the signature, as CyborgPL and Zig, `fn parse[let s: str] -> i32 or fail[empty, not_a_number]:`, each able to carry data, adding one breaking every caller on purpose; (b) one error type per function, as Rust (needing sum types first); (c) one universal error value, as Go's `error`; and recommended (a): it needs no other feature first, makes handlers exact, and `fail[…]` fits `[ ]` holding. The owner: "(a)". So **`-> <type> or fail[<reason>, …]`**; a reason with data is `<reason>: <type>`, as a parameter is. How a function fails (a `fail` statement or other), and the spelling for one that returns nothing but can fail, are not decided. Not built.
 
+### 2026-10-28 — A function fails with `fail <reason>;`, data in `[ ]`: `fail bad_char[c];` (owner)
+
+Design claude listed, after CyborgPL: 1. `fail empty;` / `fail bad_char[c];` leaves with that reason, 2. `f(x)?` passes it up, 3. `f(x) ?? 0` a fallback value, 4. arms for each reason after `otherwise:` at the call, 5. `f(x) otherwise name` a named handler, 6. a call that can fail stands alone; recommending all. The owner: "Or what about 1-3, but named handlers only, no 4?" Design claude agreed (call sites one line, arms in one place, arguments carrying what a call has; CyborgPL itself has 98 `?? value` against 7 named handlers) and listed 1, 2, 3, 5, 6. The owner: "yes, but no `otherwise` anymore, just `??`, and no `?` too". So **`fail` leaves the function with one of the reasons its signature lists**; a reason not listed is refused. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
