@@ -520,6 +520,10 @@ The owner: "`extern` or `extern.c`?" Design claude: `extern` is shorter, C the o
 
 Design claude offered (a) one `ptr` for every C pointer, (b) named opaque types, `extern.c type LLVMModuleRef;`, one line per C type, (c) `ptr[Module]`; with C's integers GO2's (`i32` for `int`, `u32` for `unsigned`) and `cstr` a NUL-terminated C string made by `cstr(s)` in every option; and recommended (b), GoTo making thousands of LLVM calls. The owner: "(b)". So **`extern.c type <Name>;` declares an opaque C pointer type; passing one where another belongs is refused**. Not built.
 
+### 2026-10-28 — C's integers are GO2's sized types: `int` an `i32`, `unsigned` a `u32`, `long` and `size_t` 64-bit (owner)
+
+Design claude listed how the rest of calling C works, and recommended all four. The owner: "yes". So **a C `int` is declared `i32`**; LLVM's `LLVMBool` is an `i32`. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
