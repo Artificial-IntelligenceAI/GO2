@@ -608,6 +608,10 @@ Design claude listed six small details and recommended all. The owner: "yes". So
 
 Design claude listed six small details and recommended all. The owner: "yes". So **one range form**. Not built.
 
+### 2026-10-28 — A `const` holds a number, a `bool` or a `str`; a parameter is never `const` (owner)
+
+Design claude listed six small details and recommended all. The owner: "yes". So **`const max = 10;`, `const name = "goto";`**, as Go's. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
