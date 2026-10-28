@@ -14,6 +14,8 @@ Design repository for **GO2**, the owner's experimental hobby language, meant to
   in what is already built needs no go.
 - **Prompts for other sessions follow Anthropic's prompting guide** (owner: "you didn't even read Anthropic's
   prompting guide"): platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices.
+  After a context compaction the guide may be only half-remembered, so a session that knows it was compacted writes
+  its messages to other sessions plainly instead (owner: "if you know you got compacted, just msg normally").
 - Record decisions in `DECISIONS.md` as they are made, noting what the owner chose versus what was proposed.
 - **GO2 is a hobby language.** No timeline; do not push for schedules or scope.
 
