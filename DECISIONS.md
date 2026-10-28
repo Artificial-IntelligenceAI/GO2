@@ -668,6 +668,10 @@ Noting the tracing entry's "mark and sweep" strictly means not moving, design cl
 
 Design claude offered (a) mark-compact, no memory in reserve where most memory sits, (b) copying in two halves, as the nursery, (c) mark and sweep, not moving; and recommended (a), a copying nursery and a compacting old space being the standard pairing, promotion timing a tuning detail for building. The owner: "(a)". So **the old space is collected by mark-compact**. When a value is promoted is not decided. Not built.
 
+### 2026-10-28 — A `str` is always valid UTF-8 (owner)
+
+Design claude listed three string details and recommended all. The owner: "yes". So **literals are checked by the compiler, and `concat` of valid strings stays valid**; invalid text cannot exist in a `str`. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
