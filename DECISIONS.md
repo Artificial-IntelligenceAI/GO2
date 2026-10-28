@@ -580,6 +580,10 @@ Design claude listed five small details and recommended all. The owner: "yes". S
 
 Design claude listed five small details and recommended all. The owner: "yes". So **`let x = match …` is not GO2 for now**. Not built.
 
+### 2026-10-28 — An `else` covering nothing in a `match` is refused (owner)
+
+Design claude listed five small details and recommended all. The owner: "yes". So **with every case named, an `else` is dead code and refused**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
