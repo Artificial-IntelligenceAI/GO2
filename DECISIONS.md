@@ -612,6 +612,10 @@ Design claude listed six small details and recommended all. The owner: "yes". So
 
 Design claude listed six small details and recommended all. The owner: "yes". So **`const max = 10;`, `const name = "goto";`**, as Go's. Not built.
 
+### 2026-10-28 — A folder's name must match its `pkg` line; the root's files are `pkg main;` (owner)
+
+Design claude listed seven small details and recommended all. The owner: "yes". So **`lexer/` holds `pkg lexer;` files**; a mismatch is refused. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
