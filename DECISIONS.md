@@ -348,6 +348,10 @@ Design claude offered (a) `struct Point { x: i64; y: i64; }`, as Rust with `;` a
 
 From "where's `let` & `var`?" on fields, design claude offered (a) every field saying which, a `var` field required to change somewhere in the program (the compiler building the whole program at once), (b) every field saying which, fields exempt from the must-change rule, (c) a bare field `let`, `var` marking one; and recommended (a), as for parameters. The owner: "(a)". So **`struct Token { let kind: TokenKind; var line: i64; }`**; a `let` field is set only when the struct is built, and a `var` field with no change to it anywhere is refused, naming `let`. If separate compilation ever comes, this is to be revisited. Not built.
 
+### 2026-10-28 — A struct is built in `[ ]`, `Point[x = 1, y = 2]`; a field is read `p.x` (owner: (a))
+
+Design claude offered (a) `Point[x = 1, y = 2]`, `[ ]` holding and `=` setting a field as it sets a variable, as CyborgPL builds, (b) `Point{x: 1, y: 2}`, as Go and Rust (braces now blocks, `if p == Point{x: 1} {` ambiguous), (c) `Point(x = 1, y = 2)` (building runs nothing, so not `( )`); and recommended (a). The owner: "(a)". So **`let p = Point[x = 1, y = 2];`, and `p.x` reads a field**. Whether every field must be given, and in what order, is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
