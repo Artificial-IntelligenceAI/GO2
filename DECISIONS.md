@@ -812,5 +812,9 @@ Design claude listed how floats work, the IEEE defaults, and recommended all eig
 
 Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`f64 + i64` is refused**. Not built.
 
+### 2026-10-28 — A float to an integer drops the fraction toward zero; too big fails `out_of_range` (owner)
+
+Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`i64(2.9)` is `2`, `i64(-2.9)` is `-2`**; a value too big follows the narrowing rule (handled with `??`, or the overflow rule). Not built.
+
 ## Open
 
