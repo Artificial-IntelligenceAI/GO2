@@ -624,6 +624,10 @@ Design claude listed seven small details and recommended all. The owner: "yes". 
 
 Design claude listed seven small details and recommended all. The owner: "yes". So **one field, `name`**; more come with something to set. Not built.
 
+### 2026-10-28 — `g2rs build` makes a debug build, `g2rs build --release` a release one (owner)
+
+Design claude listed seven small details and recommended all. The owner: "yes". So **`--release`**, on `run` too, and on `goto` later. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
