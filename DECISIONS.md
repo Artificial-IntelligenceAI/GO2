@@ -416,6 +416,10 @@ Design claude listed how lists work (`xs.push(4)`, `xs.pop()` among them); the o
 
 Design claude listed how lists work (`xs.push(4)`, `xs.pop()` among them); the owner: "Any alt words for `push` and `pop`?" Offered `push`/`pop`, `append`/`pop`, `add`/`remove_last`, `append`/`remove_last`, `put`/`take`, design claude recommended `append` and `remove_last`. The owner: "Can we abbrev `remove`? Maybe `rem`?" Design claude: it fits `pkg`, `fn`, `ret`, `str`, though `rem` is the usual short name for remainder elsewhere; offered `rem_last`, `del_last`, `rm_last`, `drop_last`. The owner: "`ls` for `list`, and `rm_last`. I didn't approve the others yet". So **`rm_last`**. What it gives back, and what it does on an empty list, are not decided; neither is the rest of the list (growing, length, adding, an index out of range, replacing an item). Not built.
 
+### 2026-10-28 — Adding an item to a list's end is `xs.append(v)` (owner)
+
+With `rm_last` chosen, design claude offered `add_last` (its mirror), `append` (Go's, CyborgPL's), `push`; and recommended `add_last`. The owner: "`append`". So **`xs.append(4);`**. Whether it takes only a `var` list is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
