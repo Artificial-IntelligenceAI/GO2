@@ -27,7 +27,7 @@ fn main[] {
 ## Toolchain
 
 - Source files end `.go2`.
-- **G2C2** is the bootstrap compiler, in C++, building IR through LLVM's C++ API (Homebrew LLVM 23). **GoTo**
+- **G2C2** is the bootstrap compiler, in C++23, building IR through LLVM's C++ API (Homebrew LLVM 23). **GoTo**
   (`goto/`, command `goto`) is the self-hosted one, in GO2, and replaces G2C2 once it builds itself. Both take
   `build` and `run`. G2C2's command and folder are open.
 - GoTo reaches LLVM through small C++ functions with C-shaped signatures, declared `extern.c`.
@@ -282,13 +282,13 @@ until the call returns. Copy-on-write knows storage is shared by a flag, set whe
 cleared; a write to flagged storage copies it first.
 
 The runtime every program links (the collector, allocation, lists, maps, strings, printing, the errors that stop
-a program) is written in C++.
+a program) is written in C++23.
 
 ## Open
 
 Not decided yet, roughly in the order the compiler will need them:
 
-- G2C2's command and folder; its C++ standard and build tool.
+- G2C2's command and folder; its build tool and compiler; where the runtime lives.
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
 - When the collector promotes a value from the nursery.
 - A formatter.

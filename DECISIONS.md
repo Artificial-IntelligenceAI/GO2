@@ -692,6 +692,10 @@ Asked whether "C++ when needed" covers the runtime and LLVM shims only, G2RS sta
 
 Asked whether "C++ when needed" covers the runtime and LLVM shims only, G2RS staying Rust, the owner: "Nah, nah. I mean C++ replaces everything". Design claude asked whether that means the bootstrap compiler is C++, not Rust, using LLVM's C++ API directly, GoTo reaching LLVM through C-shaped C++ shims (C++ having no stable interface another language can call); the owner: "yes. It becomes `G2C2`". So **GoTo calls small C++ functions with C-shaped signatures, written for it over LLVM's C++ API, declared in GO2 with `extern.c`** as any C function. Whether GoTo also uses LLVM's own C API where it suffices is not decided. Not built.
 
+### 2026-10-28 — G2C2 and the runtime are written in C++23 (owner)
+
+Design claude proposed C++20; the owner: "What about a newer C++ version?" Probed on this Mac: Apple clang 21 takes C++23 and C++26 language features, its library lacking some C++23 parts (`views::enumerate`); Homebrew clang 23 took everything tried (`std::print`, `std::expected`, explicit `this`, `views::enumerate`, C++26 pack indexing). Design claude recommended C++26 with Homebrew clang 23, falling back to C++23 if a wanted feature is missing. The owner: "C++23". So **`-std=c++23`**. Which compiler builds it is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
