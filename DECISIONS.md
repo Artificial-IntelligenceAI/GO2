@@ -292,6 +292,10 @@ used as **`parse(t) ?? parse.parse_failed(0)`**, arguments in `( )` as the use r
 
 Design claude listed three handler rules, after CyborgPL's, and recommended confirming each. The owner: "yes". So **`case <reason> <name>:` binds the data**; it never changes. Not built.
 
+### 2026-10-28 — A member without parameters is used bare, `?? parse.skip` (owner)
+
+Design claude listed three handler rules, after CyborgPL's, and recommended confirming each. The owner: "yes". So **no `()` on a member that takes nothing**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
