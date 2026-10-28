@@ -275,11 +275,11 @@ fmt.print("{}:{}: {}\n", line, col, msg);
 pub extern.c type LLVMModuleRef;          // an opaque C pointer type; mixups are refused
 pub extern.c type LLVMTypeRef;
 pub extern.c fn LLVMModuleCreateWithName[let name: str.c] -> LLVMModuleRef;
-pub extern.c fn LLVMFunctionType[let ret: LLVMTypeRef, let params: ls[LLVMTypeRef], let count: u32,
+pub extern.c fn LLVMFunctionType[let result: LLVMTypeRef, let params: ls[LLVMTypeRef], let count: u32,
                                  let variadic: i32] -> LLVMTypeRef;
 
 let m = LLVMModuleCreateWithName(str.c("main"));
-let f = LLVMFunctionType(ret, params, u32(params.len()), 0);
+let f = LLVMFunctionType(result, params, u32(params.len()), 0);
 ```
 
 - A C function is declared one at a time, `extern.c fn`, with its C name and no body.
