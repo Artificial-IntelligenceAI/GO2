@@ -218,6 +218,10 @@ Design claude listed how booleans work, as in Go, and recommended confirming eac
 
 Design claude listed how arithmetic works and recommended confirming each, and for a result that does not fit its type offered (a) wrapping, as Go, silently, (b) stopping with an error naming the line; recommending (b). The owner: "correct, but (b) on debug, and (a) on release". So **`%` is the remainder**. Not built.
 
+### 2026-10-28 — Integer `/` drops the fraction: `7 / 2` is `3` (owner)
+
+Design claude listed how arithmetic works and recommended confirming each, and for a result that does not fit its type offered (a) wrapping, as Go, silently, (b) stopping with an error naming the line; recommending (b). The owner: "correct, but (b) on debug, and (a) on release". So **`/` on integers gives an integer**, the fraction dropped. Which way a negative result rounds is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
