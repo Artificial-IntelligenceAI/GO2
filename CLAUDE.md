@@ -7,7 +7,8 @@ Design repository for **GO2**, the owner's experimental hobby language, meant to
 - **Design authority is the owner's.** Sessions advise and recommend; none decide syntax, naming, semantics or
   architecture, and none fill in a default for an open decision. Ask in plain text and wait.
 - **One question at a time** (owner, 2026-10-28), each with a recommendation.
-- **Never use the AskUserQuestion tool** in this project ("no pop ups", owner, 2026-10-28).
+- **Never use the AskUserQuestion tool** in this project ("no pop ups", owner, 2026-10-28), nor a question with
+  buttons in the end-of-turn box (owner: "That's a popup"). Questions go in the message text only.
 - **Building waits for the owner's go** (owner, 2026-10-28: "Woah, I didn't say go yet (but bug fixing is auto)").
   A settled design is not a go. Fixing a bug in what is already built needs no go.
 - Record decisions in `DECISIONS.md` as they are made, noting what the owner chose versus what was proposed.
