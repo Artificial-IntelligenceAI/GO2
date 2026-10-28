@@ -456,6 +456,10 @@ Design claude offered (a) `map[str, i64]`, Go's word, (b) `mp[…]`, matching `l
 
 Design claude listed how maps work and recommended all six. The owner: "yes". So **`var m: map[str, i64] = [];`**, built as a struct is. Not built.
 
+### 2026-10-28 — Reading a missing key fails `missing`, and must be handled: `m["zed"] ?? 0` (owner)
+
+Design claude listed how maps work and recommended all six. The owner: "yes". So **`m["ann"]` reads a value, and a read is handled as any failing call**; unlike a list index, a missing key is everyday, not a bug, so a forgotten check is refused, not stopping the program. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
