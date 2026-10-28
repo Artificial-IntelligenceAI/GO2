@@ -210,6 +210,10 @@ Design claude listed how booleans work, as in Go, and recommended confirming eac
 
 Design claude listed how booleans work, as in Go, and recommended confirming each. The owner: "confirm". So **`if`, `else if` and `for <condition>:` take only a `bool`**; there is no truthiness. Not built.
 
+### 2026-10-28 — Comparisons are `==`, `!=`, `<`, `<=`, `>`, `>=` (owner)
+
+Design claude listed how booleans work, as in Go, and recommended confirming each. The owner: "confirm". So **`a == b`**, each giving a `bool`. What can be compared with what is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
