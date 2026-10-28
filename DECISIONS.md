@@ -472,6 +472,10 @@ Design claude listed how maps work and recommended all six. The owner: "yes". So
 
 Design claude listed how maps work and recommended all six. The owner: "yes". So **`m.len()`**, as a list's. Not built.
 
+### 2026-10-28 — `for k, v in m` walks a map in the order its keys were added (owner)
+
+Design claude listed how maps work and recommended all six. The owner: "yes". So **the order is insertion order**, unlike Go's random one; a program's output repeats run to run. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
