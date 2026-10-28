@@ -178,6 +178,10 @@ Design claude offered (a) `for x in xs:`, with a position `for i, x in xs:`, ove
 
 Asked whether `0..10` includes 10, the owner: "`xs[0]` is the position before 1, but what position even is that?" Design claude: 0-based counts an offset from the start (C, Go, Rust, Python), 1-based a position (Lua, Julia, Fortran); each pairs with a range rule, 0 with ranges stopping before the end, 1 with ranges including it; and recommended 0, LLVM's C API counting from 0. The owner: "I mean, look at GO2. It doesn't have manual memory". Design claude agreed the offset reading only matters where memory shows, which GO2 hides; the one cost left is where GO2 meets C and LLVM, paid once in a thin wrapper; and changed to recommending 1, with ranges including the end. The owner: "yes". So **the first item is `xs[1]` and the last `xs[n]`**, written in `[ ]` as it holds; a 0 is out of range. How a length is asked for is not decided. Not built.
 
+### 2026-10-28 — `a..b` includes `b`: `for i in 1..n:` visits 1 to n (owner)
+
+Asked whether `0..10` includes 10, the owner: "`xs[0]` is the position before 1, but what position even is that?" Design claude: 0-based counts an offset from the start (C, Go, Rust, Python), 1-based a position (Lua, Julia, Fortran); each pairs with a range rule, 0 with ranges stopping before the end, 1 with ranges including it; and recommended 0, LLVM's C API counting from 0. The owner: "I mean, look at GO2. It doesn't have manual memory". Design claude agreed the offset reading only matters where memory shows, which GO2 hides; the one cost left is where GO2 meets C and LLVM, paid once in a thin wrapper; and changed to recommending 1, with ranges including the end. The owner: "yes". So **`1..10` is the ten numbers 1 to 10**, and a loop over positions is `for i in 1..n:`. Whether there is a form stopping before the end is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
