@@ -30,6 +30,12 @@ function closes by name, inner blocks with a bare `;`; and recommended (a). The 
 main`". So **a closer is `;`, the block's kind, and its name if it has one: `;fn main`, `;if`, `;for`**; the sketch's
 `;main` is now `;fn main`. Since the kind is always written, a name never clashes with a keyword in a closer. Not built.
 
+### 2026-10-28 — The first compiler is written in Rust (owner)
+
+Asked what the first compiler outputs, the owner answered that and what it is written in: "Hosted in Rust, uses the
+LLVM backend, and C++ when needed". So **the bootstrap compiler is Rust**; the self-hosted one, in GO2, replaces it.
+Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
