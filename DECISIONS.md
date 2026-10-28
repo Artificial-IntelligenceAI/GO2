@@ -600,6 +600,10 @@ Design claude listed six small details and recommended all. The owner: "yes". So
 
 Design claude listed six small details and recommended all. The owner: "yes". So **none until needed** (GoTo's LLVM flags, perhaps). Not built.
 
+### 2026-10-28 — No shared parameter types: `[let a, let b: i32]` is refused (owner)
+
+Design claude listed six small details and recommended all. The owner: "yes". So **each parameter says its own type**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
