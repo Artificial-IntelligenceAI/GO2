@@ -744,5 +744,9 @@ Design claude applied "follow maths, else parentheses" operator by operator, and
 
 Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a < b < c` is `a < b && b < c`; `a == b == c` all equal**; a chain is all `<`/`<=`, all `>`/`>=`, or all `==`. Not built.
 
+### 2026-10-28 — `/` followed by `*` or `/` needs parentheses (owner)
+
+Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a / b * c` and `a / b / c` are refused**, naming `(a / b) * c`; maths readers split on them. Not built.
+
 ## Open
 
