@@ -140,7 +140,7 @@ struct Expr {
     // set by the checker
     Type* type = nullptr;
     Local* local = nullptr;   // LocalRef
-    Item* item = nullptr;     // ConstRef, FnCall, MethodCall, StructLit, EnumLit
+    Item* item = nullptr;     // FnCall, MethodCall, StructLit, EnumLit
     int index = 0;            // FieldGet: field; EnumLit: case
     bool handled = false;     // a call or conversion that can fail, under a ??
     bool can_fail = false;    // Conv: a narrowing that may not fit; FnCall: the fn lists reasons
@@ -291,7 +291,6 @@ struct Item {
     std::vector<Case> cases;
     std::map<std::string, Item*> methods;
     Type* type = nullptr;
-    std::vector<llvm::Value*> extra;  // gen: a struct's or enum's == function
     int state = 0;  // checking a type for containing itself: 0 not yet, 1 in progress, 2 done
 
     // Const

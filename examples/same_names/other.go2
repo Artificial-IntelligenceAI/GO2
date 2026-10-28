@@ -1,0 +1,8 @@
+pkg main;
+import "b/util";
+
+fn other[] -> str {
+    let n = util.twice(2);
+    if n == 4 { ret util.name(); }
+    ret "?";
+}

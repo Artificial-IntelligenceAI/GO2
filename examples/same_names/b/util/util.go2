@@ -1,0 +1,9 @@
+pkg util;
+
+pub fn name[] -> str {
+    ret "b/util";
+}
+
+pub fn twice[let n: i64] -> i64 {
+    ret n * 2;
+}

@@ -744,6 +744,10 @@ FileAst* parse_file(int file) {
         size_t slash = imp.path.rfind('/');
         imp.name = slash == std::string::npos ? imp.path : imp.path.substr(slash + 1);
         expect(p, Tok::Semi, "`;`");
+        if (imp.path.empty()) error_at(imp.pos, "an import names a folder, from the project root");
+        for (const Import& other : f->imports) {
+            if (other.name == imp.name) error_at(imp.pos, "two imports here are both named `" + imp.name + "`");
+        }
         f->imports.push_back(imp);
     }
     while (peek(p).kind != Tok::End) {

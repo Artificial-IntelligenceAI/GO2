@@ -897,7 +897,8 @@ static void gen_stmt(Stmt* s) {
 
 static std::string symbol(Item* fn) {
     if (fn->kind == ItemKind::ExternFn) return fn->name;
-    std::string s = fn->pkg->name + ".";
+    // the folder, not the package name: a/util and b/util are both package util
+    std::string s = (fn->pkg->dir.empty() ? std::string("main") : fn->pkg->dir) + ".";
     if (!fn->recv_name.empty()) s += fn->recv_name + ".";
     return s + fn->name;
 }

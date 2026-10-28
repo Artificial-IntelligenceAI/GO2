@@ -1,0 +1,9 @@
+pkg main;
+import "fmt";
+import "a/util";
+
+// two packages may share a name in different folders; a file imports one of them
+fn main[] {
+    fmt.print("{}\n", util.name());
+    fmt.print("{}\n", other());
+}
