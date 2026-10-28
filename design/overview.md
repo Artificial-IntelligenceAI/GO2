@@ -81,7 +81,9 @@ made cheap by copy-on-write. So a `let` list or struct never changes, inside or 
 (`Expr` holding `Add` holding `Expr`) just works; the compiler stores the cycle in GC memory.
 
 **Numbers.** A bare number takes the type of the variable it meets (`n + 1` with `n: i32` makes `1` an `i32`;
-`let x: i8 = 5;`). With nothing around it, it is an `i64`. Conversion calls the type: `i64(x)`.
+`let x: i8 = 5;`). With nothing around it, it is an `i64`. Conversion calls the type: `i64(x)`. A narrowing that does
+not fit follows the overflow rule, unless handled: `i8(x) ?? 0`. Text converts the same way and must be handled:
+`i64(text) ?? 0` (fails `not_a_number` or `out_of_range`).
 
 ### Structs
 
@@ -231,7 +233,8 @@ coll.handler parse {
   with `ret`, `stop`, `next` or `fail`. On a call that gives a value every arm must leave; on a call that gives
   nothing, an arm may also just finish, and the program carries on.
 - A call that can fail stands alone, as a statement or a declaration's whole value: never `parse(a) + parse(b)`.
-- The one failure that may go unhandled is a list index out of range, which then stops the program.
+- Two failures may go unhandled: a list index out of range, which then stops the program, and a narrowing
+  conversion that does not fit, which then follows the overflow rule.
 
 ## Printing
 
@@ -269,7 +272,7 @@ Not decided yet, roughly in the order the compiler will need them:
 
 - What "C++ when needed" covers; what C may do with a list it is given.
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
-- Whether a narrowing conversion follows the overflow rule; text to number (`i32("42") ?? 0`?).
+- Which text counts as a number; the reason name for a narrowing that does not fit.
 - The reason name for an out-of-range index, and whether a handled `xs[i] ?? 0` must stand alone.
 - Walking a string's characters; whether invalid UTF-8 can exist.
 - Leaving an outer loop; whether loop names are `let`.
