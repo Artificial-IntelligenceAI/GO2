@@ -824,5 +824,9 @@ Design claude listed how floats work, the IEEE defaults, and recommended all eig
 
 Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`x % y` with floats is refused**. Not built.
 
+### 2026-10-28 — `==` on floats follows IEEE: NaN never equals itself (owner)
+
+Design claude listed how floats work, the IEEE defaults, and recommended all eight. The owner: "yes". So **`x == x` is false when `x` is NaN**. Not built.
+
 ## Open
 
