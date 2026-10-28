@@ -584,6 +584,10 @@ Design claude listed five small details and recommended all. The owner: "yes". S
 
 Design claude listed five small details and recommended all. The owner: "yes". So **with every case named, an `else` is dead code and refused**. Not built.
 
+### 2026-10-28 — Negative integer division rounds toward zero: `-7 / 2` is `-3`, `-7 % 2` is `-1` (owner)
+
+Design claude listed five small details and recommended all. The owner: "yes". So **`%` takes the sign of its left side**, as Go and C, and LLVM's own division. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
