@@ -392,6 +392,10 @@ Design claude listed how a `str` behaves: 1. UTF-8 bytes, 2. never changing in p
 
 Design claude offered (a) a word between strings, `a concat b concat "!"`, as `and` / `or`, (b) a call, `concat(a, b, "!")`; and recommended (b): any number of pieces in one new string, no precedence, and running is `( )`. The owner: "(b)". So **`let s = concat(a, b, "!");`**. Whether `concat` is built in or comes from a package is not decided. Not built.
 
+### 2026-10-28 — A list type is `list[i64]`; a literal is `[1, 2, 3]`; an item is `xs[i]` (owner: (a))
+
+Design claude offered (a) `list[i64]`, the type described in `[ ]`, (b) Go's `[]i64`, (c) Swift's `[i64]`, a literal `[1, 2, 3]` and `xs[i]` (from 1) in all three; and recommended (a), "`[ ]` describes", setting the pattern for other containers (`map[str, i64]`). The owner: "(a)". So **`let xs: list[i64] = [1, 2, 3];` and `xs[1]` is `1`**. Whether a list grows, how one is added to, and its length, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
