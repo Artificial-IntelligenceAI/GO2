@@ -448,6 +448,10 @@ Design claude listed what was left of how lists work, and recommended all: 1. li
 
 Design claude proposed `break;` and `continue;`, as Go: each acting on the innermost `for`, refused outside a loop, in a handler arm acting on the loop the handler is used in (its use outside a loop refused). The owner: "Any shorter words?" Offered `break`/`next`, `last`/`next`, `stop`/`skip`, `stop`/`next`, `brk`/`cont`, design claude recommended `stop` and `next`. The owner: "yup". So **`stop;` leaves the innermost `for`; `next;` goes to its next turn**, with the rules as proposed; earlier entries' `break` and `continue` (handler arms) are now spelled `stop` and `next`. Leaving an outer loop is not decided. Not built.
 
+### 2026-10-28 — The map type is `map[str, i64]` (owner: (a))
+
+Design claude offered (a) `map[str, i64]`, Go's word, (b) `mp[…]`, matching `ls`, (c) `dict[…]`; and recommended (a), already three letters. The owner: "(a)". So **`map[<key>, <value>]`**. The literal (proposed `["ann" = 30, "bo" = 25]`), reading (`ages["ann"]`) and a missing key are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
