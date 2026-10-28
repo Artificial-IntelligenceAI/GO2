@@ -152,6 +152,9 @@ static Expr* parse_primary(Parser& p) {
         expect(p, Tok::RParen, "`)`");
         return e;
     }
+    case Tok::Dot:
+        if (peek(p, 1).kind == Tok::Int) error_at(t.pos, "a float has digits on both sides of its point, as in `0." + peek(p, 1).text + "`");
+        error_at(t.pos, "expected a value, found " + found(t));
     case Tok::LBracket:
         error_at(t.pos, "a list literal needs the garbage collector, which G2C2 does not have yet");
     default:

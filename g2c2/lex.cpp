@@ -182,6 +182,9 @@ std::vector<Token> lex(int file) {
                 error_at(t.pos, "a hex number needs digits after `0x`");
             }
             bool is_float = false;
+            if (!hex && i < src.size() && src[i] == '.' && (i + 1 >= src.size() || (!is_digit(src[i + 1]) && src[i + 1] != '.'))) {
+                error_at(t.pos, "a float has digits on both sides of its point, as in `" + src.substr(start, i - start) + ".0`");
+            }
             if (!hex && i + 1 < src.size() && src[i] == '.' && is_digit(src[i + 1])) {
                 i++;
                 digits(false);

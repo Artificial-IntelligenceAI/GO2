@@ -1,0 +1,47 @@
+pkg main;
+import "fmt";
+
+fn show[let label: str, let b: bool] {
+    if b { fmt.print("{} true\n", label); } else { fmt.print("{} false\n", label); }
+}
+
+fn main[] {
+    // how {} prints a float is not decided yet, so these print integers and bools
+    let x = 3.14;                // an f64
+    let y: f32 = 2.5;
+    let z = y * 2.0;             // 2.0 takes y's type, f32
+    fmt.print("{} {}\n", i64(x * 100.0), i64(z));
+    let big = 6.02e23;
+    let tiny = 1e-9;
+    show("big > 1e23", big > 1e23);
+    show("tiny < 0.000001", tiny < 0.000001);
+
+    // a float to an integer drops the fraction toward zero
+    fmt.print("{} {} {}\n", i64(2.9), i64(-2.9), u8(255.99));
+    // too big, or NaN, fails out_of_range when handled
+    let h = u8(256.0) ?? 0;
+    let k = i32(-1e10) ?? 1;
+    fmt.print("{} {}\n", h, k);
+
+    // IEEE: dividing by zero gives infinity; NaN never equals itself
+    let zero = 0.0;
+    let inf = 1.0 / zero;
+    let nan = zero / zero;
+    show("inf > 1e308", inf > 1e308);
+    show("nan == nan", nan == nan);
+    show("nan != nan", nan != nan);
+    show("nan < 1.0", nan < 1.0);
+    let bad = i64(nan) ?? -1;
+    let huge = i64(inf) ?? -2;
+    fmt.print("{} {}\n", bad, huge);
+
+    // conversions between floats, and from integers
+    let n: i64 = 7;
+    let half = f64(n) / 2.0;
+    fmt.print("{}\n", i64(half * 10.0));
+    let wide = f64(y);
+    let narrow = f32(x);
+    show("f32 then f64", f64(narrow) != x && wide == 2.5);
+    let m = u8(-0.5) ?? 9;
+    fmt.print("{}\n", m);
+}

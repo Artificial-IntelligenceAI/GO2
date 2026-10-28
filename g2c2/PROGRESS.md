@@ -62,6 +62,10 @@ picking an answer.
   methods and cases). A lone `.go2` file builds alone as `pkg main` (question 17).
 - Calling C: `extern.c fn` (integers, `str.c`, `extern.c` types; `pub` allowed), `extern.c type` (opaque, mixups
   refused, `==` by pointer), `str.c(s)` (the literal itself, question 26).
+- Floats: `f32`, `f64`, literals (`3.14`, `6.02e23`, `1e-9`), IEEE arithmetic (infinity, NaN, `==` and `!=` as
+  IEEE), no `%`; conversions float to integer (toward zero; too big or NaN fails `out_of_range` when handled),
+  integer to float, between floats (IEEE, question 11). Printing a float waits on question 4.
+- `os.exit(code)` with a literal code (its parameter type is question 3); `main` exits 0 at its end or at `ret;`.
 
 ## Next
 

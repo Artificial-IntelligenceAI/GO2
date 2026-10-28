@@ -1,0 +1,9 @@
+pkg main;
+import "fmt";
+import "os";
+
+fn main[] {
+    fmt.print("leaving with 3\n");
+    os.exit(3);
+    fmt.print("never\n");
+}

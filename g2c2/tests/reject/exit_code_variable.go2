@@ -1,0 +1,7 @@
+pkg main;
+import "os";
+
+fn main[] {
+    let code = 3;
+    os.exit(code);
+}

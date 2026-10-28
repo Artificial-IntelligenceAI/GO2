@@ -1,0 +1,1 @@
+int_literal_too_big.go2:5:17: 300 does not fit in i8; a literal that does not fit is not decided yet

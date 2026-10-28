@@ -1,0 +1,1 @@
+negative_unsigned_literal.go2:5:17: -1 does not fit in u8; a literal that does not fit is not decided yet

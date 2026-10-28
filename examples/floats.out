@@ -1,0 +1,13 @@
+314 5
+big > 1e23 true
+tiny < 0.000001 true
+2 -2 255
+0 1
+inf > 1e308 true
+nan == nan false
+nan != nan true
+nan < 1.0 false
+-1 -2
+35
+f32 then f64 true
+0
