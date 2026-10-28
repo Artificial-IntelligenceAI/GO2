@@ -504,6 +504,10 @@ Design claude offered (a) a folder a package, as Go, every file in `lexer/` star
 
 Design claude offered (a) a manifest, as Go's `go.mod`, in the root, naming the project, the compiler walking up to find it, later holding dependencies and settings; (b) none for now, the root the folder built; (c) a fixed name (`main/` or `main.go2`); and recommended (b). The owner: "(a)". So **a project has a manifest at its root**. Its name, format and contents are not decided. Not built.
 
+### 2026-10-28 — The manifest is `project.go2`, written in GO2: `Project[name = "goto"]` (owner: (c))
+
+Design claude offered (a) `GO2.toml`, TOML, as CyborgPL's `CyJet.toml` (GoTo needing a TOML reader to build itself), (b) `go2.mod`, one setting per line, as Go's `go.mod`, (c) `project.go2`, a GO2 struct literal read by the compiler's own parser; and recommended (c). The owner: "(c)". So **a project's root holds `project.go2`**, settings as a struct literal. What else the file holds (a `pkg` line, other settings, how `Project` is defined) is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
