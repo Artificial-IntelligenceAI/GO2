@@ -242,6 +242,8 @@ Asked how a conversion is written, the owner: "Let's do err handling first". Des
 
 Asked how a conversion is written, the owner: "Let's do err handling first". Design claude offered (a) Go's, the error an extra return value, checked by convention (bringing `nil` and several return values), (b) a failure a value the caller must handle, as Rust, Zig and CyborgPL: the signature says it can fail, and the result cannot be used until the caller says what happens (`?` passes it up, `??` gives a fallback, or each reason handled), forgetting a compile error, (c) exceptions; and recommended (b). The owner: "(b), and a way to make named reusable handlers (but not with a `coll`)". So **a way of handling failures can be written once, named, and used at many calls**; it is not a `coll` (CyborgPL's `coll.handler` collections). Its spelling is not decided. Not built.
 
+Clarified the same day, with the next question: "by 'named reusable handlers', I mean CyborgPL's kind but not with a `coll`". CyborgPL's kind (its `examples/collection_handlers.cy`, `handler_arguments.cy`): a named set of arms, one per reason the call can fail, used at a call as if written there, so an arm may `ret`, `break`, `continue` or `fail` from where it is used; one missing a reason the call can fail is refused there; it may take arguments. CyborgPL groups them as members of a `coll.handler`; **in GO2 a handler is that, without the collection around it**.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
