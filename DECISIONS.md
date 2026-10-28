@@ -724,5 +724,9 @@ The owner: "Should we lock it to LLVM `O1`?" Design claude: the identity sentenc
 
 Design claude proposed Go's table (unary `-` `!`; `*` `/` `%`; `+` `-`; comparisons; `&&` `and`; `||` `or`), left to right within a level, comparisons not chaining, `&&` mixed with `||` needing parentheses, `??` lowest. The owner: "Follow math, if math doesn't have an answer, requ `()`". So **an expression groups as a mathematician would read it, and one a mathematician could read two ways is refused until parenthesised**. How that applies operator by operator is asked next. Not built.
 
+### 2026-10-28 — `*` and `/` bind tighter than `+` and `-` (owner)
+
+Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a + b * c` is `a + (b * c)`**. Not built.
+
 ## Open
 
