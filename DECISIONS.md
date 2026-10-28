@@ -238,6 +238,10 @@ Design claude listed how arithmetic works and recommended confirming each, and f
 
 Asked how a conversion is written, the owner: "Let's do err handling first". Design claude offered (a) Go's, the error an extra return value, checked by convention (bringing `nil` and several return values), (b) a failure a value the caller must handle, as Rust, Zig and CyborgPL: the signature says it can fail, and the result cannot be used until the caller says what happens (`?` passes it up, `??` gives a fallback, or each reason handled), forgetting a compile error, (c) exceptions; and recommended (b). The owner: "(b), and a way to make named reusable handlers (but not with a `coll`)". So **a function that can fail says so in its signature, and a call to it must say what happens on failure before its result is used**; there are no exceptions and no unchecked error values. How a signature says it, whether `?` and `??` are the spellings, and how each reason is handled, are not decided. Not built.
 
+### 2026-10-28 — A handler can be named and reused, though not as CyborgPL's `coll.handler` (owner)
+
+Asked how a conversion is written, the owner: "Let's do err handling first". Design claude offered (a) Go's, the error an extra return value, checked by convention (bringing `nil` and several return values), (b) a failure a value the caller must handle, as Rust, Zig and CyborgPL: the signature says it can fail, and the result cannot be used until the caller says what happens (`?` passes it up, `??` gives a fallback, or each reason handled), forgetting a compile error, (c) exceptions; and recommended (b). The owner: "(b), and a way to make named reusable handlers (but not with a `coll`)". So **a way of handling failures can be written once, named, and used at many calls**; it is not a `coll` (CyborgPL's `coll.handler` collections). Its spelling is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
