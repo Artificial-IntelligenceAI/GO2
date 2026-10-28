@@ -424,6 +424,10 @@ With `rm_last` chosen, design claude offered `add_last` (its mirror), `append` (
 
 Design claude listed what was left of how lists work, and recommended all: 1. lists grow, 2. `xs.len()`, 3. `append` / `rm_last` on a `var` list only, 4. `rm_last` giving the item or failing `empty`, 5. `xs[i]` out of range stopping the program, 6. `xs[i] = v;` on a `var` list only. The owner: "yes, but 5 should also be able to be handled". So **a list has no fixed size**. Not built.
 
+### 2026-10-28 — `xs.len()` is the number of items, an `i64`; a `str`'s `s.len()` counts bytes (owner)
+
+Design claude listed what was left of how lists work, and recommended all: 1. lists grow, 2. `xs.len()`, 3. `append` / `rm_last` on a `var` list only, 4. `rm_last` giving the item or failing `empty`, 5. `xs[i]` out of range stopping the program, 6. `xs[i] = v;` on a `var` list only. The owner: "yes, but 5 should also be able to be handled". So **`for i in 1..xs.len() { … }` visits every position**. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
