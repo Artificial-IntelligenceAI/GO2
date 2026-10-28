@@ -19,7 +19,7 @@ Uh... Ask CyborgPL design claude". CyborgPL's design claude answered with Cyborg
 2026-10-22): "`( )` runs something; `[ ]` describes or holds something", so a definition's parameters are in `[ ]`
 (a definition runs nothing) and only a call uses `( )`; then a correction, maths grouping is the one exception (its
 DECISIONS.md, 2026-10-28). Design claude changed to recommending the rule. The owner: "yes". So **a call is `f(…)`, a
-definition `fn f[…]`, and `( )` otherwise only groups maths, as in `a + (b * 2)`** (spelling of names and operators not decided). Where else `[ ]` goes (indexing, list
+definition `fn f[…]:`, and `( )` otherwise only groups maths, as in `a + (b * 2)`** (spelling of names and operators not decided). Where else `[ ]` goes (indexing, list
 literals, building a struct, a type filled with types) is not decided yet. Not built.
 
 ### 2026-10-28 — A block closes with `;` and its kind, then its name when it has one: `;fn main`, `;if` (owner: (a), with `;fn main`)
@@ -80,7 +80,7 @@ From the owner's hello-world sketch; design claude listed its parts to confirm a
 
 ### 2026-10-28 — A function is declared with `fn` (owner)
 
-From the owner's hello-world sketch; design claude listed its parts to confirm and recommended all. The owner: "indentation is required, confirm (and btw, `fmt.print` is formatted print)". So **`fn <name>[<parameters>]`**. Not built.
+From the owner's hello-world sketch; design claude listed its parts to confirm and recommended all. The owner: "indentation is required, confirm (and btw, `fmt.print` is formatted print)". So **`fn <name>[<parameters>]:`**. Not built.
 
 ### 2026-10-28 — A return type follows `->`, `fn f[] -> i32:` (owner)
 
@@ -109,6 +109,10 @@ From the owner's hello-world sketch; design claude listed its parts to confirm a
 ### 2026-10-28 — Indentation is required, beside the closer (owner)
 
 From the owner's hello-world sketch; design claude listed its parts to confirm and recommended all. The owner: "indentation is required, confirm (and btw, `fmt.print` is formatted print)". Design claude had proposed indentation as cosmetic, the closers marking where blocks end; the owner: "indentation is required". So **a block's body is indented, and its closer is still written**: the compiler checks both. How much, and spaces or tabs, is not decided. Not built.
+
+### 2026-10-28 — A block's header must end with `:`; `fn main[]:`, never `fn main[]` (owner)
+
+Asked how indentation is checked, the owner: "`fn main[]:` is correct, `fn main[]` isn't". So **the `:` that opens a block is required: a header without it is refused**, naming the `:`. Two entries above that showed a definition as `fn f[…]` now show its `:`. Whether a function can be declared without a body is not decided. Not built.
 
 ## Open
 
