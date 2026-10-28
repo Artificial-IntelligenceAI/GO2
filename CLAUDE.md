@@ -41,7 +41,7 @@ Commits follow `Soclets/CyborgPL`'s form (owner, 2026-10-28: "Do GH commits like
 - Branch: `main`. Author: `Tankun Sriket <tankunsriket63741ecff056.invalid>` (repo-local config, already set).
 - Every commit ends with `Co-Authored-By: design claude <noreply@anthropic.com>`. The house name says which session
   wrote it and stays put when the model changes.
-- One decision, one commit.
+- One decision, one commit, pushed right after (owner, 2026-10-28: "auto push, bro").
 - Subjects are `kind.folder.narrowing: sentence`. Kinds: `decision`, `design`, `feature`, `fix`, `test`, `house`. The
   second word is the folder, or the topic for `decision`/`design`/`house`. The third word is optional; there is never
   a fourth. A parenthesis at the end says who chose it: `(owner)`, `(owner: (a))` for an offered option, plus
