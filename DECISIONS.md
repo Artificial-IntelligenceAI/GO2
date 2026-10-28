@@ -716,5 +716,9 @@ Design claude listed four details of how G2C2 is laid out and built, and recomme
 
 Asked at the start what GO2 is in one sentence, with design claude's proposals (first a small Go remix, last "Go's simplicity, rebuilt with values instead of references, failures the compiler makes you handle, and promises it holds you to"), the owner: "GO2 is a Go-style simple programming language, that has fast compiles, and okay runtime performance." So **that sentence is GO2's identity**, in the owner's words. Not built.
 
+### 2026-10-28 — Every build is LLVM `-O1`, debug and release alike; there are no `-O` flags (owner: (a))
+
+The owner: "Should we lock it to LLVM `O1`?" Design claude: the identity sentence ("fast compiles, and okay runtime performance") describes `-O1`; offered (a) always O1, one level as Go has, debug and release differing only in overflow checks, (b) O0 for debug, O1 for release, (c) O1 by default, an `--opt` flag for O2; and recommended (a). The owner: "(a)". So **G2C2 and GoTo always optimise at LLVM's O1**. Not built.
+
 ## Open
 

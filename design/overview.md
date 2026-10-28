@@ -34,7 +34,8 @@ fn main[] {
   builds itself. Both take `build` and `run`.
 - G2C2 and the C++ runtime (`runtime/`) are one CMake project, compiled with Homebrew clang 23.
 - GoTo reaches LLVM through small C++ functions with C-shaped signatures, declared `extern.c`.
-- Builds are debug (`build`) or release (`build --release`); they differ in arithmetic overflow (below).
+- Builds are debug (`build`) or release (`build --release`); they differ only in arithmetic overflow (below).
+  Every build is optimised at LLVM `-O1`; there are no `-O` flags.
 
 ## Projects and packages
 
