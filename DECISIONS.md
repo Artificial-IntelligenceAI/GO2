@@ -592,6 +592,10 @@ Design claude listed five small details and recommended all. The owner: "yes". S
 
 Design claude listed six small details and recommended all. The owner: "yes". So **numbers, `bool`, `str`, and lists, maps, structs and enums field by field**, as they are values. Not built.
 
+### 2026-10-28 — `<`, `<=`, `>`, `>=` work only on numbers and `str`, strings byte by byte (owner)
+
+Design claude listed six small details and recommended all. The owner: "yes". So **`"abc" < "abd"`**; on anything else they are refused. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
