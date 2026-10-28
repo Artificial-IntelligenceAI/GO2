@@ -484,6 +484,10 @@ Design claude offered (a) a capital first letter, as Go, (b) a `pub` keyword, as
 
 Design claude offered (a) fields and methods each saying `pub`, an enum's cases coming with it, (b) a `pub` type showing everything in it, (c) as (a) with each case saying `pub`; and recommended (a), as Rust, hidden fields keeping a package's invariants. The owner: "(b)". So **`pub struct Token { let kind: Kind; let line: i64; }` shows both fields, and `fn Token.text[let self]` is visible wherever `Token` is**; a type without `pub` shows nothing. Not built.
 
+### 2026-10-28 — `fmt.print` fills `{}` marks in order: `fmt.print("{}:{}: {}\n", line, col, msg)` (owner: (a))
+
+Design claude offered (a) `{}` marks filled in order, as Rust and Python, no type letters (the compiler knows each type), `{{` a literal brace; (b) Go's verbs, `%d`, `%s`; (c) names inside the string, `"{line}:{col}"`; and recommended (a). The owner: "(a), and should `\n` become `{newln}`.and `\` be left for escaping (`\"`) only?" So **each `{}` takes the next value**, any type. How a literal brace is written, and the owner's question about `{newln}`, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
