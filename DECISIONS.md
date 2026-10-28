@@ -616,6 +616,10 @@ Design claude listed six small details and recommended all. The owner: "yes". So
 
 Design claude listed seven small details and recommended all. The owner: "yes". So **`lexer/` holds `pkg lexer;` files**; a mismatch is refused. Not built.
 
+### 2026-10-28 — Methods are declared only on types from their own package (owner)
+
+Design claude listed seven small details and recommended all. The owner: "yes". So **no methods added to `str` or another package's types**, as Go. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
