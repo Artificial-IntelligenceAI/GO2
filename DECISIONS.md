@@ -644,6 +644,10 @@ Design claude listed seven small details and recommended all. The owner: "yes". 
 
 Design claude noted GO2 has no reference types, so no cycle can form, reference counting's classic weakness; offered (a) tracing, finding what is reachable and freeing the rest (stack roots by LLVM's stack maps or conservative scanning, copy-on-write needing bookkeeping of its own), (b) reference counting, as Swift, copy-on-write coming free (count 1), no pauses, a counter update per copy; and recommended (b). The owner: "(a)". So **GO2's own collector traces**. How it finds roots, how copy-on-write knows a value is shared, whether it moves things, and what it is written in, are not decided. Not built.
 
+### 2026-10-28 — The collector finds stack roots precisely, by LLVM's stack maps (owner: (b))
+
+Design claude offered (a) conservative scanning, every pointer-looking word a root (smallest, never moving), (b) precise stack maps from LLVM's GC support (statepoints), exact and allowing a moving collector later, both G2RS and GoTo emitting them, (c) a shadow stack kept by compiled code; and recommended (a) to start. The owner: "(b)". So **G2RS and GoTo tell LLVM which stack slots hold GC pointers, and the collector reads LLVM's stack maps**. Whether the collector moves things, how copy-on-write knows a value is shared, and what it is written in, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and

@@ -274,7 +274,8 @@ let f = LLVMFunctionType(ret, params, u32(params.len()), 0);
 
 ## Memory
 
-Garbage collected, by a tracing (mark and sweep) collector written for GO2.
+Garbage collected, by a tracing (mark and sweep) collector written for GO2, finding stack roots precisely by
+LLVM's stack maps.
 
 ## Open
 
@@ -283,6 +284,6 @@ Not decided yet, roughly in the order the compiler will need them:
 - What "C++ when needed" covers.
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
 - Walking a string's characters; whether invalid UTF-8 can exist.
-- How the collector finds roots and knows a value is shared; whether it moves things; what it is written in.
+- How copy-on-write knows a value is shared; whether the collector moves things; what it is written in.
 - A formatter.
 - What GO2 is, in one sentence.
