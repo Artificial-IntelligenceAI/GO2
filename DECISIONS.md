@@ -548,6 +548,10 @@ Design claude listed three function details and recommended all. The owner: "yes
 
 Design claude listed three function details and recommended all. The owner: "yes". So **no value type before `fail[…]`**, as CyborgPL writes it; called as a statement, `save(f) ?? fail;`. Not built.
 
+### 2026-10-28 — Exiting with a code is `os.exit(3);`, from a standard package `os` (owner)
+
+Design claude listed three function details and recommended all. The owner: "yes". So **`os.exit(<code>)` ends the program at once**. What else `os` holds is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
