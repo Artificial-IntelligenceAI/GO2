@@ -684,6 +684,10 @@ Design claude listed three string details and recommended all. The owner: "yes".
 
 Asked whether "C++ when needed" covers the runtime and LLVM shims only, G2RS staying Rust, the owner: "Nah, nah. I mean C++ replaces everything". Design claude asked whether that means the bootstrap compiler is C++, not Rust, using LLVM's C++ API directly, GoTo reaching LLVM through C-shaped C++ shims (C++ having no stable interface another language can call); the owner: "yes. It becomes `G2C2`". So **the bootstrap compiler is written in C++ and builds IR through LLVM's C++ API**. **This reverses** "the first compiler is written in Rust" and "the compiler binds LLVM through `llvm-sys`". Which C++ standard, and how it is built (CMake, a Makefile, a plain script), are not decided. Not built.
 
+### 2026-10-28 — The bootstrap compiler is G2C2 (owner)
+
+Asked whether "C++ when needed" covers the runtime and LLVM shims only, G2RS staying Rust, the owner: "Nah, nah. I mean C++ replaces everything". Design claude asked whether that means the bootstrap compiler is C++, not Rust, using LLVM's C++ API directly, GoTo reaching LLVM through C-shaped C++ shims (C++ having no stable interface another language can call); the owner: "yes. It becomes `G2C2`". So **G2RS is now G2C2**; GoTo, in GO2, still replaces it once it builds itself. Its command and folder are not decided (they were `g2rs`, `g2rs/`). Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
