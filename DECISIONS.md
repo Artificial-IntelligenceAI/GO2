@@ -194,6 +194,10 @@ Design claude offered (a) only `//` lines, (b) `/* … */` on lines of its own; 
 
 Design claude offered (a) words, `and`, `or`, `not`, (b) Go's symbols, `&&`, `||`, `!`, (c) both as two spellings; and recommended (a). The owner: "(b)". So **`if x > 0 && !done:`**. Whether `&&` and `||` skip their right side when the left decides, as Go's do, and what single `&`, `|` mean, are not decided. Not built.
 
+### 2026-10-28 — `&&` and `||` stop early: in `a && b`, `b` runs only if `a` is true (owner)
+
+Design claude listed, among how booleans work, "`&&` and `||` stop early", as Go's do. The owner: "`and`, `or`, `not` don't short circuit". Design claude read it as both sets existing, the symbols stopping early and the words always running both sides (as Java and C# split `&&` from `&`), and asked what `not` is for beside `!`. The owner: "yes, ignore `not`". So **`&&` and `||` short-circuit**: `i <= n && xs[i] > 0` never reads past the end. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
