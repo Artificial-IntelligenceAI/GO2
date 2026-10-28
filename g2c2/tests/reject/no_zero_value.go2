@@ -1,0 +1,7 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    let n: i64;
+    fmt.print("{}\n", n);
+}

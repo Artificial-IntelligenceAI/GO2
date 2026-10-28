@@ -1,0 +1,1 @@
+str_plus.go2:6:25: strings are joined with `concat`, not `+`

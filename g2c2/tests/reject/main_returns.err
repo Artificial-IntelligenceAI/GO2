@@ -1,0 +1,1 @@
+main_returns.go2:4:4: `main` returns nothing and lists no `fail[…]`; it exits 0 at its end

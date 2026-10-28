@@ -33,10 +33,14 @@ picking an answer.
 ## Works
 
 - Hello world, end to end: `fmt.print` of a string literal; the test runner.
+- The checker and generator cover the whole GC-free language; each feature below is listed once an example proves it.
+- `let`, `var` (must change), `const` (a literal), written types, lazy inference; `_` and hex literals.
+- Integer types, literals taking the type they meet, `+ - * / %`, division toward zero, precedence and the
+  parenthesis rules (`/` then `*`, `%` beside arithmetic, mixed logic, one-way comparison chains), the same-type rule.
 
 ## Next
 
-- Integers, `let`/`var`, arithmetic with its overflow and division rules.
+- Control flow, functions, then structs, enums, failures, strings, packages, calling C.
 
 ## Open questions
 

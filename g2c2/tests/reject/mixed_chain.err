@@ -1,0 +1,1 @@
+mixed_chain.go2:8:14: a comparison chain goes one way: all `<` and `<=`, all `>` and `>=`, or all `==`

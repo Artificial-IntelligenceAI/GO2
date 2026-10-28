@@ -1,0 +1,1 @@
+stop_outside_loop.go2:5:5: `stop` is only inside a `for`

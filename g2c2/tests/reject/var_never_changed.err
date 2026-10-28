@@ -1,0 +1,1 @@
+var_never_changed.go2:5:9: `count` is a var but never changes; make it `let`

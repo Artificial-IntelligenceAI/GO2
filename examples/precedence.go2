@@ -1,0 +1,17 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    let a = 2;
+    let b = 3;
+    let c = 4;
+    fmt.print("{}\n", a + b * c);       // 14: * before +
+    fmt.print("{}\n", a - b + c);       // 3: left to right
+    fmt.print("{}\n", a * b * c);       // 24
+    fmt.print("{}\n", -a * b);          // -6: unary - binds tightest
+    fmt.print("{}\n", (a + b) * c);     // 20
+    fmt.print("{}\n", a * b / c);       // 1: * then /
+    fmt.print("{}\n", (a * b) % c);     // 2
+    fmt.print("{}\n", (c / a) * b);     // 6
+    fmt.print("{}\n", c - -a);          // 6
+}

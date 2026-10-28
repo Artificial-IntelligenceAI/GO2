@@ -1,0 +1,7 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    let str = 5;
+    fmt.print("{}\n", str);
+}

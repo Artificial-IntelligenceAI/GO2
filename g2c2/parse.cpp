@@ -242,7 +242,7 @@ static Expr* parse_mult(Parser& p) {
         if (prev == "/" && (op == "*" || op == "/")) {
             error_at(t.pos, "`/` followed by `" + op + "` needs parentheses, as in `(a / b) " + op + " c`");
         }
-        if (op == "%" || prev == "%") {
+        if ((op == "%" && !prev.empty()) || prev == "%") {
             error_at(t.pos, "`%` next to other arithmetic needs parentheses");
         }
         Expr* e = new_expr(ExprKind::Binary, t.pos);

@@ -114,7 +114,7 @@ enum class ExprKind {
     TypeName,  // a built-in type name used as a value, as in i64(x) or str.c(s)
     Handle,    // call ?? handler; only at the top of a statement
     // as resolved by the checker
-    LocalRef, ConstRef, FnCall, MethodCall, Conv, StrC, StrLen, FieldGet, StructLit, EnumLit,
+    LocalRef, FnCall, MethodCall, Conv, StrC, StrLen, StrIndex, FieldGet, StructLit, EnumLit,
     Print, Exit,
 };
 
@@ -252,7 +252,10 @@ struct Member {
     std::vector<Arm*> arms;
 };
 
+struct FileAst;
+
 struct Coll {
+    FileAst* file = nullptr;
     Pos pos;
     std::string name;
     std::vector<Member*> members;
@@ -268,6 +271,7 @@ struct Item {
     std::string name;
     bool is_pub = false;
     Package* pkg = nullptr;
+    FileAst* file = nullptr;
 
     // Fn, ExternFn
     std::string recv_name;      // a method: the type's name, as in fn Point.dist
@@ -287,6 +291,7 @@ struct Item {
     std::vector<Case> cases;
     std::map<std::string, Item*> methods;
     Type* type = nullptr;
+    std::vector<llvm::Value*> extra;  // gen: a struct's or enum's == function
     int state = 0;  // checking a type for containing itself: 0 not yet, 1 in progress, 2 done
 
     // Const
@@ -324,6 +329,10 @@ struct Program {
     std::vector<Package*> packages;  // packages[0] is main
     std::string name;                // from project.go2, or the file's name
 };
+
+// The reasons built-in failures give: a narrowing that does not fit, text that is not a number.
+extern Reason* r_out_of_range;
+extern Reason* r_not_a_number;
 
 // ---- Stages ----
 

@@ -1,0 +1,14 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    let name = "GO2";        // never changes
+    var count = 0;           // may change, and must
+    count = count + 1;
+    count = count + 1;
+    const max = 10;          // known when compiling
+    let x: i32 = 5;          // a written type
+    let big = 1_000_000;
+    let mask = 0xFF;
+    fmt.print("{} {} {} {} {} {}\n", name, count, max, x, big, mask);
+}

@@ -1,0 +1,10 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    let a = true;
+    let b = false;
+    if a && b || a {
+        fmt.print("yes\n");
+    }
+}

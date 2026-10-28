@@ -1,0 +1,1 @@
+condition_not_bool.go2:6:8: a condition must be a bool; write `… != 0`

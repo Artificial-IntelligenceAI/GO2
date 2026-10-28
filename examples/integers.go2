@@ -1,0 +1,26 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+    // a bare number takes the type of what it meets
+    let a: i8 = -128;
+    let b: u8 = 255;
+    let c: i16 = 300;
+    let d: u64 = 18446744073709551615;
+    let e: i64 = -9223372036854775808;
+    let f: u32 = 0xFFFF_FFFF;
+    fmt.print("{} {} {} {} {} {}\n", a, b, c, d, e, f);
+
+    // n + 1 with n: i32 makes 1 an i32
+    let n: i32 = 41;
+    let m = n + 1;
+    let k: u16 = 65000;
+    fmt.print("{} {}\n", m, k + 535);
+
+    // integer / drops the fraction toward zero; % takes the left side's sign
+    fmt.print("{} {} {} {}\n", 7 / 2, -7 / 2, 7 % 2, -7 % 2);
+    let p: i32 = -9;
+    fmt.print("{} {}\n", p / 4, p % 4);
+    let q: u8 = 200;
+    fmt.print("{} {}\n", q / 3, q % 3);
+}

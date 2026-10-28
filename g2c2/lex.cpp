@@ -269,7 +269,9 @@ std::vector<Token> lex(int file) {
         else if (two('&', '&')) { kind = Tok::AndAnd; len = 2; }
         else if (two('|', '|')) { kind = Tok::OrOr; len = 2; }
         else if (two('?', '?')) { kind = Tok::QQ; len = 2; }
-        else {
+        else if ((c == '+' || c == '-' || c == '*' || c == '/' || c == '%') && i + 1 < src.size() && src[i + 1] == '=') {
+            error_at(t.pos, std::string("GO2 has no `") + c + "=`; a change is written in full, as in `n = n " + c + " 1;`");
+        } else {
             switch (c) {
             case '(': kind = Tok::LParen; break;
             case ')': kind = Tok::RParen; break;

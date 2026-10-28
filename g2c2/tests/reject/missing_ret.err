@@ -1,0 +1,1 @@
+missing_ret.go2:8:4: `sign` returns an i64, but its end can be reached without `ret`

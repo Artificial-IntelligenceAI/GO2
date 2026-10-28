@@ -1,0 +1,12 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+fmt.print("{}\n", sign(1));
+}
+
+fn sign[let a: i64] -> i64 {
+    if a > 0 {
+        ret 1;
+    }
+}

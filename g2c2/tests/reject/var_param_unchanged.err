@@ -1,0 +1,1 @@
+var_param_unchanged.go2:8:24: parameter `b` is var but never changes; make it `let`

@@ -1,0 +1,10 @@
+pkg main;
+import "fmt";
+
+fn main[] {
+fmt.print("{}\n", add(1, 2));
+}
+
+fn add[let a: i32, var b: i32] -> i32 {
+    ret a + b;
+}
