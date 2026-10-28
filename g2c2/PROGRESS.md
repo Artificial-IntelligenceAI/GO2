@@ -32,8 +32,10 @@ picking an answer.
 
 ## Works
 
-- Hello world, end to end: `fmt.print` of a string literal; the test runner.
-- The checker and generator cover the whole GC-free language; each feature below is listed once an example proves it.
+Everything in scope that does not wait on a question. `cmake --build build --target check`: 149 passed, 0 failed
+(20 examples, each in a debug and a release build, and 109 reject cases).
+
+- Hello world, end to end; the test runner.
 - `let`, `var` (must change), `const` (a literal), written types, lazy inference; `_` and hex literals.
 - Integer types, literals taking the type they meet, `+ - * / %`, division toward zero, precedence and the
   parenthesis rules (`/` then `*`, `%` beside arithmetic, mixed logic, one-way comparison chains), the same-type rule.
@@ -67,9 +69,34 @@ picking an answer.
   integer to float, between floats (IEEE, question 11). Printing a float waits on question 4.
 - `os.exit(code)` with a literal code (its parameter type is question 3); `main` exits 0 at its end or at `ret;`.
 
+- Overflow (debug builds stop, release builds wrap), division by zero (every build stops), a narrowing that does
+  not fit when unhandled (debug stops, release wraps), `s[i]` out of range (every build stops). These work, but
+  have no tests yet: what a stop prints and its exit code is question 2.
+
+## Behaving one way while the question is open
+
+These had to do something to work at all. Each is the recommendation in its question, and changes if the owner
+decides otherwise.
+
+- A stop prints `<file>:<line>: <what>` to stderr and exits 2 (question 2).
+- A function's end counts as unreachable by Go's rule (question 16).
+- A `.go2` file given to `g2c2` builds alone, even inside a project (question 17).
+- `a` and `b` in `for i in a..b` are worked out once (question 18).
+- `type` is a word only after `extern.c` (question 19).
+- The value after `??` and a member's arguments are worked out only when the call fails (question 24).
+- `str.c(s)` hands C the literal's own NUL-ended bytes, no copy (question 26).
+- `f32(x)` of a too-big `f64` gives infinity, as IEEE (question 11).
+- An unhandled float to integer that does not fit stops a release build too, saying it is not decided (question 11).
+
+## Left out: needs the collector
+
+`ls`, `map`, list literals, `concat`, `str(…)`, strings built at run time, types that contain themselves. G2C2
+refuses each, saying it needs the garbage collector. Nothing in scope turned out to need GC memory; `str.c(s)` would
+when strings are built at run time (question 26).
+
 ## Next
 
-- Then structs, enums, failures, strings, packages, calling C.
+- Build what each answer settles, starting with `g2c2 build` (question 1) and the stop tests (question 2).
 
 ## Open questions
 
