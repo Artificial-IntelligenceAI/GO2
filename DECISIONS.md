@@ -688,6 +688,10 @@ Asked whether "C++ when needed" covers the runtime and LLVM shims only, G2RS sta
 
 Asked whether "C++ when needed" covers the runtime and LLVM shims only, G2RS staying Rust, the owner: "Nah, nah. I mean C++ replaces everything". Design claude asked whether that means the bootstrap compiler is C++, not Rust, using LLVM's C++ API directly, GoTo reaching LLVM through C-shaped C++ shims (C++ having no stable interface another language can call); the owner: "yes. It becomes `G2C2`". So **G2RS is now G2C2**; GoTo, in GO2, still replaces it once it builds itself. Its command and folder are not decided (they were `g2rs`, `g2rs/`). Not built.
 
+### 2026-10-28 — GoTo reaches LLVM through C-shaped C++ shims, declared `extern.c` (owner)
+
+Asked whether "C++ when needed" covers the runtime and LLVM shims only, G2RS staying Rust, the owner: "Nah, nah. I mean C++ replaces everything". Design claude asked whether that means the bootstrap compiler is C++, not Rust, using LLVM's C++ API directly, GoTo reaching LLVM through C-shaped C++ shims (C++ having no stable interface another language can call); the owner: "yes. It becomes `G2C2`". So **GoTo calls small C++ functions with C-shaped signatures, written for it over LLVM's C++ API, declared in GO2 with `extern.c`** as any C function. Whether GoTo also uses LLVM's own C API where it suffices is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
