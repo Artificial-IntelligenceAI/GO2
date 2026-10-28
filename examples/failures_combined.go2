@@ -1,0 +1,75 @@
+pkg main;
+import "fmt";
+
+struct Big { let a: i64; let b: i64; let c: str; }
+enum Val { none; big: Big; small: u8; }
+
+fn small[let n: i64] -> u8 or fail[neg: u8, out_of_range] {
+    if n < 0 { fail neg[7]; }
+    let s = u8(n) ?? fail;
+    ret s;
+}
+
+fn wrap[let n: i64] -> Big or fail[label: str, neg: u8, out_of_range] {
+    if n == 99 { fail label["ninety-nine"]; }
+    let s = small(n) ?? fail;
+    ret Big[a = i64(s), b = n, c = "ok"];
+}
+
+struct Acc { var total: i64; }
+
+fn Acc.add[var self, let n: i64] -> fail[too_big: i64] {
+    if n > 100 { fail too_big[n]; }
+    self.total = self.total + n;
+}
+
+coll.handler h {
+    member show {
+        case label l { fmt.print("label {}\n", l); ret; }
+        case neg v { fmt.print("neg {}\n", v); ret; }
+        case out_of_range { fmt.print("range\n"); ret; }
+    }
+    member count[var tries: i64] {
+        case too_big n {
+            tries = tries + 1;
+            fmt.print("too big {} after {}\n", n, tries);
+        }
+    }
+    member nested {
+        case neg v {
+            let again = small(i64(v)) ?? 0;
+            fmt.print("nested {}\n", again);
+            ret;
+        }
+        case out_of_range { ret; }
+    }
+}
+
+fn try_wrap[let n: i64] {
+    let b = wrap(n) ?? h.show;
+    fmt.print("{} {} {}\n", b.a, b.b, b.c);
+}
+
+fn try_nested[let n: i64] {
+    let s = small(n) ?? h.nested;
+    fmt.print("small {}\n", s);
+}
+
+fn main[] {
+    try_wrap(5);
+    try_wrap(99);
+    try_wrap(-1);
+    try_wrap(1000);
+    var acc = Acc[total = 0];
+    acc.add(5) ?? h.count(0);
+    acc.add(500) ?? h.count(10);
+    fmt.print("total {}\n", acc.total);
+    try_nested(-3);
+    try_nested(3);
+    let v = Val.big[Big[a = 1, b = 2, c = "x"]];
+    match v {
+        case big b { fmt.print("big {}\n", b.c); }
+        else { fmt.print("other\n"); }
+    }
+}
+

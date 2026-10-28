@@ -2,6 +2,7 @@ pkg main;
 import "fmt";
 import "geometry";
 import "text/count";
+import "clib";
 
 fn main[] {
     let p = geometry.Point[x = 3, y = 4];
@@ -14,4 +15,6 @@ fn main[] {
     }
     fmt.print("{}\n", count.vowels("packages and folders"));
     greet();
+    let f: clib.FILE = clib.fopen(str.c("/dev/null"), str.c("r"));
+    fmt.print("{} {}\n", clib.fclose(f), clib.abs(-3));
 }
