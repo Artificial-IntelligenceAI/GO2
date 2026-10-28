@@ -512,6 +512,10 @@ Design claude offered (a) `GO2.toml`, TOML, as CyborgPL's `CyJet.toml` (GoTo nee
 
 Design claude offered (a) declarations one by one, `extern fn LLVMModuleCreateWithName[let name: cstr] -> ptr;`, GoTo keeping one file of them for LLVM, with types for C's world (`cstr`, `ptr`); (b) importing a C header, the compiler reading it, as Zig; (c) a small C or C++ wrapper taking GO2's own types, declared as in (a); and recommended (a), the smallest step that lets GoTo reach LLVM. The owner: "(a), `extern` or `extern.c`?" So **a C function is declared one at a time, with its C name, parameters and return type, and no body**. The marking word (`extern` or `extern.c`) is asked next; the C types (`cstr`, `ptr` and the rest) are not decided. Not built.
 
+### 2026-10-28 — A C function's declaration is marked `extern.c`: `extern.c fn LLVMModuleCreateWithName[let name: cstr] -> ptr;` (owner)
+
+The owner: "`extern` or `extern.c`?" Design claude: `extern` is shorter, C the only foreign language that matters (C++ reached through a C-shaped wrapper, its names mangled), but it does not say whose calling rules apply; `extern.c` names them, leaves room for others, and follows `coll.handler`'s form, a general word narrowed by a dot (CyborgPL has `extern.C`); recommending `extern.c`, "two characters". The owner: "yes, but it costs one letter", then "nvm, you're right. Yes". So **`extern.c fn <C name>[…] -> <type>;`**, no body. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
