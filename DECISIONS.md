@@ -500,6 +500,10 @@ With `enum Expr { number: i64; add: Add; }` and `struct Add { let left: Expr; le
 
 Design claude offered (a) a folder a package, as Go, every file in `lexer/` starting `pkg lexer;` and seeing the others' non-`pub` names, (b) a file a package, (c) as (a) with no `pkg` line; and recommended (a). The owner: "(a)". So **`lexer/a.go2` and `lexer/b.go2` are both `pkg lexer;`, and `import "lexer";` names the folder**. How the project root is marked, and whether a folder's name must match its `pkg` line, are not decided. Not built.
 
+### 2026-10-28 — A manifest file marks a project's root; the compiler walks up from where it is to find it (owner: (a))
+
+Design claude offered (a) a manifest, as Go's `go.mod`, in the root, naming the project, the compiler walking up to find it, later holding dependencies and settings; (b) none for now, the root the folder built; (c) a fixed name (`main/` or `main.go2`); and recommended (b). The owner: "(a)". So **a project has a manifest at its root**. Its name, format and contents are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
