@@ -1,9 +1,30 @@
 add_executable(g2c2 main.cpp lex.cpp parse.cpp check.cpp gen.cpp)
 target_include_directories(g2c2 SYSTEM PRIVATE ${LLVM_INCLUDE_DIRS})
-target_compile_definitions(g2c2 PRIVATE ${LLVM_DEFINITIONS}
-  G2_RUNTIME_LIB="$<TARGET_FILE:g2rt>"
-  G2_CLANG="${CMAKE_CXX_COMPILER}"
-  G2_LIBCXX_DIR="${G2_LIBCXX_DIR}")
+target_compile_definitions(g2c2 PRIVATE ${LLVM_DEFINITIONS})
 target_compile_options(g2c2 PRIVATE -Wall -Wextra -Wno-unused-parameter -fno-rtti)
-target_link_libraries(g2c2 PRIVATE LLVM)
+if(G2C2_BUNDLE)
+  # What G2C2 uses, and what LLD's ELF linker uses.
+  llvm_map_components_to_libnames(G2_LLVM_LIBS core passes target native nativecodegen
+    binaryformat bitwriter codegen debuginfodwarf demangle dtlto lto mc object option support targetparser transformutils)
+  # LLD starts every target LLVM was built with, for link-time optimisation of bitcode. G2C2 only hands it x86_64
+  # objects, so only x86 is linked in, and the other targets' starts do nothing; all targets would take g2c2 past
+  # GitHub's 100 MB limit for a file.
+  set(G2_STUBS "// Made by g2c2/CMakeLists.txt.\n")
+  foreach(target ${LLVM_TARGETS_TO_BUILD})
+    if(NOT target STREQUAL "X86")
+      foreach(part Target TargetInfo TargetMC AsmPrinter AsmParser Disassembler)
+        string(APPEND G2_STUBS "extern \"C\" void LLVMInitialize${target}${part}() {}\n")
+      endforeach()
+    endif()
+  endforeach()
+  file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/lld_targets.cpp" "${G2_STUBS}")
+  target_sources(g2c2 PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/lld_targets.cpp")
+  target_compile_definitions(g2c2 PRIVATE G2_LLD)
+  target_link_libraries(g2c2 PRIVATE ${G2_LLD_LIBS} ${G2_LLVM_LIBS})
+  target_link_options(g2c2 PRIVATE -static-libstdc++ -static-libgcc -Wl,--as-needed -Wl,--gc-sections)
+else()
+  target_compile_definitions(g2c2 PRIVATE G2_CLANG="${CMAKE_C_COMPILER}")
+  target_link_libraries(g2c2 PRIVATE LLVM)
+endif()
 add_dependencies(g2c2 g2rt)
+install(TARGETS g2c2 DESTINATION bin)

@@ -6,6 +6,13 @@
 
 #include "g2c2.h"
 
+#include <llvm/Support/FileSystem.h>
+#include <llvm/Support/raw_ostream.h>
+#ifdef G2_LLD
+#include <lld/Common/Driver.h>
+LLD_HAS_DRIVER(elf)
+#endif
+
 #include <algorithm>
 #include <cstdio>
 #include <cstdlib>
@@ -16,6 +23,8 @@
 #include <unistd.h>
 
 namespace fs = std::filesystem;
+
+static const char* g_argv0;
 
 static void usage() {
     std::fprintf(stderr, "usage: g2c2 build [--release] <file or project>\n"
@@ -146,6 +155,37 @@ static std::string quote(const std::string& s) {
     return q + "'";
 }
 
+#ifdef G2_LLD
+// A release links with the LLD inside G2C2, never a linker on the machine, against the machine's C library, as clang
+// does on x86_64 Linux. The runtime needs only the C library.
+static void link(const std::string& obj, const std::string& runtime, const std::string& exe) {
+    std::string libdir;
+    for (std::string dir : {"/usr/lib/x86_64-linux-gnu", "/usr/lib64", "/usr/lib"}) {
+        if (fs::exists(dir + "/Scrt1.o")) {
+            libdir = dir;
+            break;
+        }
+    }
+    if (libdir.empty()) fatal("cannot find the C library's Scrt1.o; it comes with the C library's development files");
+    std::vector<std::string> args = {"ld.lld", "-pie", "--eh-frame-hdr", "-m", "elf_x86_64",
+                                     "-dynamic-linker", "/lib64/ld-linux-x86-64.so.2", "-o", exe,
+                                     libdir + "/Scrt1.o", libdir + "/crti.o", obj, runtime,
+                                     "-L" + libdir, "-lc", libdir + "/crtn.o"};
+    std::vector<const char*> argv;
+    for (const std::string& a : args) argv.push_back(a.c_str());
+    std::string err;
+    llvm::raw_string_ostream err_os(err);
+    lld::Result r = lld::lldMain(argv, llvm::outs(), err_os, {{lld::Gnu, &lld::elf::link}});
+    if (r.retCode != 0) fatal("linking failed:\n" + err);
+}
+#else
+// The runtime needs only the C library, so the program links as C does.
+static void link(const std::string& obj, const std::string& runtime, const std::string& exe) {
+    std::string cmd = quote(G2_CLANG) + " " + quote(obj) + " " + quote(runtime) + " -o " + quote(exe);
+    if (std::system(cmd.c_str()) != 0) fatal("linking failed: " + cmd);
+}
+#endif
+
 // Builds the program into a temporary folder; returns the path of the executable.
 static std::string build(const std::string& arg, bool release, std::string& tmp_dir) {
     Program* prog = load(arg);
@@ -159,13 +199,16 @@ static std::string build(const std::string& arg, bool release, std::string& tmp_
     std::string err;
     if (!gen_program(prog, release, obj, err)) fatal(err);
 
-    std::string cmd = quote(G2_CLANG) + " " + quote(obj) + " " + quote(G2_RUNTIME_LIB) + " -o " + quote(exe) +
-                      " -L" + quote(G2_LIBCXX_DIR) + " -Wl,-rpath," + quote(G2_LIBCXX_DIR);
-    if (std::system(cmd.c_str()) != 0) fatal("linking failed: " + cmd);
+    // The runtime sits beside G2C2: bin/g2c2 and lib/libg2rt.a, in the build folder and in a release alike.
+    fs::path self = llvm::sys::fs::getMainExecutable(g_argv0, (void*)&quote);
+    std::string runtime = (self.parent_path().parent_path() / "lib" / "libg2rt.a").string();
+    if (!fs::exists(runtime)) fatal("cannot find the runtime, " + runtime);
+    link(obj, runtime, exe);
     return exe;
 }
 
 int main(int argc, char** argv) {
+    g_argv0 = argv[0];
     if (argc < 2) usage();
     std::string command = argv[1];
     bool release = false;
