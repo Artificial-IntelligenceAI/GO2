@@ -54,6 +54,9 @@ fn main[] {
 - Comments are `//` to the end of the line, on their own line or after code. There is no block comment.
 - **`( )` runs something** (a call, a conversion); **`[ ]` describes or holds something** (parameters, type
   arguments, literals, building, indexing, failure lists). The one exception: `( )` also groups maths, `a * (b + c)`.
+- A name is ASCII letters, digits and `_`, not starting with a digit; case means nothing. Reserved, never names:
+  `pkg import pub fn ret let var const struct enum match case else if for in stop next fail coll member extern self
+  true false and or`, and the built-in type names (`i8`…`u64`, `f32`, `f64`, `bool`, `str`, `str.c`, `ls`, `map`).
 
 ## Variables and constants
 
@@ -74,6 +77,7 @@ let x: i32 = 5;          // a written type follows the name after :
 | Type | Notes |
 |---|---|
 | `i8` `i16` `i32` `i64`, `u8` `u16` `u32` `u64` | No `int`; every integer type says its size |
+| `f32` `f64` | IEEE 754: `1.0 / 0.0` is infinity, NaN never equals itself; no `%` |
 | `bool` | `true`, `false` |
 | `str` | UTF-8 bytes; never changes in place |
 | `ls[T]` | A growable list: `[1, 2, 3]` |
@@ -85,8 +89,8 @@ let x: i32 = 5;          // a written type follows the name after :
 made cheap by copy-on-write. So a `let` list or struct never changes, inside or out. A type that contains itself
 (`Expr` holding `Add` holding `Expr`) just works; the compiler stores the cycle in GC memory.
 
-**Numbers.** A bare number takes the type of the variable it meets (`n + 1` with `n: i32` makes `1` an `i32`;
-`let x: i8 = 5;`). With nothing around it, it is an `i64`. Conversion calls the type: `i64(x)`. A narrowing that does
+**Numbers.** Literals: `1_000_000`, `0xFF`, `3.14`, `6.02e23` (digits on both sides of a point). A bare number takes the type of the variable it meets (`n + 1` with `n: i32` makes `1` an `i32`;
+`let x: i8 = 5;`). With nothing around it, `5` is an `i64` and `3.14` an `f64`. Conversion calls the type: `i64(x)`. A narrowing that does
 not fit follows the overflow rule, unless handled: `i8(x) ?? 0`. Text converts the same way and must be handled:
 `i64(text) ?? 0` (fails `not_a_number` or `out_of_range`); a number is an optional `-` and digits.
 
@@ -163,6 +167,12 @@ for k, v in ages { … }        // insertion order
 | Logic, both sides always | `and` `or` |
 | Not | `!` (there is no `not`) |
 
+Precedence follows maths; where maths has no answer, parentheses are required.
+
+- Tightest first: unary `-` and `!`; `*` `/` `%`; `+` `-`; comparisons; logic. `a + 1 < b && c == d` needs nothing.
+- `+`, `-` and `*` chain left to right. Comparisons chain as in maths, one way: `a < b < c` is `a < b && b < c`.
+- Refused until parenthesised: `/` followed by `*` or `/` (`(a / b) * c`); `%` next to other arithmetic; `&&`/`and`
+  mixed with `||`/`or`; `&&` mixed with `and`, or `||` with `or`; a comparison chain that changes direction.
 - Both sides of an operator have the same type; `i32 + i64` is refused.
 - `==` and `!=` compare any two values of one type by content, lists and structs included. `<` and the rest work
   only on numbers and `str` (byte by byte).
