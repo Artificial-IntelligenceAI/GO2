@@ -6,11 +6,15 @@ set(G2_LLVM_ROOT "/opt/homebrew/opt/llvm" CACHE PATH "Homebrew LLVM 23")
 if(NOT CMAKE_CXX_COMPILER)
   set(CMAKE_CXX_COMPILER "${G2_LLVM_ROOT}/bin/clang++")
 endif()
+# LLVM's CMake package probes headers with C, so C is enabled too.
+if(NOT CMAKE_C_COMPILER)
+  set(CMAKE_C_COMPILER "${G2_LLVM_ROOT}/bin/clang")
+endif()
 if(NOT LLVM_DIR)
   set(LLVM_DIR "${G2_LLVM_ROOT}/lib/cmake/llvm")
 endif()
 
-project(GO2 LANGUAGES CXX)
+project(GO2 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
