@@ -1,0 +1,1 @@
+extern_var_param.go2:9:21: parameter `n` is var, but an `extern.c fn` has no body to change it in

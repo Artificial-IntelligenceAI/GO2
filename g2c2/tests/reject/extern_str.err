@@ -1,0 +1,1 @@
+extern_str.go2:9:27: an `extern.c fn` takes and gives integers, `str.c` and `extern.c` types, not a str

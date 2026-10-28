@@ -1,0 +1,1 @@
+extern_float.go2:9:25: an `extern.c fn` taking or giving a float is not decided yet

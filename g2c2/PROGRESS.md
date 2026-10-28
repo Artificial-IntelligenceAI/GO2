@@ -60,6 +60,8 @@ picking an answer.
   `pkg main`, a folder is a package whose files share names, `import "a/b"` names folder `a/b` (package `b`) from
   the root, the folder and `pkg` line must match, `pub` on functions and types (a `pub` type shows its fields,
   methods and cases). A lone `.go2` file builds alone as `pkg main` (question 17).
+- Calling C: `extern.c fn` (integers, `str.c`, `extern.c` types; `pub` allowed), `extern.c type` (opaque, mixups
+  refused, `==` by pointer), `str.c(s)` (the literal itself, question 26).
 
 ## Next
 

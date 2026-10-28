@@ -1,0 +1,13 @@
+pkg main;
+import "fmt";
+
+extern.c type FILE;
+extern.c type DIR;
+extern.c fn fopen[let path: str.c, let mode: str.c] -> FILE;
+extern.c fn closedir[let d: DIR] -> i32;
+extern.c fn puts[let s: str.c] -> i32;
+extern.c fn strlen[let s: str] -> u64;
+
+fn main[] {
+    fmt.print("x\n");
+}
