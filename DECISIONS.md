@@ -732,5 +732,9 @@ Design claude applied "follow maths, else parentheses" operator by operator, and
 
 Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a - b + c` is `(a - b) + c`; `a * b * c` needs nothing**. Not built.
 
+### 2026-10-28 — Unary `-` negates, and it and `!` bind tightest (owner)
+
+Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`-a * b` is `(-a) * b`; `!done && ok` is `(!done) && ok`; `-7` is folded to a literal**. Not built.
+
 ## Open
 
