@@ -113,7 +113,8 @@ match t {
 }
 ```
 
-A `match` without `else` must name every case, or it is refused.
+A `match` without `else` must name every case, or it is refused; an `else` with nothing left to cover is refused too. A
+`match` is a statement; it gives no value.
 
 ### Strings
 
@@ -156,7 +157,7 @@ for k, v in ages { … }        // insertion order
 | Not | `!` (there is no `not`) |
 
 - Both sides of an operator have the same type; `i32 + i64` is refused.
-- Integer `/` drops the fraction: `7 / 2` is `3`.
+- Integer `/` drops the fraction, toward zero: `7 / 2` is `3`, `-7 / 2` is `-3`, `-7 % 2` is `-1`.
 - A result too big for its type stops a debug build, naming the line, and wraps in a release build.
 - Dividing by zero stops the program, in any build.
 - A condition must be a `bool`: `if count {` is refused, naming `count != 0`.
@@ -193,6 +194,8 @@ for i in 1..10 { … }      // 1 to 10, both included
 stop;                     // leave the innermost for
 next;                     // go to its next turn
 ```
+
+A loop's names (`i`, `x`) are `let`. There is no leaving an outer loop for now.
 
 ## Failures
 
@@ -275,12 +278,10 @@ Not decided yet, roughly in the order the compiler will need them:
 - Generics: none for now (only `ls` and `map`), until GoTo builds itself; their spelling then.
 - Which text counts as a number.
 - Walking a string's characters; whether invalid UTF-8 can exist.
-- Leaving an outer loop; whether loop names are `let`.
 - What a `const` may hold; whether a parameter can be `const`.
 - `[a, b: i32]` sharing a type; a range that stops before its end.
-- Which way negative integer division rounds; what can be compared with what.
+- What can be compared with what.
 - What a single `&` or `|` means.
-- Whether a `match` gives a value; an `else` that covers nothing.
 - Whether `coll` groups anything but handlers.
 - Whether a folder's name must match its `pkg` line; what else `project.go2` holds; methods on another package's types.
 - The garbage collector's kind, and what it is written in.
