@@ -190,6 +190,10 @@ Design claude offered (a) `//` to the end of the line, as Go, (b) `#`, (c) `--`,
 
 Design claude offered (a) only `//` lines, (b) `/* … */` on lines of its own; and recommended (a), editors commenting a chunk out line by line. The owner: "(a), and btw no comments on a line with code", the rule of the entry before. So **`//` lines are the only comments**. Not built.
 
+### 2026-10-28 — "And", "or" and "not" are `&&`, `||`, `!`, as Go (owner: (b))
+
+Design claude offered (a) words, `and`, `or`, `not`, (b) Go's symbols, `&&`, `||`, `!`, (c) both as two spellings; and recommended (a). The owner: "(b)". So **`if x > 0 && !done:`**. Whether `&&` and `||` skip their right side when the left decides, as Go's do, and what single `&`, `|` mean, are not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
