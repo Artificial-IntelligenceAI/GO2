@@ -368,6 +368,10 @@ Design claude offered (a) `match tok { case plus { … } case number v { … } }
 
 Design claude offered (a) `else { … }` as the last arm, as in an `if` chain, (b) `case _ { … }`, (c) no catch-all; and recommended (a), noting a `match` with `else` does not break when a case is added. The owner: "(a)". So **`match tok { case plus { … } else { … } }`**; an `else` covering nothing (every case already named) is not decided. Not built.
 
+### 2026-10-28 — The string type is `str` (owner: (a))
+
+Design claude offered (a) `str`, as Rust and Python, short as `fn`, `ret`, `pkg`, (b) `string`, as Go, (c) `text`; and recommended (a). The owner: "(a)". So **`let name: str = "GO2";`**. How a `str` behaves (encoding, changing, joining, indexing) is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
