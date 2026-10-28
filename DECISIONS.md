@@ -11,6 +11,17 @@ The owner: "Do GH commits like Soclets/CyborgPL". So **subjects are `kind.folder
 decision per commit, authored as Tankun Sriket, with the trailer `Co-Authored-By: design claude <noreply@anthropic.com>`.
 `CLAUDE.md` has the full form.
 
+### 2026-10-28 — `( )` runs something; `[ ]` describes or holds something; maths grouping the one exception (owner)
+
+The owner's first sketch had `fn main[] -> i32:` beside `fmt.print("Hello, World!\n");`. Design claude asked whether
+`[ ]` for parameters was on purpose, recommending `( )` for both. The owner: "`[]` describes or holds, `()` means...
+Uh... Ask CyborgPL design claude". CyborgPL's design claude answered with CyborgPL's rule (its DECISIONS.md,
+2026-10-22): "`( )` runs something; `[ ]` describes or holds something", so a definition's parameters are in `[ ]`
+(a definition runs nothing) and only a call uses `( )`; then a correction, maths grouping is the one exception (its
+DECISIONS.md, 2026-10-28). Design claude changed to recommending the rule. The owner: "yes". So **a call is `f(…)`, a
+definition `fn f[…]`, and `( )` otherwise only groups maths, as in `a + (b * 2)`** (spelling of names and operators not decided). Where else `[ ]` goes (indexing, list
+literals, building a struct, a type filled with types) is not decided yet. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
