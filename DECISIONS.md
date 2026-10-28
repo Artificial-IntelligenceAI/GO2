@@ -736,5 +736,9 @@ Design claude applied "follow maths, else parentheses" operator by operator, and
 
 Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`-a * b` is `(-a) * b`; `!done && ok` is `(!done) && ok`; `-7` is folded to a literal**. Not built.
 
+### 2026-10-28 — Arithmetic binds tighter than comparisons, and comparisons tighter than logic (owner)
+
+Design claude applied "follow maths, else parentheses" operator by operator, and recommended all eleven. The owner: "yes". So **`a + 1 < b && c == d` needs no parentheses**. Not built.
+
 ## Open
 
