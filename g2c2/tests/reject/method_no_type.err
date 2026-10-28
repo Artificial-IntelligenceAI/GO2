@@ -1,0 +1,1 @@
+method_no_type.go2:4:4: there is no type `Missing` in this package; a method is declared on a type of its own package

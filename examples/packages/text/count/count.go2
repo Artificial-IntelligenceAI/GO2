@@ -1,0 +1,9 @@
+pkg count;
+
+pub fn vowels[let s: str] -> i64 {
+    var n = 0;
+    for c in s.chars() {
+        if c == 97 || c == 101 || c == 105 || c == 111 || c == 117 { n = n + 1; }
+    }
+    ret n;
+}

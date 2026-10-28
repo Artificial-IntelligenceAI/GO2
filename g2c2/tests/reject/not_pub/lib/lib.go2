@@ -1,0 +1,5 @@
+pkg lib;
+
+fn hidden[] -> i64 {
+    ret 1;
+}

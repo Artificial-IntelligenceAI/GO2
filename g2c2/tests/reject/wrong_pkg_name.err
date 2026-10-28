@@ -1,0 +1,1 @@
+lib/lib.go2:1:5: this file is in folder `lib`, so it starts `pkg lib;`

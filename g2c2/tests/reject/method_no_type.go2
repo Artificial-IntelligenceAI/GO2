@@ -1,0 +1,10 @@
+pkg main;
+import "fmt";
+
+fn Missing.size[let self] -> i64 {
+    ret 1;
+}
+
+fn main[] {
+    fmt.print("x\n");
+}

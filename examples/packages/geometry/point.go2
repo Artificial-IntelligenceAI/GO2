@@ -1,0 +1,20 @@
+pkg geometry;
+
+// a pub type shows its fields and methods
+pub struct Point {
+    let x: i64;
+    let y: i64;
+}
+
+fn Point.dist2[let self, let q: Point] -> i64 {
+    ret square(self.x - q.x) + square(self.y - q.y);
+}
+
+pub fn origin[] -> Point {
+    ret Point[x = 0, y = 0];
+}
+
+// not pub: only this package sees it
+fn square[let n: i64] -> i64 {
+    ret n * n;
+}

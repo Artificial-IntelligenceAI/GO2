@@ -56,6 +56,10 @@ picking an answer.
 - Strings: literals (checked as UTF-8) with `\n`, `\t`, `\"`, `\\`; `s.len()`; `s[i]` (an `i64` index; out of range
   stops the program); `for c in s.chars()`; `==`, `<` and the rest byte by byte. `fmt.print` with `{}` and `{{`,
   printing integers and strings.
+- Projects and packages: `project.go2` (`Project[name = "…"]`), found by walking up; the root's files are
+  `pkg main`, a folder is a package whose files share names, `import "a/b"` names folder `a/b` (package `b`) from
+  the root, the folder and `pkg` line must match, `pub` on functions and types (a `pub` type shows its fields,
+  methods and cases). A lone `.go2` file builds alone as `pkg main` (question 17).
 
 ## Next
 

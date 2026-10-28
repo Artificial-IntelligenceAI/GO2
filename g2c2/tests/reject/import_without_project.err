@@ -1,0 +1,1 @@
+import_without_project.go2:3:8: importing `lexer` needs a project: a folder holding project.go2
