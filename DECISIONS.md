@@ -556,6 +556,10 @@ Design claude listed three function details and recommended all. The owner: "yes
 
 Design claude listed two conversion details and recommended both: 1. a narrowing, `i8(300)`, following the overflow rule (a debug build stops, a release one wraps to 44), 2. text converting by the same call, `i64("42")`, failing `not_a_number` or `out_of_range`, handled with `??`. The owner: "yes, but it can be handled". So, as design claude reads it, **a bare `i8(300)` stops a debug build, naming the line, and wraps in a release one; `i8(x) ?? 0` (or `?? fail`, or a handler) handles it instead**, as an out-of-range list index may be. The reason's name is not decided. Not built.
 
+### 2026-10-28 — Text converts by the same call, `i64("42")`, failing `not_a_number` or `out_of_range` (owner)
+
+Design claude listed two conversion details and recommended both: 1. a narrowing, `i8(300)`, following the overflow rule (a debug build stops, a release one wraps to 44), 2. text converting by the same call, `i64("42")`, failing `not_a_number` or `out_of_range`, handled with `??`. The owner: "yes, but it can be handled". So **`let n = i64(text) ?? 0;`**; bad text comes from outside, so it is a failure that must be handled. Which text counts as a number (signs, spaces, `_`) is not decided. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
