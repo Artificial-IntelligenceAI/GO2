@@ -837,6 +837,14 @@ recommended (a). The owner: "Bundle it", and then: "I didn't mean the release to
 mean to bundle our LLVM in there." So **a G2C2 release carries our own LLVM 23 (its clang and linker), and `g2c2 build`
 uses that, never an LLVM already on the user's machine**. Not built.
 
+### 2026-10-28 — The Linux release reaches multifinity's Claude through git (owner: (b))
+
+The owner: "What I'm trying to solve is mult's Claude not being able to use GO2." Its sandbox can't install LLVM 23
+and seems blocked from GitHub release downloads, but `git clone` worked. Design claude offered (a) a tarball attached
+in chat (which may exceed the upload limit), (b) the build pushed to git for a `git clone --depth 1`, kept off `main`
+so GO2's history stays small, (c) a PyPI package; recommended (b). The owner: "(b)". So **the release is cloned from
+git, never attached in chat or published on PyPI**. Not built.
+
 ## Open
 - How G2C2 and the runtime write C++ (ownership, exceptions, RTTI, warnings, sanitizers, hardening, formatting).
   Design claude proposed a list; the owner: "Idk, we'll see what bro writes". Left to see what compiler claude writes.
