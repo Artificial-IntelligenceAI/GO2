@@ -340,6 +340,10 @@ Asked what type a bare number has when nothing says it, design claude offered a 
 
 Design claude offered (a) `i64`, (b) `i32`, (c) none, `let n = 5;` refused; and recommended (a). The owner: "Pros and cons of (a) & (b)". For `i64`: overflow practically never (millisecond times, files over 2 GB), no cost per operation on a 64-bit machine, a loop counter matching an `i64` length; against, twice the memory in large number lists, conversions where C and LLVM take 32-bit numbers. For `i32`: half the memory, matching C's `int` and LLVM's C API, Rust's default; against, overflow at 2,147,483,647, which real data reaches, and lengths either capped or needing a conversion in every counting loop. The owner: "(a)". So **`let n = 5;` makes `n` an `i64`**. The type of a length is not decided. Not built.
 
+### 2026-10-28 — A struct is declared `struct <Name> { … }`, a field `<name>: <type>;` (owner: (a))
+
+Design claude offered (a) `struct Point { x: i64; y: i64; }`, as Rust with `;` after each field, (b) `type Point struct { … }`, as Go, (c) as (a) with `,` between fields; and recommended (a). The owner: "(a), but where's `let` & `var`?" So **`struct Point { … }`, fields ending in `;`**. Whether a field says `let` or `var`, as a parameter does, is asked next. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
