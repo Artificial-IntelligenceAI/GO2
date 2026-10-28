@@ -700,6 +700,10 @@ Design claude proposed C++20; the owner: "What about a newer C++ version?" Probe
 
 Design claude listed four details of how G2C2 is laid out and built, and recommended all. The owner: "cnfm". So **`g2c2 build hello.go2`, `g2c2 run hello.go2`**. Not built.
 
+### 2026-10-28 — G2C2 is built with CMake, by LLVM's `find_package(LLVM)` (owner)
+
+Design claude listed four details of how G2C2 is laid out and built, and recommended all. The owner: "cnfm". So **one CMake project**, LLVM's flags and libraries coming from LLVM's own CMake support. Not built.
+
 ## Open
 
 - What GO2 is, in one sentence. Design claude proposed a small Go remix (Go's simplicity plus sum types and
